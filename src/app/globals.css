@@ -19,3 +19,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+footer {
+  @apply row-start-3 flex gap-6 flex-wrap items-center justify-center text-charcoal h-24;
+}
+
+main {
+  @apply flex-grow items-center;
+}
+
+.cov-container {
+  /* @apply flex flex-col min-h-screen; */
+}
