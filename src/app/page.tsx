@@ -1,6 +1,7 @@
 import homePageImages from "@/data/homePageImages";
 import Image from "next/image";
 import styles from './Home.module.css';
+import PhotogSnippet from "./components/PhotogSnippet/PhotogSnippet";
 import QuickLinks from "./components/Quick Links/QuickLinks";
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
 
         </div>
         <div className="bg-covGray h-96 text-center text-white">a link to a video will go here.</div>
+        <PhotogSnippet />
       </main>
   );
 }
