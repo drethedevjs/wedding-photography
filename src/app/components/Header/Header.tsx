@@ -13,7 +13,7 @@ export default function Header() {
         src="/images/logo/covlx-logo-charcoal-main.jpg" 
         alt="Covenant LX main logo."
         width={386}
-        height={600}
+        height={196}
         priority
       />
       </div>

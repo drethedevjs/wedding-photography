@@ -29,5 +29,5 @@ main {
 }
 
 .cov-container {
-  /* @apply flex flex-col min-h-screen; */
+  @apply container mx-auto xl:px-52 px-10 pt-10;
 }
