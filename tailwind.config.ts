@@ -11,7 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        charcoal: "#3A3C3D",
+        covGray: "#5a5a5a",
         skyBlue: "#4DB5F7"
       },
     },

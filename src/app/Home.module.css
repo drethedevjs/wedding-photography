@@ -3,5 +3,5 @@
 }
 
 .subTitle {
-  @apply italic p-2 text-lg text-charcoal;
+  @apply italic p-2 text-lg text-covGray;
 }

@@ -1,0 +1,15 @@
+.middle {
+  @apply border-covGray border-x-2;
+}
+
+.block {
+  @apply py-5;
+}
+
+.h3 {
+  @apply uppercase mb-3 tracking-widest font-thin;
+}
+
+.p {
+  @apply text-sm tracking-wider
+}
