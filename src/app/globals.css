@@ -31,3 +31,7 @@ main {
 .cov-container {
   @apply container mx-auto xl:px-52 px-10 pt-10;
 }
+
+.cborder {
+  @apply border-2 border-red-500;
+}
