@@ -1,0 +1,10 @@
+.h3 {
+  @apply text-3xl mb-4 tracking-widest
+}
+.div {
+  @apply mb-10;
+}
+
+.p {
+  @apply mb-5;
+}
