@@ -1,4 +1,3 @@
-import useFont from "@/utils/fonts";
 import type { Metadata } from "next";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -14,7 +13,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { hoefler } = useFont();
   return (
     <html lang="en">
       <body>

@@ -27,6 +27,8 @@ const helvetica = localFont({
 export default function useFont() {
   return {
     hoefler,
-    helvetica
+    helvetica,
+    geistSans,
+    geistMono
   }
 }

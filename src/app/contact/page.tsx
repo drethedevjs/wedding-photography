@@ -12,7 +12,7 @@ export default function Contact() {
     message: string;
   }
   
-  let schema: ObjectSchema<CoupleFormData> = object({
+  const schema: ObjectSchema<CoupleFormData> = object({
     brideName: string().required(),
     groomName: string().required(),
     email: string().required(),
@@ -22,12 +22,13 @@ export default function Contact() {
     message: string().required(),
   })
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e: FormData) => {
     "use server"
+    schema.validate(e);
   }
 
   return (
-    <main>
+  <main>
       <div className="container mx-auto px-52 text-center">
         <h1 className='text-4xl my-10 uppercase'>Contact</h1>
         <Form action={handleFormSubmit}>
