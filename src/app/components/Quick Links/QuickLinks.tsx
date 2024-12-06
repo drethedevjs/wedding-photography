@@ -1,7 +1,7 @@
 import styles from './QuickLinks.module.css'
 export default function QuickLinks() {
   return (
-    <div className="grid grid-cols-3 my-16 text-covGray">
+    <div className="grid md:grid-cols-3 md:gap-0 gap-8 my-16 text-covGray">
       <div className={styles.block}>
         <h3 className={styles.h3}>Information</h3>
         <p className={styles.p}>Investment & Details</p>

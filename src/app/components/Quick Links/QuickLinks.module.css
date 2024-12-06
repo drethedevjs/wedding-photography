@@ -1,5 +1,5 @@
 .middle {
-  @apply border-covGray border-x-2;
+  @apply border-covGray md:border-x-2;
 }
 
 .block {
@@ -7,7 +7,7 @@
 }
 
 .h3 {
-  @apply uppercase mb-3 tracking-widest font-thin;
+  @apply uppercase mb-3 tracking-widest font-thin md:text-2xl text-4xl;
 }
 
 .p {
