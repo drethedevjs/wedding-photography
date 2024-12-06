@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-helvetica: 'Helvetica', sans-serif;
+  --font-hoefler: 'Hoefler', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +21,19 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-hoefler);
+}
+p {
+  font-family: var(--font-helvetica);
+}
+
+p {
+  @apply text-2xl tracking-wide leading-9;
 }
 
 footer {
@@ -34,4 +50,8 @@ main {
 
 .cborder {
   @apply border-2 border-red-500;
+}
+
+button {
+  @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 px-5 bg-gold text-white rounded;
 }
