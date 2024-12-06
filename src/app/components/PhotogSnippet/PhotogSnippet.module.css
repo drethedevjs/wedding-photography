@@ -2,10 +2,6 @@
   @apply flex flex-col lg:flex-row gap-10 py-10 lg:px-20 px-10 items-center mx-auto container;
 }
 
-.btn {
-  @apply uppercase text-sm mt-5;
-}
-
 .p {
   @apply mb-5 text-xl;
 }

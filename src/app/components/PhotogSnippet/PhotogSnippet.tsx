@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./PhotogSnippet.module.css";
 
 export default function PhotogSnippet() {
@@ -31,7 +32,9 @@ export default function PhotogSnippet() {
           Feel free to reach out. I'm hoping we can connect so I can document 
           your day!
         </p>
-        <button className={styles.btn}>More About Me</button>
+        <Link href="/about">
+          <button className={styles.btn}>More About Me</button>
+        </Link>
       </div>
     </div>
   )
