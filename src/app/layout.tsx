@@ -17,9 +17,7 @@ export default function RootLayout({
   const { hoefler } = useFont();
   return (
     <html lang="en">
-      <body
-        className={`${hoefler.variable} antialiased`}
-      >
+      <body>
         <div className="flex flex-col min-h-screen">
           <Header />
           {children}
