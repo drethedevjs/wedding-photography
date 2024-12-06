@@ -16,5 +16,5 @@
 }
 
 .logo {
-  @apply  place-items-center row-span-3;
+  @apply mx-auto row-span-3;
 }
