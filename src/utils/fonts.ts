@@ -18,8 +18,15 @@ const hoefler = localFont({
   weight: "100 900",
 });
 
+const helvetica = localFont({
+  src: "../app/fonts/Helvetica.woff",
+  variable: "--font-helvetica",
+  weight: "100 900",
+});
+
 export default function useFont() {
   return {
-    hoefler
+    hoefler,
+    helvetica
   }
 }
