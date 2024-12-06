@@ -55,3 +55,15 @@ main {
 button {
   @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 px-5 bg-gold text-white rounded;
 }
+
+label, input, textarea {
+  @apply w-full;
+}
+
+label {
+  @apply text-2xl font-semibold;
+}
+
+input, textarea {
+  @apply ring-2 hover:ring-gold ring-skyBlue rounded p-5 mt-3
+}

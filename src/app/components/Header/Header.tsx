@@ -22,7 +22,7 @@ export default function Header() {
       </div>
       <div className={`${styles["header-ul-rev"]} ${styles["header-group"]}`}>
         <div>Portfolio</div>
-        <div>Contact</div>
+        <Link href="/contact">Contact</Link>
       </div>
     </div>
   )
