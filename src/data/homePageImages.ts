@@ -13,7 +13,7 @@ const homePageImages: HomePageImage[] = [
   },
   {
     id: 2,
-    spaceContainerClasses: "flex flex-col h-60",
+    spaceContainerClasses: "flex flex-col h-80",
     imgDivClasses: "overflow-hidden flex items-center",
     name: "augusta-ga-wedding-photographer-2.jpg",
     width: 1200,
@@ -33,7 +33,7 @@ const homePageImages: HomePageImage[] = [
   },
   {
     id: 4,
-    spaceContainerClasses: "flex flex-col h-60",
+    spaceContainerClasses: "flex flex-col h-80 border-4 border-red-500",
     imgDivClasses: "overflow-hidden flex items-center",
     name: "augusta-ga-wedding-photographer-4.jpg",
     width: 800,
@@ -44,7 +44,7 @@ const homePageImages: HomePageImage[] = [
   {
     id: 5,
     spaceContainerClasses: "",
-    imgDivClasses: "row-span-3 row-start-4",
+    imgDivClasses: "",
     name: "augusta-ga-wedding-photographer-5.jpg",
     width: 1000,
     height: 750,
@@ -53,7 +53,7 @@ const homePageImages: HomePageImage[] = [
   },
   {
     id: 6,
-    spaceContainerClasses: "flex flex-col h-60",
+    spaceContainerClasses: "flex flex-col h-80",
     imgDivClasses: "overflow-hidden flex items-center",
     name: "augusta-ga-wedding-photographer-6.jpg",
     width: 1100,
