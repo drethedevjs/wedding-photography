@@ -18,3 +18,23 @@
 .logo {
   @apply mx-auto row-span-3;
 }
+
+@media (max-width: 1008px) {
+  .header-container {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 1009px) {
+  .mobile-header-container {
+    @apply hidden;
+  }
+}
+
+.mobile-links {
+  @apply h-full bg-white z-10 w-full fixed;
+}
+
+.li {
+  @apply py-5 pl-16;
+}

@@ -20,7 +20,7 @@ export default function About() {
         <h2 className="text-center uppercase text-3xl tracking tracking-widest text-gold">Augusta Wedding Photographer</h2>
         <hr className="border-t-2 border-b border-gold mt-5" />
 
-        <div className="flex flex-row gap-6 mt-10">
+        <div className="md:flex md:flex-row gap-6 mt-10">
           <TextTitleBlock heading="Faith">
             If there's anything about me that I want to shine through the most, 
             it's that I am a man of faith (Christian). I am thankful that the Lord 

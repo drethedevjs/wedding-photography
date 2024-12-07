@@ -28,6 +28,7 @@ body {
 h1, h2, h3 {
   font-family: var(--font-hoefler);
 }
+
 p {
   font-family: var(--font-helvetica);
 }
@@ -66,4 +67,8 @@ label {
 
 input, textarea {
   @apply ring-2 hover:ring-gold ring-skyBlue rounded p-5 mt-3
+}
+
+.mobile-links {
+  @apply 
 }
