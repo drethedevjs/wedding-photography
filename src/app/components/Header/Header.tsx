@@ -38,13 +38,14 @@ export default function Header() {
           <div className='place-content-center text-covGray ml-4'>
             <Bars2Icon className='size-10' onClick={toggleMenu} />
           </div>
-
-          <Image
-            src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
-            width={300}
-            height={200}
-            alt='Covenant LX Logo'
-            />
+          <Link href="/">
+            <Image
+              src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
+              width={300}
+              height={200}
+              alt='Covenant LX Logo'
+              />
+          </Link>
         </div>
         <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
           <ul className='py-10 text-3xl'>
