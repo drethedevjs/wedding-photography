@@ -68,7 +68,3 @@ label {
 input, textarea {
   @apply ring-2 hover:ring-gold ring-skyBlue rounded p-5 mt-3
 }
-
-.mobile-links {
-  @apply 
-}
