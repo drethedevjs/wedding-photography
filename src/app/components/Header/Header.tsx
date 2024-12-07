@@ -2,11 +2,19 @@
 import { Bars2Icon } from '@heroicons/react/16/solid';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from './Header.module.css';
 
 export default function Header() {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState<boolean>(false);
+  const router = useRouter();
+  
+  const navigate = (path: string) => {
+    toggleMenu();
+    router.push(path);
+  }
+
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   }
@@ -38,21 +46,20 @@ export default function Header() {
           <div className='place-content-center text-covGray ml-4'>
             <Bars2Icon className='size-10' onClick={toggleMenu} />
           </div>
-          <Link href="/">
             <Image
               src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
               width={300}
               height={200}
               alt='Covenant LX Logo'
-              />
-          </Link>
+            />
         </div>
         <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
           <ul className='py-10 text-3xl'>
-            <Link href="/blog"><li className={styles.li}>Blog</li></Link>
-            <Link href="/about"><li className={styles.li}>About</li></Link>
-            <Link href="/portfolio"><li className={styles.li}>Portfolio</li></Link>
-            <Link href="/contact"><li className={styles.li}>Contact</li></Link>
+            <li onClick={() => navigate("/")} className={styles.li}>Home</li>
+            <li onClick={() => navigate("/about")} className={styles.li}>About</li>
+            <li onClick={() => navigate("/portfolio")} className={styles.li}>Portfolio</li>
+            <li onClick={() => navigate("/blog")} className={styles.li}>Blog</li>
+            <li onClick={() => navigate("/contact")} className={styles.li}>Contact</li>
           </ul>
         </div>
       </div>
