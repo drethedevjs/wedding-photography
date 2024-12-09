@@ -55,7 +55,7 @@ export default function Header() {
           />
         </div>
         <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
-          <div className='p-5 flex flex-row mb-10'>
+          <div className='p-5 flex flex-row mb-10 bg-white'>
             <div className='place-content-center text-covGray ml-4'>
               <XMarkIcon className='size-10' onClick={toggleMenu} />
             </div>
@@ -66,7 +66,7 @@ export default function Header() {
               alt='Covenant LX Logo'
             />
           </div>
-          <ul className='py-10 text-3xl bg-covLightGray'>
+          <ul className='py-10 text-3xl'>
             <li onClick={() => navigate("/")} className={styles.li}>Home</li>
             <li onClick={() => navigate("/about")} className={styles.li}>About</li>
             <li onClick={() => navigate("/portfolio")} className={styles.li}>Portfolio</li>

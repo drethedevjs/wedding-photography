@@ -25,7 +25,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, li {
   font-family: var(--font-hoefler);
 }
 
@@ -54,7 +54,7 @@ main {
 }
 
 button {
-  @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 px-5 bg-gold text-white rounded;
+  @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
 }
 
 label, input, textarea {
