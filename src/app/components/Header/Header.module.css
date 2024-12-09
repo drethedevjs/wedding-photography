@@ -32,7 +32,7 @@
 }
 
 .mobile-links {
-  @apply h-full bg-white z-10 w-full fixed;
+  @apply h-full bg-white z-10 w-full fixed flex flex-col;
 }
 
 .li {

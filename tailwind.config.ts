@@ -21,7 +21,8 @@ export default {
         foreground: "var(--foreground)",
         covGray: "#5a5a5a",
         skyBlue: "#4DB5F7",
-        gold: "#A79B7D"
+        gold: "#A79B7D",
+        covLightGray: "#F9F9F9"
       },
     },
   },

@@ -1,5 +1,6 @@
 "use client"
 import { Bars2Icon } from '@heroicons/react/16/solid';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -42,19 +43,30 @@ export default function Header() {
         </div>
       </div>
       <div className={`${styles["mobile-header-container"]}`}>
-        <div className='p-5 flex flex-row mb-10'>
+        <div className={`p-5 flex flex-row mb-10 ${mobileMenuOpen ? 'hidden' : 'flex'}`}>
           <div className='place-content-center text-covGray ml-4'>
             <Bars2Icon className='size-10' onClick={toggleMenu} />
           </div>
+          <Image
+            src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
+            width={300}
+            height={200}
+            alt='Covenant LX Logo'
+          />
+        </div>
+        <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
+          <div className='p-5 flex flex-row mb-10'>
+            <div className='place-content-center text-covGray ml-4'>
+              <XMarkIcon className='size-10' onClick={toggleMenu} />
+            </div>
             <Image
               src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
               width={300}
               height={200}
               alt='Covenant LX Logo'
             />
-        </div>
-        <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
-          <ul className='py-10 text-3xl'>
+          </div>
+          <ul className='py-10 text-3xl bg-covLightGray'>
             <li onClick={() => navigate("/")} className={styles.li}>Home</li>
             <li onClick={() => navigate("/about")} className={styles.li}>About</li>
             <li onClick={() => navigate("/portfolio")} className={styles.li}>Portfolio</li>
