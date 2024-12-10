@@ -6,4 +6,8 @@ export default class FormDataResult implements CoupleFormActionResult {
     public message: string,
     public fieldErrors: Record<string, string>,
   ){}
+
+  getResult() {
+    return { isSuccess: this.isSuccess, message: this.message, fieldErrors: this.fieldErrors }
+  }
 }

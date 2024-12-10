@@ -29,12 +29,13 @@ export default async function submitFormAction(formData: FormData) : Promise<Cou
     const validatedData = await schema.validate(plainObject, { abortEarly: false });
     console.log("Validated Data:", validatedData);
 
-    return new FormDataResult(true, "Form submitted successfully", {});
+    const fdr = new FormDataResult(true, "Form submitted successfully", {});
+    return fdr.getResult();
   } catch (err: unknown) {
     if (err instanceof ValidationError) {
       const fieldErrors = getFieldErrors(err);
-
-      return new FormDataResult(false, "", fieldErrors);
+      const fdr = new FormDataResult(false, "", fieldErrors);
+      return fdr.getResult();
     }
 
     console.error("Unexpected Error:", err);
