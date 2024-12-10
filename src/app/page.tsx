@@ -27,7 +27,7 @@ export default function Home() {
             I am glad you stopped by and please have a look around. Before you go, stop by the contact page and send me a message!
           </p>
 
-          <div className="mt-10 grid grid-cols-3 gap-10 place-items-center"> 
+          <div className="mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
             { homePageImages.map(image => {
               return (
                 <div className={image.spaceContainerClasses} key={image.id}>
