@@ -47,24 +47,28 @@ export default function Header() {
           <div className='place-content-center text-covGray ml-4'>
             <Bars2Icon className='size-10' onClick={toggleMenu} />
           </div>
-          <Image
-            src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
-            width={300}
-            height={200}
-            alt='Covenant LX Logo'
-          />
-        </div>
-        <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex' : 'hidden'}`}>
-          <div className='p-5 flex flex-row mb-10 bg-white'>
-            <div className='place-content-center text-covGray ml-4'>
-              <XMarkIcon className='size-10' onClick={toggleMenu} />
-            </div>
+          <div className='w-full place-items-center'>
             <Image
               src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
               width={300}
               height={200}
               alt='Covenant LX Logo'
             />
+          </div>
+        </div>
+        <div className={`${styles["mobile-links"]} transition-opacity duration-1000 ease-in-out ${mobileMenuOpen ? 'opacity-100 flex' : 'opacity-100 hidden'}`}>
+          <div className='p-5 flex flex-row mb-10 bg-white'>
+            <div className='place-content-center text-covGray ml-4'>
+              <XMarkIcon className='size-10' onClick={toggleMenu} />
+            </div>
+            <div className='w-full place-items-center'>
+              <Image
+                src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
+                width={300}
+                height={200}
+                alt='Covenant LX Logo'
+              />
+            </div>
           </div>
           <ul className='py-10 text-3xl'>
             <li onClick={() => navigate("/")} className={styles.li}>Home</li>
