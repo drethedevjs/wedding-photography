@@ -1,8 +1,10 @@
 "use server";
 
+import FormDataResult from "@/classes/FormDataResult";
+import CoupleFormActionResult from "@/interface/CoupleFormActionResult";
 import { object, string, ValidationError } from "yup";
 
-export default async function submitFormAction(formData: FormData) {
+export default async function submitFormAction(formData: FormData) : Promise<CoupleFormActionResult> {
   const schema = object({
     brideName: string().required("Bride Name is required"),
     groomName: string().required("Groom Name is required"),
@@ -27,23 +29,21 @@ export default async function submitFormAction(formData: FormData) {
     const validatedData = await schema.validate(plainObject, { abortEarly: false });
     console.log("Validated Data:", validatedData);
 
-    // Mock a response or perform server-side actions
-    return { success: true, message: "Form submitted successfully" };
+    return new FormDataResult(true, "Form submitted successfully", {});
   } catch (err: unknown) {
     if (err instanceof ValidationError) {
       const fieldErrors = getFieldErrors(err);
 
-      return { success: false, fieldErrors };
+      return new FormDataResult(false, "", fieldErrors);
     }
 
-    // Handle unexpected errors
     console.error("Unexpected Error:", err);
     throw new Error("An unexpected error occurred");
   }
 }
 
-const getFieldErrors = (err: any) => {
-  const fieldErrors = err.inner.reduce((acc: { [key:string]: string }, curr: { path: string, message: string}) => {
+const getFieldErrors = (err: ValidationError) => {
+  const fieldErrors = err.inner.reduce((acc: { [key:string]: string }, curr: ValidationError) => {
     if (curr.path) {
       acc[curr.path] = curr.message; // Map field name to its error message
     }

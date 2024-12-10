@@ -1,69 +1,72 @@
-import Form from 'next/form';
-import { date, object, ObjectSchema, string } from "yup";
+'use client'
+import { useState } from 'react';
+import submitFormAction from '../actions/SubmitFormAction';
 
 export default function Contact() {
-  interface CoupleFormData {
-    brideName: string;
-    groomName: string;
-    email: string;
-    weddingDate: Date;
-    phone: string;
-    venue: string;
-    message: string;
+  const initialState: Record<string,string> = {
+    brideName: '',
+    groomName: '',
+    email: '',
+    weddingDate: '',
+    phone: '',
+    venue: '',
+    message: ''
   }
-  
-  const schema: ObjectSchema<CoupleFormData> = object({
-    brideName: string().required(),
-    groomName: string().required(),
-    email: string().required(),
-    weddingDate: date().required(),
-    phone: string().required(),
-    venue: string().required(),
-    message: string().required(),
-  })
 
-  const handleFormSubmit = async (e: FormData) => {
-    "use server"
-    schema.validate(e);
+  const [fieldErrs, setFieldErrs] = useState<Record<string,string>>(initialState);
+  const handleFormSubmit = async (formData: FormData) => {
+    const { isSuccess, message, fieldErrors } = await submitFormAction(formData);
+
+    if (!isSuccess)
+      setFieldErrs(fieldErrors);
+    else
+      console.log(message);
   }
 
   return (
-  <main>
-      <div className="container mx-auto px-52 text-center">
+    <main>
+      <div className="container mx-auto md:px-52 px-10 text-center">
         <h1 className='text-4xl my-10 uppercase'>Contact</h1>
-        <Form action={handleFormSubmit}>
-          <div className='grid grid-cols-2 gap-5 mb-10'>
+        <form action={handleFormSubmit}>
+          <div className='grid md:grid-cols-2 grid-cols-1 gap-5 mb-10'>
             <div>
-              <label htmlFor='bride-name'>Bride Name</label>
-              <input type='text' name='bride-name' id='bride-name' placeholder='First and Last' />
+              <label htmlFor='brideName'>Bride Name</label>
+              <input type='text' name='brideName' id='brideName' placeholder='First and Last' />
+              <small className='text-red-500'>{fieldErrs.brideName}</small>
             </div>
             <div>
-              <label htmlFor='groom-name'>Groom Name</label>
-              <input type='text' name='groom-name' id='groom-name' placeholder='First and Last' />
+              <label htmlFor='groomName'>Groom Name</label>
+              <input type='text' name='groomName' id='groomName' placeholder='First and Last' />
+              <small className='text-red-500'>{fieldErrs.groomName}</small>
             </div>
-            <div>
+             <div>
               <label htmlFor='email'>Email</label>
               <input type='email' name='email' id='email' />
+              <small className='text-red-500'>{fieldErrs.email}</small>
             </div>
             <div>
-              <label htmlFor='wedding-date'>Wedding Date</label>
-              <input type='date' name='wedding-date' id='wedding-date' />
+              <label htmlFor='weddingDate'>Wedding Date</label>
+              <input type='date' name='weddingDate' id='weddingDate' />
+              <small className='text-red-500'>{fieldErrs.weddingDate}</small>
             </div>
             <div>
               <label htmlFor='phone'>Phone</label>
               <input type='tel' name='phone' id='phone' />
+              <small className='text-red-500'>{fieldErrs.phone}</small>
             </div>
             <div>
               <label htmlFor='venue'>Venue</label>
               <input type='text' name='venue' id='venue' />
+              <small className='text-red-500'>{fieldErrs.venue}</small>
             </div>
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label htmlFor='message'>Message</label>
               <textarea name='message' id='message' rows={6}/>
+              <small className='text-red-500'>{fieldErrs.message}</small>
             </div>
           </div>
           <button>Send</button>
-        </Form>
+        </form>
       </div>
     </main>
   )
