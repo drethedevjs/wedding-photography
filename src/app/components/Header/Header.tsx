@@ -56,7 +56,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className={`${styles["mobile-links"]} transition-opacity duration-1000 ease-in-out ${mobileMenuOpen ? 'opacity-100 flex' : 'opacity-100 hidden'}`}>
+        <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex flex-col' : 'hidden'}`}>
           <div className='p-5 flex flex-row mb-10 bg-white'>
             <div className='place-content-center text-covGray ml-4'>
               <XMarkIcon className='size-10' onClick={toggleMenu} />

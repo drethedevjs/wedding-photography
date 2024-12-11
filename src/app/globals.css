@@ -8,7 +8,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --font-helvetica: 'Helvetica', sans-serif;
-  --font-hoefler: 'Hoefler', sans-serif;
+  --font-hoefler: 'Hoefler', serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,15 +23,11 @@ body {
   color: var(--foreground);
   background: var(--background);
   /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter);
 }
 
 h1, h2, h3, li {
   font-family: var(--font-hoefler);
-}
-
-p {
-  font-family: var(--font-helvetica);
 }
 
 p {
