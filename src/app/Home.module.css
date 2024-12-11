@@ -1,7 +1,3 @@
-.slideShow {
-  @apply h-96 bg-gray-400;
-}
-
 .subTitle {
   @apply italic p-2 text-lg text-covGray;
 }

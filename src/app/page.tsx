@@ -1,5 +1,6 @@
 import homePageImages from "@/data/homePageImages";
 import Image from "next/image";
+import Link from "next/link";
 import styles from './Home.module.css';
 import PhotogSnippet from "./components/PhotogSnippet/PhotogSnippet";
 import QuickLinks from "./components/Quick Links/QuickLinks";
@@ -8,13 +9,19 @@ export default function Home() {
   return (
       <main>
         <div className={styles.slideShow}>
-          {/* <Image
-            src="/images/Hero/Cowles-Hero-CSRA-Augusta-GA-Wedding-Photographer.jpg"
-            layout="responsive"   // Ensures the image takes up the full width/height of the container
-            // objectFit="cover"  // Image will fill the container and crop if needed
-            // objectPosition="center"
-            alt="Popp'n bottles"
-          /> */}
+          <div className="flex flex-col xl:h-full">
+            <div className="overflow-hidden flex items-center">
+              <Image
+                src="/images/Hero/Cowles-Hero-CSRA-Augusta-GA-Wedding-Photographer.jpg"
+                layout="responsive"   // Ensures the image takes up the full width/height of the container
+                width={1080}
+                height={1920}
+                // objectFit="cover"  // Image will fill the container and crop if needed
+                // objectPosition="center"
+                alt="Popp'n bottles"
+              />
+            </div>
+          </div>
         </div>
         <div className="cov-container gap-5 grid grid-cols-1 text-center">
           <p>
@@ -32,13 +39,16 @@ export default function Home() {
               return (
                 <div className={image.spaceContainerClasses} key={image.id}>
                   <div className={image.imgDivClasses}>
-                    <Image
-                      src={`/images/home/${image.name}`}
-                      width={image.width}
-                      height={image.height}
-                      alt={image.alt}
-                      loading="lazy"
-                    />
+                    <Link href={image.galleryLink}>
+                      <Image
+                        src={`/images/home/${image.name}`}
+                        width={image.width}
+                        height={image.height}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="hover:rotate-1 rounded-lg transition-transform"
+                      />
+                    </Link>
                   </div>
                   <p className={`${styles.subTitle}`}>{image.subTitle}</p>
                 </div>
@@ -47,9 +57,25 @@ export default function Home() {
             }
           </div>
           <QuickLinks />
-
         </div>
-        <div className="bg-covGray h-96 text-center text-white">a link to a video will go here.</div>
+        {/* <section className="relative w-screen h-screen overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/abDGu9RPAlM?autoplay=1&mute=1&loop=1&playlist=abDGu9RPAlM"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            style={{
+              width: "100vw",
+              height: "100vh",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%) scale(1.3)",
+              objectFit: "cover",
+            }}
+          ></iframe>
+        </section> */}
         <PhotogSnippet />
       </main>
   );
