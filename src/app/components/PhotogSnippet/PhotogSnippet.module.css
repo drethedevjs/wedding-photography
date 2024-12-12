@@ -7,5 +7,5 @@
 }
 
 .h2 {
-  @apply mb-10 uppercase tracking-widest text-center text-2xl;
+  @apply mb-10 uppercase tracking-widest text-center text-2xl text-gold;
 }
