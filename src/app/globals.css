@@ -31,7 +31,7 @@ h1, h2, h3, li {
 }
 
 p {
-  @apply text-2xl tracking-wide leading-9;
+  @apply md:text-2xl text-xl tracking-wide md:leading-9 leading-7;
 }
 
 footer {

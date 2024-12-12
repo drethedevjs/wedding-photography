@@ -11,7 +11,7 @@ export default function HeroInsetText() {
             alt="A head-shot of the photographer smiling looking down and to the left."
           />
           <div className="absolute inset-10 flex items-center justify-center text-center text-white">
-            <div className="lg:w-2/5 w-3/5">
+            <div className="lg:w-2/5 w-6/7">
               <h1 className="mb-5 italic tracking-wide">About</h1>
               <h2 className="text-2xl uppercase tracking-widest">
                 Making Weddings A Day to Remember

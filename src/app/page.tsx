@@ -14,10 +14,8 @@ export default function Home() {
               <Image
                 src="/images/Hero/Cowles-Hero-CSRA-Augusta-GA-Wedding-Photographer.jpg"
                 layout="responsive"   // Ensures the image takes up the full width/height of the container
-                width={1080}
-                height={1920}
-                // objectFit="cover"  // Image will fill the container and crop if needed
-                // objectPosition="center"
+                height={1080}
+                width={1920}
                 alt="Popp'n bottles"
               />
             </div>
