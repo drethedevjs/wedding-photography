@@ -1,0 +1,7 @@
+.p {
+  @apply xl:mb-10 text-2xl;
+}
+
+.h1 {
+  @apply text-5xl border-b-gold border-b-2 pb-3 w-1/2 text-center mx-auto mb-16;
+}
