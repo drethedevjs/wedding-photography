@@ -9,13 +9,14 @@ import styles from './Header.module.css';
 
 const HeaderLogo = () => {
   return (
-    <div className='w-full place-items-center'>
+    <div className='w-full'>
       <Link href="/">
         <Image
           src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
           width={300}
           height={200}
           alt='Covenant LX Logo'
+          className='mx-auto'
         />
       </Link>
     </div>
@@ -40,6 +41,7 @@ export default function Header() {
         <div className={`${styles["header-ul"]} ${styles["header-group"]}`}>
           <div>Blog</div>
           <Link href="/about">About</Link>
+          <Link href="/investment">Investment</Link>
         </div>
         <div className={styles.logo}>
           <Link href="/">

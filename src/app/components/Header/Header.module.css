@@ -4,7 +4,7 @@
 }
 
 .header-ul {
-  @apply flex-row;
+  /* @apply text-center; */
 }
 
 .header-ul-rev {
@@ -12,7 +12,7 @@
 }
 
 .header-group {
-  @apply flex items-center text-2xl gap-20 row-start-2;
+  @apply grid grid-flow-col place-items-center text-2xl row-start-2;
 }
 
 .logo {
