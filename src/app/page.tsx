@@ -28,11 +28,11 @@ export default function Home() {
             me as their wedding photographer. They choose me because we take moments that are meaningful and 
             make them memorable.
           </p>
-          <p className="mb-20">
+          <p className="lg:mb-20 mb-10">
             I am glad you stopped by and please have a look around. Before you go, stop by the contact page and send me a message!
           </p>
 
-          <div className="mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
+          <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
             { homePageImages.map(image => {
               return (
                 <div className={image.spaceContainerClasses} key={image.id}>
