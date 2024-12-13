@@ -18,7 +18,7 @@ export default function Gallery() {
   const searchParams = useSearchParams()
   const galleryId = Number(searchParams.get("id"));
   const gallery = galleries[galleryId - 1];
-  const images = gallery.imageUrls.map(url => <img src={url} role="presentation" /> );
+  const images = gallery.imageUrls.map((url, i) => <img src={url} key={i} role="presentation" /> );
 
   return (
     <>

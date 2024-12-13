@@ -5,7 +5,7 @@ import styles from './OtherGalleries.module.css';
 
 export default function OtherGalleries() {
   const getRandomNumber = () => Math.floor(Math.random() * (7 - 1) + 1); // generate random number between 1 and 6
-  let leftRandom = getRandomNumber();
+  const leftRandom = getRandomNumber();
   const leftGallery = galleries.find(g => g.id == leftRandom);
 
   let rightRandom = 0;
