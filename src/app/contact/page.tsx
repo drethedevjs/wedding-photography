@@ -76,7 +76,7 @@ export default function Contact() {
               </div>
               <div>
                 <label htmlFor='phone'>Phone</label>
-                <input type='tel' id='phone' {...register("phone")} />
+                <input type='tel' id='phone' placeholder='555-555-5555' {...register("phone")} />
                 <small className='text-red-500'>{errors.phone?.message}</small>
               </div>
               <div>
@@ -86,7 +86,7 @@ export default function Contact() {
               </div>
               <div className='md:col-span-2'>
                 <label htmlFor='message'>Message</label>
-                <textarea id='message' rows={6} {...register("message")} />
+                <textarea id='message' placeholder='Tell us about you and your wedding. How can I help?' rows={6} {...register("message")} />
                 <small className='text-red-500'>{errors.message?.message}</small>
               </div>
             </div>
