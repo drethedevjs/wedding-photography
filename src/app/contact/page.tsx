@@ -50,7 +50,7 @@ export default function Contact() {
   return (
     <main>
       <div className="container mx-auto lg:px-32 px-10 text-center">
-        <h1 className='text-4xl my-10 uppercase'>Contact</h1>
+        <h1 className="pageH1">Contact</h1>
         <div className={hasSent ? "hidden" : ""}>
           <form onSubmit={handleSubmit(handleFormSubmit)}>
             <div className='grid md:grid-cols-2 grid-cols-1 gap-5 mb-10'>
