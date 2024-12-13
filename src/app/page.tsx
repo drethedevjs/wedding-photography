@@ -37,7 +37,7 @@ export default function Home() {
               return (
                 <div className={image.spaceContainerClasses} key={image.id}>
                   <div className={image.imgDivClasses}>
-                    <Link href={image.galleryLink}>
+                    <Link href={`gallery?id=${image.id}`}>
                       <Image
                         src={`/images/home/${image.name}`}
                         width={image.width}
