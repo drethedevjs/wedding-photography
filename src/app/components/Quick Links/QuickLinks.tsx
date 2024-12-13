@@ -7,7 +7,7 @@ export default function QuickLinks() {
       <Link href="/investment">
         <div className={styles.block}>
           <h3 className={styles.h3}>Information</h3>
-          <p className={styles.p}>Investment & Details</p>
+          <p className={styles.p}>investment & details</p>
         </div>
       </Link>
       <Link href="/portfolio">
@@ -17,7 +17,7 @@ export default function QuickLinks() {
         </div>
       </Link>
       <div className={styles.block}>
-        <h3 className={`${styles.h3} mb-0`}>Stay in Touch</h3>
+        <h3 className={`${styles.h3}`}>Stay in Touch</h3>
         <p className={styles.p}>
           <Link href="https://facebook.com/covenantlx" target='_blank' className='hover:text-gold hover:font-semibold'>
             Facebook 
