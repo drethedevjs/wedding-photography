@@ -39,7 +39,7 @@ export default function Header() {
     <nav>
       <div className={styles["header-container"]}>
         <div className={`${styles["header-ul"]} ${styles["header-group"]}`}>
-          <div>Blog</div>
+          {/* <div>Blog</div> */}
           <Link href="/about">About</Link>
           <Link href="/investment">Investment</Link>
         </div>
