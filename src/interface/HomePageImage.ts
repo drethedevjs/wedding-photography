@@ -7,5 +7,4 @@ export interface HomePageImage {
   height: number;
   alt: string;
   subTitle: string;
-  galleryLink: string;
 }

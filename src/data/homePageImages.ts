@@ -10,7 +10,6 @@ const homePageImages: HomePageImage[] = [
     height: 600,
     alt: "Bride and groom in a close embrace, bride adjusting groom's bow tie.",
     subTitle: "Pritchard Wedding",
-    galleryLink: "/somewhere"
   },
   {
     id: 2,
@@ -19,9 +18,8 @@ const homePageImages: HomePageImage[] = [
     name: "augusta-ga-wedding-photographer-2.jpg",
     width: 1200,
     height: 800,
-    alt: "Couple walking through a forest trail",
+    alt: "Bride and groom in a close embrace, bride pinching groom's lapel",
     subTitle: "Martin Wedding",
-    galleryLink: "/somewhere"
   },
   {
     id: 3,
@@ -32,7 +30,6 @@ const homePageImages: HomePageImage[] = [
     height: 800,
     alt: "Bride and groom at the wedding ceremony",
     subTitle: "Muff Wedding",
-    galleryLink: "/somewhere"
   },
   {
     id: 4,
@@ -43,7 +40,6 @@ const homePageImages: HomePageImage[] = [
     height: 600,
     alt: "A picturesque mountain view",
     subTitle: "Shaffer Engagement",
-    galleryLink: "/somewhere"
   },
   {
     id: 5,
@@ -54,7 +50,6 @@ const homePageImages: HomePageImage[] = [
     height: 750,
     alt: "Groom and bride with a scenic backdrop",
     subTitle: "Anderson Wedding",
-    galleryLink: "/somewhere"
   },
   {
     id: 6,
@@ -65,7 +60,6 @@ const homePageImages: HomePageImage[] = [
     height: 825,
     alt: "A romantic moment at sunset",
     subTitle: "Jewell Engagement",
-    galleryLink: "/somewhere"
   },
 ];
 
