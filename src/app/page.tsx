@@ -31,7 +31,9 @@ export default function Home() {
           <p className="lg:mb-20 mb-10">
             I am glad you stopped by and please have a look around. Before you go, stop by the contact page and send me a message!
           </p>
+        </div>
 
+        <div className="container mx-auto text-center">
           <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
             { homePageImages.map(image => {
               return (
@@ -54,6 +56,8 @@ export default function Home() {
               })
             }
           </div>
+        </div>
+        <div className="cov-container text-center">
           <QuickLinks />
         </div>
         {/* <section className="relative w-screen h-screen overflow-hidden">
