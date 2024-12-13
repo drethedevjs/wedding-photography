@@ -10,22 +10,24 @@ export default function QuickLinks() {
           <p className={styles.p}>Investment & Details</p>
         </div>
       </Link>
-      <div className={`${styles.block} ${styles.middle}`}>
-        <h3 className={styles.h3}>Portfolio</h3>
-        <p className={styles.p}>see my work!</p>
-      </div>
-        <div className={styles.block}>
-          <h3 className={`${styles.h3} mb-0`}>Stay in Touch</h3>
-          <p className={styles.p}>
-            <Link href="https://facebook.com/covenantlx" target='_blank' className='hover:text-gold hover:font-semibold'>
-              Facebook 
-            </Link>
-            &nbsp;//&nbsp;
-            <Link href="https://www.pinterest.com/covenantlx/" target='_blank' className='hover:text-gold hover:font-semibold'>
-              Pinterest
-            </Link>
-          </p>
+      <Link href="/portfolio">
+        <div className={`${styles.block} ${styles.middle}`}>
+          <h3 className={styles.h3}>Portfolio</h3>
+          <p className={styles.p}>see my work!</p>
         </div>
+      </Link>
+      <div className={styles.block}>
+        <h3 className={`${styles.h3} mb-0`}>Stay in Touch</h3>
+        <p className={styles.p}>
+          <Link href="https://facebook.com/covenantlx" target='_blank' className='hover:text-gold hover:font-semibold'>
+            Facebook 
+          </Link>
+          &nbsp;//&nbsp;
+          <Link href="https://www.pinterest.com/covenantlx/" target='_blank' className='hover:text-gold hover:font-semibold'>
+            Pinterest
+          </Link>
+        </p>
+      </div>
     </div>
   )
 }
