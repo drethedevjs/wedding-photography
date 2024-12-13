@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
         </div>
         <div className={`${styles["header-ul-rev"]} ${styles["header-group"]}`}>
-          <div>Portfolio</div>
+          <Link href="/portfolio">Portfolio</Link>
           <Link href="/contact">Contact</Link>
         </div>
       </div>
