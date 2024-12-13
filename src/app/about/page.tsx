@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import HeroInsetText from "../components/HeroInsetText/HeroInsetText";
 import TextTitleBlock from "../components/TextTitleBlock/TextTitleBlock";
 import TextTitleBlockMulti from "../components/TextTitleBlockMulti/TextTitleBlockMulti";
@@ -46,7 +47,9 @@ export default function About() {
           </>
         </TextTitleBlockMulti>
 
-        <button>Let's Connect</button>
+        <Link href="/contact">
+          <button>Let's Connect</button>
+        </Link>
       </div>
     </main>
   )
