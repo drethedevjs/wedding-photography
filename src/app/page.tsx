@@ -13,10 +13,11 @@ export default function Home() {
             <div className="overflow-hidden flex items-center">
               <Image
                 src="/images/Hero/Cowles-Hero-CSRA-Augusta-GA-Wedding-Photographer.jpg"
-                layout="responsive"   // Ensures the image takes up the full width/height of the container
+                // layout="responsive"   // Ensures the image takes up the full width/height of the container
                 height={1080}
                 width={1920}
                 alt="Popp'n bottles"
+                priority
               />
             </div>
           </div>
@@ -33,7 +34,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto text-center px-5">
           <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
             { homePageImages.map(image => {
               return (
