@@ -2,7 +2,6 @@
 import { CoupleFormData } from '@/interface/CoupleFormData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import delay from 'delay';
 import "dotenv/config";
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -32,7 +31,6 @@ export default function Contact() {
 
   const handleFormSubmit: SubmitHandler<CoupleFormData> = async (formData) => {
     setLoading(true);
-    await delay(5000);
 
     try {
       await axios.post(`${process.env.NEXT_PUBLIC_BASE_MAILER_URL}/api/email/send-covenant`, formData);
