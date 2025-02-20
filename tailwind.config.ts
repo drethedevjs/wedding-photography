@@ -24,7 +24,13 @@ export default {
         gold: "#A79B7D",
         covLightGray: "#F9F9F9"
       },
+      fontFamily: {
+        helvetica: "var(--font-helvetica), Arial, sans-serif",
+        hoefler: "var(--font-hoefler), Georgia, serif",
+        geistSans: "var(--font-geist-sans), sans-serif",
+        geistMono: "var(--font-geist-mono), monospace",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 } satisfies Config;

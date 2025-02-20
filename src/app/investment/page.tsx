@@ -1,16 +1,18 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Investment.module.css";
 
 export default function Investment() {
   return (
-    <main>
+    <>
       <div className="container mx-auto lg:px-32 px-10 text-center">
         <h1 className="pageH1">Investment</h1>
         <div className="flex xl:flex-row flex-col">
           <div className="hidden xl:flex">
             <Image
-              src="/images/other/CSRA-Wedding-Photographer.jpg"
+              src={`${process.env.NEXT_PUBLIC_CDN_PREFIX}/investment/augusta-ga-wedding-photographer-coco.jpg`}
               width={1080}
               height={1920}
               alt="A bride standing on the beach facing the ocean and looking back at the camera."
@@ -38,6 +40,6 @@ export default function Investment() {
           </div>
         </div>
       </div>
-    </main>
+    </>
   )
 }

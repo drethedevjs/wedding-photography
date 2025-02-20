@@ -1,21 +1,23 @@
-import homePageImages from "@/data/homePageImages";
-import Image from "next/image";
-import Link from "next/link";
+import homePageImages from '@/data/homePageImages';
+import imageHelper from '@/utils/ImageHelper';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Home.module.css';
 import PhotogSnippet from "./components/PhotogSnippet/PhotogSnippet";
 import QuickLinks from "./components/Quick Links/QuickLinks";
 
-export default function Home() {
+export default async function Home() {
+  const imageData = await imageHelper.getImageData("home");
+  
   return (
-      <main>
+      <>
         <div className={styles.slideShow}>
           <div className="flex flex-col xl:h-full">
             <div className="overflow-hidden flex items-center">
               <Image
-                src="/images/Hero/Cowles-Hero-CSRA-Augusta-GA-Wedding-Photographer.jpg"
-                // layout="responsive"   // Ensures the image takes up the full width/height of the container
+                src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
                 height={1080}
-                width={1920}
+                width={3000}
                 alt="Popp'n bottles"
                 priority
               />
@@ -36,23 +38,24 @@ export default function Home() {
 
         <div className="container mx-auto text-center px-5">
           <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center"> 
-            { homePageImages.map(image => {
-              return (
-                <div className={image.spaceContainerClasses} key={image.id}>
-                  <div className={image.imgDivClasses}>
-                    <Link href={`gallery?id=${image.id}`}>
-                      <Image
-                        src={`/images/home/${image.name}`}
-                        width={image.width}
-                        height={image.height}
-                        alt={image.alt}
-                        loading="lazy"
-                        className="hover:rotate-1 rounded-lg transition-transform"
-                      />
-                    </Link>
+            { 
+              homePageImages.map(image => {
+                return (
+                  <div className={image.spaceContainerClasses} key={image.id}>
+                    <div className={image.imgDivClasses}>
+                      <Link href={`gallery?id=${image.id}`}>
+                        <Image
+                          src={`https://cdn.covenantlx.com/${imageData ? imageData.find(data => data.Key?.includes(image.name))?.Key : ""}`}
+                          width={image.width}
+                          height={image.height}
+                          alt={image.alt}
+                          loading="lazy"
+                          className="hover:rotate-1 rounded-lg transition-transform"
+                        />
+                      </Link>
+                    </div>
+                    <p className={`${styles.subTitle}`}>{image.subTitle}</p>
                   </div>
-                  <p className={`${styles.subTitle}`}>{image.subTitle}</p>
-                </div>
                 )
               })
             }
@@ -80,6 +83,6 @@ export default function Home() {
           ></iframe>
         </section> */}
         <PhotogSnippet />
-      </main>
+      </>
   );
 }

@@ -8,7 +8,7 @@ export default function PhotogSnippet() {
       <div className="h-full flex flex-col">
         <div className="relative w-full h-full">
           <Image
-            src="/images/andre/Andre-Headshot-b&w.jpg"
+            src={`${process.env.NEXT_PUBLIC_CDN_PREFIX}/andre/augusta-ga-wedding-photographer-andre-2.jpg`}
             width={2000}
             height={2000}
             style={{objectFit: "cover"}}

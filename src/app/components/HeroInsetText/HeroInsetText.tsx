@@ -4,8 +4,8 @@ export default function HeroInsetText() {
   return (
     <div className="container mx-auto md:px-0 px-5">
         <div className="relative w-full h-96 overflow-hidden rounded">
-          <Image 
-            src="/images/andre/andre-headshot-tux-bow-tie.jpg" 
+          <Image
+            src={`${process.env.NEXT_PUBLIC_CDN_PREFIX}/andre/augusta-ga-wedding-photographer-andre-1.jpg`}
             fill={true}
             style={{objectFit: "cover", objectPosition: "center"}}
             alt="A head-shot of the photographer smiling looking down and to the left."

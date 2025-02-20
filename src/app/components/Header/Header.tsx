@@ -1,30 +1,18 @@
 "use client"
+import imageHelper from '@/utils/ImageHelper';
+import { _Object } from '@aws-sdk/client-s3';
 import { Bars2Icon } from '@heroicons/react/16/solid';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Header.module.css';
-
-const HeaderLogo = () => {
-  return (
-    <div className='w-full'>
-      <Link href="/">
-        <Image
-          src="/images/logo/augusta-ga-wedding-photographer-logo-submrk.png"
-          width={300}
-          height={200}
-          alt='Covenant LX Logo'
-          className='mx-auto'
-        />
-      </Link>
-    </div>
-  );
-}
+import HeaderLogo from './HeaderLogo';
 
 export default function Header() {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState<boolean>(false);
+  const [logoImageData, setLogoImageData] = useState<_Object[]>();
   const router = useRouter();
 
   const navigate = (path: string) => {
@@ -35,6 +23,19 @@ export default function Header() {
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   }
+
+  useEffect(() => {
+    async function fetchLogoData() {
+      const res = await fetch("/api/images?prefix=logo");
+      const data = await res.json();
+      setLogoImageData(data);
+    }
+
+    fetchLogoData();
+  }, [])
+  
+  if (!logoImageData) return null;
+
   return (
     <nav>
       <div className={styles["header-container"]}>
@@ -46,8 +47,8 @@ export default function Header() {
         <div className={styles.logo}>
           <Link href="/">
             <Image
-              src="/images/logo/covlx-logo-charcoal-main.jpg" 
-              alt="Covenant LX main logo."
+              src={imageHelper.getImageSrc(logoImageData!, "main")}
+              alt="Covenant LX main logo"
               width={386}
               height={196}
               priority
@@ -64,14 +65,14 @@ export default function Header() {
           <div className='place-content-center text-covGray ml-4'>
             <Bars2Icon className='size-10' onClick={toggleMenu} />
           </div>
-          <HeaderLogo />
+          <HeaderLogo logoImageData={logoImageData} />
         </div>
         <div className={`${styles["mobile-links"]} ${mobileMenuOpen ? 'flex flex-col' : 'hidden'}`}>
           <div className='p-5 flex flex-row mb-10 bg-white'>
             <div className='place-content-center text-covGray ml-4'>
               <XMarkIcon className='size-10' onClick={toggleMenu} />
             </div>
-            <HeaderLogo />
+            <HeaderLogo logoImageData={logoImageData} />
           </div>
           <ul className='py-10 text-3xl'>
             <li onClick={() => navigate("/")} className={styles.li}>Home</li>

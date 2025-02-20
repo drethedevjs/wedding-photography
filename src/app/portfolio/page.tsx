@@ -1,11 +1,14 @@
 import galleries from "@/data/galleries";
+import imageHelper from "@/utils/ImageHelper";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./portfolio.module.css";
 
-export default function Portfolio() {
+export default async function Portfolio() {
+  const imageData = await imageHelper.getImageData("feat");
+
   return (
-    <main>
+    <>
       <div className="container mx-auto px-10">
         <h1 className="pageH1">Portfolio</h1>
         <div className={styles.pGrid}>
@@ -13,7 +16,7 @@ export default function Portfolio() {
             return (
               <Link href={`gallery?id=${g.id}`} key={g.id}>
                 <Image
-                  src={g.heroImageUrl}
+                  src={imageHelper.getImageSrc(imageData!, g.heroImageTag)}
                   height={800}
                   width={800}
                   alt={g.heroImageAlt}
@@ -25,6 +28,6 @@ export default function Portfolio() {
           })}
         </div>
       </div>
-    </main>
+    </>
   )
 }

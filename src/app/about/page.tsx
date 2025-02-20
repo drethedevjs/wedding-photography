@@ -1,3 +1,6 @@
+"use client"
+
+import { uploadcareLoader } from "@uploadcare/nextjs-loader";
 import Image from "next/image";
 import Link from "next/link";
 import HeroInsetText from "../components/HeroInsetText/HeroInsetText";
@@ -28,12 +31,13 @@ export default function About() {
             graciously choose to reveal Himself to me and saved me during my college 
             years. This fact defines me and everything that I do.
           </TextTitleBlock>
-            <Image
-              src="/images/andre/Andre-Headshot-b&w.jpg"
-              width={300}
-              height={200}
-              alt="face"
-            />
+          <Image
+            src="/images/andre/Andre-Headshot-b&w.jpg"
+            width={300}
+            height={200}
+            alt="face"
+            loader={uploadcareLoader}
+          />
         </div>
         <TextTitleBlockMulti heading="Family">
           <>
