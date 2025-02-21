@@ -60,7 +60,13 @@ export default async function GalleryComponent({ galleryId } : { galleryId: numb
                   column.map((c, i) => {
                     return (
                       <div key={i}>
-                        <img className="h-auto max-w-full rounded-lg" src={imageHelper.getImageSrc(galleryImageData, c.Key!)} alt="" />
+                        <Image 
+                          className="h-auto max-w-full rounded-lg" 
+                          src={imageHelper.getImageSrc(galleryImageData, c.Key!)} 
+                          alt="" 
+                          width={300}
+                          height={300}
+                        />
                       </div>
                     )
                   })
