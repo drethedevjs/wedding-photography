@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './OtherGalleries.module.css';
 import otherGalleryHelper from './OtherGalleryHelper';
 
-export default async function OtherGalleries({ currentGalleryId } : { currentGalleryId: Number }) {
+export default async function OtherGalleries({ currentGalleryId } : { currentGalleryId: number }) {
   const { leftGallery, rightGallery } = otherGalleryHelper.getLeftAndRightGallery(currentGalleryId);
   const featImageData = await imageHelper.getImageData("feat");
   return (
