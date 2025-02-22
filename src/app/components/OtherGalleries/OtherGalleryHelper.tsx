@@ -1,7 +1,7 @@
 import galleries from '@/data/galleries';
 
 const otherGalleryHelper = {
-    getLeftAndRightGallery(currentGalleryId: Number) {
+    getLeftAndRightGallery(currentGalleryId: number) {
       const getRandomNumber = () => {
         let randomNumber = 0;
         do {
