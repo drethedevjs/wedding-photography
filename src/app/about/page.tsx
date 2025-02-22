@@ -1,7 +1,5 @@
 "use client"
 
-import { uploadcareLoader } from "@uploadcare/nextjs-loader";
-import Image from "next/image";
 import Link from "next/link";
 import HeroInsetText from "../components/HeroInsetText/HeroInsetText";
 import TextTitleBlock from "../components/TextTitleBlock/TextTitleBlock";
@@ -9,7 +7,7 @@ import TextTitleBlockMulti from "../components/TextTitleBlockMulti/TextTitleBloc
 
 export default function About() {
   return (
-    <main>
+    <>
       <HeroInsetText />
       <div className="container mx-auto lg:px-32 md:px-20 px-10 mt-10">
         <p className="text-center mb-10">
@@ -24,20 +22,13 @@ export default function About() {
         <h2 className="text-center uppercase text-3xl tracking tracking-widest text-gold">Augusta Wedding Photographer</h2>
         <hr className="border-t-2 border-b border-gold mt-5" />
 
-        <div className="md:flex md:flex-row gap-6 mt-10">
+        <div className="mt-10">
           <TextTitleBlock heading="Faith">
             If there's anything about me that I want to shine through the most, 
             it's that I am a man of faith (Christian). I am thankful that the Lord 
             graciously choose to reveal Himself to me and saved me during my college 
             years. This fact defines me and everything that I do.
           </TextTitleBlock>
-          <Image
-            src="/images/andre/Andre-Headshot-b&w.jpg"
-            width={300}
-            height={200}
-            alt="face"
-            loader={uploadcareLoader}
-          />
         </div>
         <TextTitleBlockMulti heading="Family">
           <>
@@ -55,6 +46,6 @@ export default function About() {
           <button>Let's Connect</button>
         </Link>
       </div>
-    </main>
+    </>
   )
 }

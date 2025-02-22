@@ -46,7 +46,7 @@ export default function Contact() {
   }
 
   return (
-    <main>
+    <>
       <div className="container mx-auto lg:px-32 px-10 text-center">
         <h1 className="pageH1">Contact</h1>
         <div className={hasSent ? "hidden" : ""}>
@@ -98,6 +98,6 @@ export default function Contact() {
           <PopularGalleries />
         </div>
       </div>
-    </main>
+    </>
   )
 }
