@@ -16,12 +16,13 @@ export default async function GalleryComponent({ galleryId } : { galleryId: numb
   if (!galleryImageData || !featImageData || !galleryImageData.length || !featImageData.length) {
     return (
       <>
-        <p className={styles["p"]}>
-          Sorry! I'm having trouble loading this gallery's images. <a className={styles["a"]} href="mailto:andre@covenantlx.com?subject=Images%20Not%20Loading">Contact the photographer</a> to let him know.
-        </p>
+        <div className="mx-auto px-44">
+          <p className={styles["p"]}>
+            Sorry! I'm having trouble loading this gallery's images. <a className={styles["a"]} href="mailto:andre@covenantlx.com?subject=Images%20Not%20Loading">Contact the photographer</a> to let him know.
+          </p>
 
-        <p className={styles["p"]}>In the meantime, please look at some of the other galleries below.</p>
-
+          <p className={styles["p"]}>In the meantime, please look at some of the other galleries below.</p>
+        </div>
         <OtherGalleries currentGalleryId={gallery.id} />
       </>
     )
