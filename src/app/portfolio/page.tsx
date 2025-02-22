@@ -7,6 +7,8 @@ import styles from "./portfolio.module.css";
 export default async function Portfolio() {
   const imageData = await imageHelper.getImageData("feat");
 
+  if (!imageData) return <p>Nothing</p>
+  
   return (
     <>
       <div className="container mx-auto px-10">
