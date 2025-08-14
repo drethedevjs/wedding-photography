@@ -1,27 +1,25 @@
-import galleries from '@/data/galleries';
+import galleries from "@/data/galleries";
 
 const otherGalleryHelper = {
-    getLeftAndRightGallery(currentGalleryId: number) {
-      const getRandomNumber = () => {
-        let randomNumber = 0;
-        do {
-          randomNumber = Math.floor(Math.random() * (10 - 1) + 1); // generate random number between 1 and 10
-        } while (randomNumber === currentGalleryId) // ensure that the current gallery doesn't show up in the "Other Galleries" section
+  getLeftAndRightGallery(currentGalleryId: number) {
+    // Filter out the current gallery and get only active galleries
+    const availableGalleries = galleries.filter(
+      (g) => g.id !== currentGalleryId && g.isActive
+    );
 
-        return randomNumber;
-      };
+    // Get random left gallery
+    const leftIndex = Math.floor(Math.random() * availableGalleries.length);
+    const leftGallery = availableGalleries[leftIndex];
 
-      const leftRandom = getRandomNumber();
-      const leftGallery = galleries.find(g => g.id == leftRandom);
+    // Remove the left gallery from available options and get random right gallery
+    const remainingGalleries = availableGalleries.filter(
+      (g) => g.id !== leftGallery.id
+    );
+    const rightGallery =
+      remainingGalleries[Math.floor(Math.random() * remainingGalleries.length)];
 
-      let rightRandom = 0;
-      do { rightRandom = getRandomNumber()}
-      while (rightRandom === leftRandom || rightRandom === currentGalleryId); // ensure that the current gallery doesn't show up in the "Other Galleries" section
-
-      const rightGallery = galleries.find(g => g.id == rightRandom);
-
-      return { leftGallery, rightGallery };
-    }
-}
+    return { leftGallery, rightGallery };
+  }
+};
 
 export default otherGalleryHelper;
