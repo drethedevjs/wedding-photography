@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Head from "next/head";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import "./globals.css";
@@ -34,12 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta
           property="og:logo"
           content="https://cdn.covenantlx.com/logo%3Aaugusta-ga-wedding-photographer-main-logo.jpg"
         />
-      </Head>
+      </head>
       <body>
         <script
           async
