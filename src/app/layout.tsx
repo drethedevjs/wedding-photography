@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Head } from "next/document";
+import Head from "next/head";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import "./globals.css";
