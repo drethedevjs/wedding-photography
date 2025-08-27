@@ -1,4 +1,3 @@
-"use client";
 import PopularGalleries from "./components/PopularGalleries/PopularGalleries";
 export default function NotFound() {
   return (

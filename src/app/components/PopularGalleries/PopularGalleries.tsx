@@ -1,27 +1,17 @@
 import imageHelper from "@/utils/ImageHelper";
 import { _Object } from "@aws-sdk/client-s3";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import styles from "./PopularGalleries.module.css";
 
-export default function PopularGalleries() {
-  const [homeImageData, setHomeImageData] = useState<_Object[]>();
-
-  useEffect(() => {
-    async function fetchLogoData() {
-      const res = await fetch("/api/images?prefix=home");
-      const data = await res.json();
-      console.log("data", data);
-      setHomeImageData(data);
-    }
-
-    fetchLogoData();
-  }, []);
-
+export default async function PopularGalleries() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/images?prefix=home`
+  );
+  const homeImageData: _Object[] = await res.json();
   if (!homeImageData) return;
 
   return (
-    <>
+    <section>
       <h3 className={`${styles.h3}`}>Popular Galleries</h3>
       <small className={`${styles.small}`}>Click to view a gallery</small>
       <div className={`${styles.galleries}`}>
@@ -49,6 +39,6 @@ export default function PopularGalleries() {
           className={`${styles.image}`}
         />
       </div>
-    </>
+    </section>
   );
 }
