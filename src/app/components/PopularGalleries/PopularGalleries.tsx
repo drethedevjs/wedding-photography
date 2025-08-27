@@ -1,13 +1,10 @@
 import imageHelper from "@/utils/ImageHelper";
-import { _Object } from "@aws-sdk/client-s3";
 import Image from "next/image";
 import styles from "./PopularGalleries.module.css";
 
 export default async function PopularGalleries() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/images?prefix=home`
-  );
-  const homeImageData: _Object[] = await res.json();
+  const homeImageData = await imageHelper.getImageData("home");
+
   if (!homeImageData) return;
 
   return (

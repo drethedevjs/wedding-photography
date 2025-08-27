@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./PopularGalleriesClient.module.css";
 
-export default function PopularGalleries() {
+export default function PopularGalleriesClient() {
   const [homeImageData, setHomeImageData] = useState<_Object[]>();
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function PopularGalleries() {
     };
     fetchImages();
   }, []);
+
   if (!homeImageData) return;
 
   return (
