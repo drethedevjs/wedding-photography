@@ -26,7 +26,9 @@ export default function Header() {
 
   useEffect(() => {
     async function fetchLogoData() {
-      const res = await fetch("/api/images?prefix=logo");
+      const res = await fetch("/api/images?prefix=logo", {
+        cache: "force-cache"
+      });
       const data = await res.json();
       setLogoImageData(data);
     }
