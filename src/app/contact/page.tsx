@@ -52,10 +52,27 @@ export default function Contact() {
   };
 
   return (
-    <>
+    <section>
       <div className="container mx-auto lg:px-32 px-10 text-center">
         <h1 className="pageH1">Contact</h1>
-        <div className={hasSent ? "hidden" : ""}>
+        <div>
+          <p>Email</p>
+          <a
+            href="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20|%20Covenant%20LX"
+            className="md:text-5xl text-3xl hover:text-skyBlue"
+          >
+            Email: andre@covenantlx.com
+          </a>
+          <hr className="my-10" />
+          <p>Phone:</p>
+          <a
+            href="tel:7064263022"
+            className="md:text-5xl text-3xl mt-10 hover:text-skyBlue"
+          >
+            706-426-3022
+          </a>
+        </div>
+        <div className="hidden">
           <form onSubmit={handleSubmit(handleFormSubmit)}>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-5 mb-10">
               <div>
@@ -143,6 +160,6 @@ export default function Contact() {
           <PopularGalleriesClient />
         </div>
       </div>
-    </>
+    </section>
   );
 }
