@@ -4,6 +4,7 @@ import galleries from "@/data/galleries";
 import imageHelper from "@/utils/ImageHelper";
 import { _Object } from "@aws-sdk/client-s3";
 import Image from "next/image";
+import CovLXSlider from "../CovLXSlider/CovLXSlider";
 import OtherGalleries from "../OtherGalleries/OtherGalleries";
 import styles from "./Gallery.module.css";
 
@@ -56,7 +57,7 @@ export default async function GalleryComponent({
   }
 
   return (
-    <>
+    <section>
       <div className="relative w-full overflow-hidden" style={{ height: 800 }}>
         <Image
           src={imageHelper.getImageSrc(featImageData, gallery.heroImageTag)}
@@ -73,29 +74,10 @@ export default async function GalleryComponent({
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-10 mx-auto px-20">
-        {columns.map((column, idx) => {
-          return (
-            <div key={idx} className="grid gap-4">
-              {column.map((c, i) => {
-                return (
-                  <div key={i}>
-                    <Image
-                      className="h-auto max-w-full rounded-lg"
-                      src={imageHelper.getImageSrc(galleryImageData, c.Key!)}
-                      alt=""
-                      width={300}
-                      height={300}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
+
+      <CovLXSlider galleryImageData={galleryImageData} />
 
       <OtherGalleries currentGalleryId={gallery.id} />
-    </>
+    </section>
   );
 }

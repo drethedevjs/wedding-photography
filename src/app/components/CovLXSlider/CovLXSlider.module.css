@@ -1,0 +1,23 @@
+.slideWrapper {
+  height: 600px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+.slide {
+  width: auto !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
