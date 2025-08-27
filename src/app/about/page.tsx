@@ -34,14 +34,14 @@ export default function About() {
         <TextTitleBlockMulti heading="Family">
           <>
             Another thing that I want people to know about me is that I love my
-            family: my amazing wife and my two wonderful kids. When I die, I
+            family: my amazing wife and my three wonderful kids. When I die, I
             want it said of me that, “if there was one thing that Andre was good
             at was being a great husband and a loving father.”
           </>
           <>
             It's a beautiful thing when a man commit himself to the woman he
-            loves. Not to romanticize the union–because marriage is hard–but the
-            best things in life aren’t easy.
+            loves. Not to romanticize the union-because marriage is hard-but the
+            best things in life aren't easy.
           </>
           <>
             Weddings are the establishment of families and families are the
