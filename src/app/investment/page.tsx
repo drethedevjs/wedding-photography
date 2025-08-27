@@ -1,15 +1,10 @@
 import imageHelper from "@/utils/ImageHelper";
-import { _Object } from "@aws-sdk/client-s3";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Investment.module.css";
 
 export default async function Investment() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/images?prefix=investment`
-  );
-
-  const imageData: _Object[] = await res.json();
+  const imageData = await imageHelper.getImageData("investment");
   if (!imageData) return;
 
   return (
