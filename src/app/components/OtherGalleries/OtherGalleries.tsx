@@ -15,7 +15,7 @@ export default async function OtherGalleries({
 
   return (
     <div className={styles.ogGallery}>
-      <h2 className={styles.h2}>Other Galleries</h2>
+      <h2 className={styles.h2}>More Galleries to View</h2>
       <div className="flex md:flex-row md:gap-5 flex-col gap-5">
         <div className="w-full md:place-items-center">
           <Image
