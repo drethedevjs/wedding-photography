@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 @import "swiper/css";
 @import "swiper/css/bundle";
 
@@ -6,13 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-helvetica: 'Helvetica', sans-serif;
-  --font-hoefler: 'Hoefler', serif;
-  --font-inter: 'Inter', sans-serif;
+  --font-helvetica: "Helvetica", sans-serif;
+  --font-hoefler: "Hoefler", serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +28,10 @@ body {
   font-family: var(--font-inter);
 }
 
-h1, h2, h3, li {
+h1,
+h2,
+h3,
+li {
   font-family: var(--font-hoefler);
 }
 
@@ -38,7 +40,7 @@ p {
 }
 
 footer {
-  @apply row-start-3 flex gap-6 flex-wrap items-center justify-center text-covGray h-24;
+  @apply flex items-center justify-center text-covGray h-24 mx-10;
 }
 
 main {
@@ -57,7 +59,9 @@ button {
   @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
 }
 
-label, input, textarea {
+label,
+input,
+textarea {
   @apply w-full;
 }
 
@@ -65,7 +69,8 @@ label {
   @apply text-2xl font-semibold;
 }
 
-input, textarea {
+input,
+textarea {
   @apply ring-2 hover:ring-gold ring-skyBlue rounded p-5 mt-3 !important;
 }
 
