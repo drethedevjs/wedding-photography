@@ -8,7 +8,7 @@ export default async function Investment() {
   if (!imageData) return;
 
   return (
-    <>
+    <section>
       <div className="container mx-auto lg:px-32 px-10 text-center">
         <h1 className="pageH1">Investment</h1>
         <div className="flex xl:flex-row flex-col">
@@ -21,7 +21,7 @@ export default async function Investment() {
               priority
             />
           </div>
-          <div className="xl:px-16 px-10 place-content-center w-full">
+          <div className="xl:px-16 place-content-center w-full">
             <p className={`${styles.p} mb-5`}>
               Thank you for considering us for your wedding photography and/or
               videography needs. We're looking forward to the opportunity to
@@ -48,6 +48,6 @@ export default async function Investment() {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
