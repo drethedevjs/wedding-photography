@@ -1,77 +1,16 @@
-/* Desktop styles */
-.slideWrapper {
-  height: 600px;
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image {
-  height: 100%;
-  width: auto;
-  max-width: none;
-  object-fit: contain;
-}
-
-.slide {
-  width: auto !important;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Mobile styles */
-.mobileSwiper {
-  height: 100vh; /* Full viewport height for scrolling */
-  width: 100%;
-}
-
-.mobileSlide {
-  height: auto !important; /* Let each slide size itself */
-  width: 100% !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobileImageWrapper {
-  width: 100%;
-  padding: 10px 15px; /* Small padding for breathing room */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobileImage {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100%;
-  border-radius: 8px; /* Optional: slight rounding for polish */
-}
-
 /* Override Swiper's default styles for mobile */
 @media (max-width: 768px) {
-  .mobileSwiper .swiper-slide {
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .swiper-pagination {
+    bottom: 20px !important;
   }
 
-  .mobileSwiper .swiper-pagination {
-    bottom: 20px;
+  .swiper-pagination-bullet {
+    background: white !important;
+    opacity: 0.7 !important;
   }
 
-  .mobileSwiper .swiper-pagination-bullet {
-    background: white;
-    opacity: 0.7;
-  }
-
-  .mobileSwiper .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: white;
+  .swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: white !important;
   }
 }
