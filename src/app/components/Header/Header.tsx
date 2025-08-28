@@ -32,28 +32,28 @@ export default function Header() {
       const data = await res.json();
       setLogoImageData(data);
     }
-
     fetchLogoData();
   }, []);
 
   return (
     <nav>
+      {/* Desktop */}
       <div className={styles["header-container"]}>
         <div className={`${styles["header-ul"]} ${styles["header-group"]}`}>
-          {/* <div>Blog</div> */}
           <Link href="/about">About</Link>
           <Link href="/investment">Investment</Link>
         </div>
         <div className={styles.logo}>
           <Link href="/">
-            <Image
-              className={logoImageData ? "" : "hidden"}
-              src={imageHelper.getImageSrc(logoImageData!, "main")}
-              alt="Covenant LX main logo"
-              width={386}
-              height={196}
-              priority
-            />
+            {logoImageData && (
+              <Image
+                src={imageHelper.getImageSrc(logoImageData, "main")}
+                alt="Covenant LX main logo"
+                width={386}
+                height={196}
+                priority
+              />
+            )}
           </Link>
         </div>
         <div className={`${styles["header-ul-rev"]} ${styles["header-group"]}`}>
