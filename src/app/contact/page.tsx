@@ -156,9 +156,8 @@ export default function Contact() {
           <p className={`${styles.p}`}>
             Thank you for your message. I will be in touch very soon!
           </p>
-
-          <PopularGalleriesClient />
         </div>
+        <PopularGalleriesClient />
       </div>
     </section>
   );

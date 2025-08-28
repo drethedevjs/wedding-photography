@@ -8,7 +8,7 @@ export default async function PopularGalleries() {
   if (!homeImageData) return;
 
   return (
-    <section>
+    <section className="container mx-auto lg:px-32 px-10 text-center">
       <h3 className={`${styles.h3}`}>Popular Galleries</h3>
       <small className={`${styles.small}`}>Click to view a gallery</small>
       <div className={`${styles.galleries}`}>

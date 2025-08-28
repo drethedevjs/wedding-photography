@@ -7,9 +7,7 @@ export default function NotFound() {
         Uh oh! Looks like you've gotten lost. No worries. Get back on track by
         visiting one of the galleries below.
       </p>
-      <div className="container mx-auto lg:px-32 px-10 text-center">
-        <PopularGalleries />
-      </div>
+      <PopularGalleries />
     </div>
   );
 }
