@@ -8,7 +8,7 @@ export default function About() {
     <>
       <HeroInsetText />
       <div className="container mx-auto lg:px-32 md:px-20 px-10 mt-10">
-        <p className="text-center mb-10">
+        <p className="text-center text-base mb-10">
           Covenant LX exists to serve engaged couples in the CSRA by providing
           them with bright and colorful lifestyle portraits. I'm Andre Thomas
           and I am thrilled that I get to connect with couples and to capture an
