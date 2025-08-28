@@ -3,5 +3,5 @@
 }
 
 .a {
-  @apply text-gold hover:text-skyBlue transition-colors;
+  @apply text-gold hover:text-sky-500 transition-colors;
 }

@@ -37,7 +37,7 @@ p {
 }
 
 footer {
-  @apply flex items-center justify-center text-covGray h-24 mx-10;
+  @apply flex items-center justify-center text-gray-700 h-24 mx-10;
 }
 
 main {
@@ -53,7 +53,7 @@ main {
 }
 
 button {
-  @apply hover:bg-skyBlue transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
+  @apply hover:bg-sky-500 transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
 }
 
 label,

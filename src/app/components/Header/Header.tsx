@@ -69,7 +69,7 @@ export default function Header() {
             mobileMenuOpen ? "hidden" : "flex"
           }`}
         >
-          <div className="place-content-center text-covGray ml-4">
+          <div className="place-content-center text-gray-700 ml-4">
             <Bars2Icon className="size-10" onClick={toggleMenu} />
           </div>
           <HeaderLogo logoImageData={logoImageData} />
@@ -80,7 +80,7 @@ export default function Header() {
           }`}
         >
           <div className="p-5 flex flex-row mb-10 bg-white">
-            <div className="place-content-center text-covGray ml-4">
+            <div className="place-content-center text-gray-700 ml-4">
               <XMarkIcon className="size-10" onClick={toggleMenu} />
             </div>
             <HeaderLogo logoImageData={logoImageData} />

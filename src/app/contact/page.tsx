@@ -59,7 +59,7 @@ export default function Contact() {
           <p>Email</p>
           <a
             href="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20|%20Covenant%20LX"
-            className="md:text-5xl text-3xl hover:text-skyBlue"
+            className="md:text-5xl text-3xl hover:text-sky-500"
           >
             Email: andre@covenantlx.com
           </a>
@@ -67,7 +67,7 @@ export default function Contact() {
           <p>Phone:</p>
           <a
             href="tel:7064263022"
-            className="md:text-5xl text-3xl mt-10 hover:text-skyBlue"
+            className="md:text-5xl text-3xl mt-10 hover:text-sky-500"
           >
             706-426-3022
           </a>
