@@ -4,15 +4,7 @@ export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  safelist: [
-    'flex',
-    'flex-col',
-    'overflow-hidden',
-    'items-center',
-    'justify-center',
-    'h-80'
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
@@ -28,9 +20,9 @@ export default {
         helvetica: "var(--font-helvetica), Arial, sans-serif",
         hoefler: "var(--font-hoefler), Georgia, serif",
         geistSans: "var(--font-geist-sans), sans-serif",
-        geistMono: "var(--font-geist-mono), monospace",
-      },
-    },
+        geistMono: "var(--font-geist-mono), monospace"
+      }
+    }
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require("flowbite/plugin")]
 } satisfies Config;
