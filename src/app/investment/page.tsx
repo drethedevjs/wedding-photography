@@ -1,7 +1,6 @@
 import imageHelper from "@/utils/ImageHelper";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Investment.module.css";
 
 export default async function Investment() {
   const imageData = await imageHelper.getImageData("investment");
@@ -22,12 +21,12 @@ export default async function Investment() {
             />
           </div>
           <div className="xl:px-16 place-content-center w-full">
-            <p className={`${styles.p} mb-5`}>
+            <p className="mb-5">
               Thank you for considering us for your wedding photography and/or
               videography needs. We're looking forward to the opportunity to
               work with you two.
             </p>
-            <p className={`${styles.p} mb-5`}>
+            <p className="mb-5">
               My pricing starts out at $1599 but most of my couples spend in the
               ballpark of $2200-2300. I don't want to waste your time with
               pricing sheets and collections. I used to do that but I have found
@@ -37,7 +36,7 @@ export default async function Investment() {
               your needs and values are and I can build a collection
               specifically for you?
             </p>
-            <p className={`${styles.p}`}>
+            <p>
               I'm looking forward to you becoming a part of our gallery of
               brides.
             </p>
