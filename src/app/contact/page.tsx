@@ -60,7 +60,7 @@ export default function Contact() {
             href="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20|%20Covenant%20LX"
             className="md:text-5xl text-3xl hover:text-sky-500"
           >
-            Email: andre@covenantlx.com
+            andre@covenantlx.com
           </a>
           <hr className="my-10" />
           <p>Phone:</p>
