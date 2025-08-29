@@ -3,10 +3,6 @@
   @apply grid grid-rows-3 grid-flow-col py-5 px-20;
 }
 
-.header-ul {
-  /* @apply text-center; */
-}
-
 .header-ul-rev {
   @apply flex-row-reverse;
 }

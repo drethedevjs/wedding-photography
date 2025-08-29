@@ -29,7 +29,7 @@ export default async function GalleryComponent({
         />
         <div className="absolute inset-10 flex items-center justify-center text-center">
           <div className="lg:w-2/5 w-6/7">
-            <h1 className="text-3xl uppercase tracking-widest bg-black bg-opacity-20 text-white rounded">
+            <h1 className="text-9xl uppercase tracking-widest text-shadow-lg text-white rounded">
               {gallery.name}
             </h1>
           </div>

@@ -1,0 +1,7 @@
+.photog-snip-container {
+  @apply flex flex-col lg:flex-row gap-10 py-10 lg:px-20 px-10 items-center mx-auto container;
+}
+
+.snippet-header {
+  @apply mb-10 uppercase tracking-widest text-center text-2xl text-gold border-gold border-y-2 py-5 w-full;
+}

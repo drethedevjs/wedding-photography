@@ -1,7 +1,0 @@
-.p {
-  @apply mt-10 text-2xl text-center;
-}
-
-.a {
-  @apply text-gold hover:text-sky-500 transition-colors;
-}

@@ -2,10 +2,9 @@
 
 import { useEffect } from "react";
 import PopularGalleriesClient from "../components/PopularGalleriesClient/PopularGalleriesClient";
-import styles from "./../components/Gallery/Gallery.module.css";
 
 export default function Error({
-  error,
+  error
 }: {
   error: Error & { digest?: string };
 }) {
@@ -16,10 +15,10 @@ export default function Error({
 
   return (
     <section className="container mx-auto text-center my-10">
-      <p className={styles.p}>
+      <p className="p">
         Sorry! I'm having trouble loading this gallery's images.{" "}
         <a
-          className={styles.a}
+          className="text-gold hover:text-primary transition-colors"
           href="mailto:andre@covenantlx.com?subject=Images%20Not%20Loading"
         >
           Contact the photographer
@@ -27,7 +26,7 @@ export default function Error({
         to let him know.
       </p>
 
-      <p className={styles.p}>
+      <p className="mt-10 text-2xl text-center">
         In the meantime, please look at some of the other galleries below.
       </p>
       <PopularGalleriesClient />

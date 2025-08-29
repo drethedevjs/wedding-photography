@@ -1,11 +1,18 @@
-import React from 'react';
-import styles from "./TextTitleBlock.module.css";
+import React from "react";
 
-export default function TextTitleBlock({ heading, children } : { heading: string, children: React.ReactNode }) {
+export default function TextTitleBlock({
+  heading,
+  children
+}: {
+  heading: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className={styles.div}>
-      <h3 className={styles.h3}>{ heading }</h3>
-      <p className={styles.p}>{ children }</p>
-    </div>
-  )
+    <>
+      <h3 className="text-3xl mb-4 tracking-widest uppercase text-gold">
+        {heading}
+      </h3>
+      <p className="mb-10">{children}</p>
+    </>
+  );
 }

@@ -7,7 +7,6 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { object, string } from "yup";
 import PopularGalleriesClient from "../components/PopularGalleriesClient/PopularGalleriesClient";
-import styles from "./Contact.module.css";
 
 const schema = object({
   brideName: string().required("Bride Name is required"),
@@ -151,13 +150,13 @@ export default function Contact() {
             </button>
           </form>
         </div>
-        <div className={`${styles.sentMsg} ${hasSent ? "" : "hidden"}`}>
-          <h2 className={`${styles.h2}`}>Sent</h2>
-          <p className={`${styles.p}`}>
+        <div className={`"sentMsg" ${hasSent ? "" : "hidden"}`}>
+          <h2 className="h2">Sent</h2>
+          <p className="p">
             Thank you for your message. I will be in touch very soon!
           </p>
+          <PopularGalleriesClient />
         </div>
-        <PopularGalleriesClient />
       </div>
     </section>
   );

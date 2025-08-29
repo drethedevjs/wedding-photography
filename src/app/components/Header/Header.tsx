@@ -1,5 +1,6 @@
 "use client";
 import imageHelper from "@/utils/ImageHelper";
+import useDarkMode from "@/utils/useDarkMode";
 import { _Object } from "@aws-sdk/client-s3";
 import { Bars2Icon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -7,12 +8,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import styles from "./Header.module.css";
 import HeaderLogo from "./HeaderLogo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [logoImageData, setLogoImageData] = useState<_Object[]>();
+  const { isDarkMode } = useDarkMode();
   const router = useRouter();
 
   const navigate = (path: string) => {
@@ -32,38 +33,48 @@ export default function Header() {
       const data = await res.json();
       setLogoImageData(data);
     }
+
     fetchLogoData();
   }, []);
 
   return (
     <nav>
       {/* Desktop */}
-      <div className={styles["header-container"]}>
-        <div className={`${styles["header-ul"]} ${styles["header-group"]}`}>
+      <div className="header-container">
+        <div className="header-group">
           <Link href="/about">About</Link>
           <Link href="/investment">Investment</Link>
         </div>
-        <div className={styles.logo}>
+        <div className="logo">
           <Link href="/">
-            {logoImageData && (
-              <Image
-                src={imageHelper.getImageSrc(logoImageData, "main")}
-                alt="Covenant LX main logo"
-                width={386}
-                height={196}
-                priority
-              />
-            )}
+            {logoImageData &&
+              (isDarkMode ? (
+                <Image
+                  src={imageHelper.getImageSrc(logoImageData, "dark-main")}
+                  alt="Covenant LX main logo"
+                  width={386}
+                  height={196}
+                  priority
+                />
+              ) : (
+                <Image
+                  src={imageHelper.getImageSrc(logoImageData, "light-main")}
+                  alt="Covenant LX main logo"
+                  width={386}
+                  height={196}
+                  priority
+                />
+              ))}
           </Link>
         </div>
-        <div className={`${styles["header-ul-rev"]} ${styles["header-group"]}`}>
+        <div className="header-ul-rev header-group">
           <Link href="/portfolio">Portfolio</Link>
           <Link href="/contact">Contact</Link>
         </div>
       </div>
 
       {/* Mobile */}
-      <div className={`${styles["mobile-header-container"]}`}>
+      <div className="mobile-header-container">
         <div
           className={`p-5 flex flex-row mb-10 ${
             mobileMenuOpen ? "hidden" : "flex"
@@ -75,7 +86,7 @@ export default function Header() {
           <HeaderLogo logoImageData={logoImageData} />
         </div>
         <div
-          className={`${styles["mobile-links"]} ${
+          className={`mobile-links ${
             mobileMenuOpen ? "flex flex-col" : "hidden"
           }`}
         >
@@ -86,17 +97,17 @@ export default function Header() {
             <HeaderLogo logoImageData={logoImageData} />
           </div>
           <ul className="py-10 text-3xl">
-            <li onClick={() => navigate("/")} className={styles.li}>
+            <li onClick={() => navigate("/")} className="li">
               Home
             </li>
-            <li onClick={() => navigate("/about")} className={styles.li}>
+            <li onClick={() => navigate("/about")} className="li">
               About
             </li>
-            <li onClick={() => navigate("/portfolio")} className={styles.li}>
+            <li onClick={() => navigate("/portfolio")} className="li">
               Portfolio
             </li>
-            {/* <li onClick={() => navigate("/blog")} className={styles.li}>Blog</li> */}
-            <li onClick={() => navigate("/contact")} className={styles.li}>
+            {/* <li onClick={() => navigate("/blog")} className="li">Blog</li> */}
+            <li onClick={() => navigate("/contact")} className="li">
               Contact
             </li>
           </ul>

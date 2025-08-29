@@ -1,7 +1,6 @@
 import imageHelper from "@/utils/ImageHelper";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./OtherGalleries.module.css";
 import otherGalleryHelper from "./OtherGalleryHelper";
 
 export default async function OtherGalleries({
@@ -14,8 +13,8 @@ export default async function OtherGalleries({
   const featImageData = await imageHelper.getImageData("feat");
 
   return (
-    <div className={styles.ogGallery}>
-      <h2 className={styles.h2}>More Galleries to View</h2>
+    <div className="ogGallery">
+      <h2 className="more-galleries-header">More Galleries to View</h2>
       <div className="flex md:flex-row md:gap-5 flex-col gap-5">
         <div className="w-full md:place-items-center">
           <Image
@@ -28,7 +27,7 @@ export default async function OtherGalleries({
             alt={leftGallery!.heroImageAlt}
             className="rounded-lg"
           />
-          <h3 className={styles.h3}>{leftGallery?.name}</h3>
+          <h3 className="gallery-name">{leftGallery?.name}</h3>
           <Link href={`/gallery?id=${leftGallery!.id}`}>
             <button>View Gallery</button>
           </Link>
@@ -45,7 +44,7 @@ export default async function OtherGalleries({
             alt={rightGallery!.heroImageAlt}
             className="rounded-lg"
           />
-          <h3 className={styles.h3}>{rightGallery?.name}</h3>
+          <h3 className="gallery-name">{rightGallery?.name}</h3>
           <Link href={`/gallery?id=${rightGallery!.id}`}>
             <button>View Gallery</button>
           </Link>

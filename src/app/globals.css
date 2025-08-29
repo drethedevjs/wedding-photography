@@ -1,7 +1,13 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"); */
 @import "swiper/css";
 @import "swiper/css/bundle";
+@import "./styles/components/header.css";
+@import "./styles/components/covLXSlider.css";
+@import "./styles/components/gallery.css";
+@import "./styles/components/photogSnippet.css";
+@import "./styles/components/quickLinks.css";
+@import "./styles/pages/portfolio.css";
 
 :root {
   --background: #ffffff;
@@ -9,6 +15,13 @@
   --font-helvetica: "Helvetica", sans-serif;
   --font-hoefler: "Hoefler", serif;
   --font-inter: "Inter", sans-serif;
+}
+
+@theme {
+  --color-primary: #4db5f7;
+  --color-secondary: #5a5a5a;
+  --color-covLightGray: #f9f9f9;
+  --color-gold: #a79b7d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,12 +45,16 @@ li {
   font-family: var(--font-hoefler);
 }
 
+.not-used {
+  @apply text-6xl mb-5 border-b-gold w-80 border-b-2 mx-auto;
+}
+
 p {
   @apply md:text-2xl text-xl tracking-wide md:leading-9 leading-7;
 }
 
 footer {
-  @apply flex items-center justify-center text-gray-700 h-24 mx-10;
+  @apply flex items-center justify-center text-secondary h-24 mx-10;
 }
 
 main {
@@ -53,7 +70,7 @@ main {
 }
 
 button {
-  @apply hover:bg-sky-500 transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
+  @apply hover:bg-primary transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
 }
 
 label,
@@ -68,7 +85,7 @@ label {
 
 input,
 textarea {
-  @apply ring-2 hover:ring-gold ring-skyBlue rounded p-5 mt-3 !important;
+  @apply ring-2 hover:ring-gold ring-primary rounded p-5 mt-3;
 }
 
 .pageH1 {
@@ -77,4 +94,12 @@ textarea {
 
 nav a {
   @apply cursor-pointer;
+}
+
+.gallery-name {
+  @apply my-5 md:text-2xl text-base uppercase tracking-widest border-y-2 py-2 border-y-gold;
+}
+
+.sub-title {
+  @apply italic p-2 text-lg text-secondary;
 }

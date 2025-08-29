@@ -6,10 +6,10 @@
   @apply py-5;
 }
 
-.h3 {
-  @apply uppercase mb-3 tracking-widest text-gold md:text-2xl text-4xl;
+.quick-link-header {
+  @apply uppercase mb-3 tracking-widest text-gold md:text-3xl text-5xl;
 }
 
-.p {
+.sub-title {
   @apply text-sm tracking-wider italic;
 }

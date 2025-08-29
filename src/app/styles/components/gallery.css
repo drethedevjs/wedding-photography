@@ -1,0 +1,27 @@
+.more-galleries-header {
+  @apply md:text-4xl text-3xl border-b-gold border-b-2 md:w-1/2 w-5/6 mb-4 mx-auto;
+}
+
+.ogGallery {
+  @apply mt-10 container mx-auto lg:px-40 px-5 text-center;
+}
+
+.galleries {
+  @apply grid lg:grid-cols-3 md:grid-cols-2 place-content-center lg:gap-10 gap-3 mt-5;
+}
+
+.image {
+  @apply rounded-lg shadow-lg hover:scale-105 hover:rotate-1 transition-transform object-cover;
+}
+
+small {
+  @apply italic tracking-wide;
+}
+
+.sentMsg {
+  @apply text-center place-content-center;
+}
+
+.pop-gallery-header {
+  @apply text-3xl mb-5 border-b-gold w-80 border-b-2 mx-auto;
+}

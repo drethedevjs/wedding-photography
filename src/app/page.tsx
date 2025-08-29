@@ -2,7 +2,6 @@ import homePageImages from "@/data/homePageImages";
 import imageHelper from "@/utils/ImageHelper";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Home.module.css";
 import PhotogSnippet from "./components/PhotogSnippet/PhotogSnippet";
 import QuickLinks from "./components/Quick Links/QuickLinks";
 
@@ -10,17 +9,15 @@ export default async function Home() {
   const imageData = await imageHelper.getImageData("home");
   return (
     <>
-      <div className={styles.slideShow}>
-        <div className="flex flex-col xl:h-full">
-          <div className="overflow-hidden flex items-center">
-            <Image
-              src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
-              height={1080}
-              width={3000}
-              alt="Popp'n bottles"
-              priority
-            />
-          </div>
+      <div className="flex flex-col xl:h-full">
+        <div className="overflow-hidden flex items-center">
+          <Image
+            src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
+            height={1080}
+            width={3000}
+            alt="Popp'n bottles"
+            priority
+          />
         </div>
       </div>
       <div className="cov-container gap-5 grid grid-cols-1 text-center">
@@ -60,7 +57,7 @@ export default async function Home() {
                     />
                   </Link>
                 </div>
-                <p className={`${styles.subTitle}`}>{image.subTitle}</p>
+                <p className="sub-title">{image.subTitle}</p>
               </div>
             );
           })}

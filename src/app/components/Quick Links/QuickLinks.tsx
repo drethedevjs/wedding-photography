@@ -1,24 +1,23 @@
 import Link from "next/link";
-import styles from "./QuickLinks.module.css";
 
 export default function QuickLinks() {
   return (
     <div className="grid md:grid-cols-3 md:gap-0 gap-8 my-16 text-gray-700">
       <Link href="/investment">
-        <div className={styles.block}>
-          <h3 className={styles.h3}>Information</h3>
-          <p className={styles.p}>investment & details</p>
+        <div className="block">
+          <h3 className="quick-link-header">Information</h3>
+          <p className="sub-title">investment & details</p>
         </div>
       </Link>
       <Link href="/portfolio">
-        <div className={`${styles.block} ${styles.middle}`}>
-          <h3 className={styles.h3}>Portfolio</h3>
-          <p className={styles.p}>see my work!</p>
+        <div className="block middle">
+          <h3 className="quick-link-header">Portfolio</h3>
+          <p className="sub-title">see my work!</p>
         </div>
       </Link>
-      <div className={styles.block}>
-        <h3 className={`${styles.h3}`}>Stay in Touch</h3>
-        <p className={styles.p}>
+      <div className="block">
+        <h3 className="quick-link-header">Stay in Touch</h3>
+        <p className="sub-title">
           <Link
             href="https://facebook.com/covenantlx"
             target="_blank"
