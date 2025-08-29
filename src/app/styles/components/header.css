@@ -28,9 +28,9 @@
 }
 
 .mobile-links {
-  @apply h-full bg-covLightGray z-10 w-full fixed;
+  @apply h-full bg-covLightGray dark:bg-gray-700 z-10 w-full fixed;
 }
 
-.li {
-  @apply py-5 pl-16;
+.header-link {
+  @apply py-5 pl-16 dark:text-white;
 }

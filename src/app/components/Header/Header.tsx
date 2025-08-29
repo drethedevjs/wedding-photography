@@ -80,7 +80,7 @@ export default function Header() {
             mobileMenuOpen ? "hidden" : "flex"
           }`}
         >
-          <div className="place-content-center text-gray-700 ml-4">
+          <div className="place-content-center text-secondary ml-4">
             <Bars2Icon className="size-10" onClick={toggleMenu} />
           </div>
           <HeaderLogo logoImageData={logoImageData} />
@@ -90,24 +90,27 @@ export default function Header() {
             mobileMenuOpen ? "flex flex-col" : "hidden"
           }`}
         >
-          <div className="p-5 flex flex-row mb-10 bg-white">
-            <div className="place-content-center text-gray-700 ml-4">
-              <XMarkIcon className="size-10" onClick={toggleMenu} />
+          <div className="p-5 flex flex-row mb-10 bg-white dark:bg-slate-700">
+            <div className="place-content-center text-secondary ml-4">
+              <XMarkIcon
+                className="size-10 dark:text-white"
+                onClick={toggleMenu}
+              />
             </div>
             <HeaderLogo logoImageData={logoImageData} />
           </div>
           <ul className="py-10 text-3xl">
-            <li onClick={() => navigate("/")} className="li">
+            <li onClick={() => navigate("/")} className="header-link">
               Home
             </li>
-            <li onClick={() => navigate("/about")} className="li">
+            <li onClick={() => navigate("/about")} className="header-link">
               About
             </li>
-            <li onClick={() => navigate("/portfolio")} className="li">
+            <li onClick={() => navigate("/portfolio")} className="header-link">
               Portfolio
             </li>
-            {/* <li onClick={() => navigate("/blog")} className="li">Blog</li> */}
-            <li onClick={() => navigate("/contact")} className="li">
+            {/* <li onClick={() => navigate("/blog")} className="header-link">Blog</li> */}
+            <li onClick={() => navigate("/contact")} className="header-link">
               Contact
             </li>
           </ul>
