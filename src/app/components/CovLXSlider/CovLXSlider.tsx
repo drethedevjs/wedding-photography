@@ -24,7 +24,6 @@ export default function CovLXSlider({
           loop={true}
           navigation={true}
           modules={[Navigation, Pagination]}
-          className=""
         >
           {galleryImageData.map((image, index) => {
             return (

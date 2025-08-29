@@ -25,7 +25,7 @@ const galleries: Gallery[] = [
     heroImageTag: "muff",
     heroImageUrl: "/images/gallery/Wedding-Photography-Muff-FeatImg.jpg",
     heroImageAlt: "Bridal party posing like they're on a hip hop album cover.",
-    isActive: false
+    isActive: true
   },
   {
     id: 4,
