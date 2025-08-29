@@ -19,7 +19,7 @@ export default async function GalleryComponent({
 
   return (
     <section>
-      <div className="relative w-full overflow-hidden" style={{ height: 800 }}>
+      <div className="relative w-full overflow-hidden md:h-[800] h-[300]">
         <Image
           src={imageHelper.getImageSrc(featImageData!, gallery.heroImageTag)}
           fill={true}
@@ -28,11 +28,9 @@ export default async function GalleryComponent({
           priority
         />
         <div className="absolute inset-10 flex items-center justify-center text-center">
-          <div className="lg:w-2/5 w-6/7">
-            <h1 className="text-9xl uppercase tracking-widest text-shadow-lg text-white rounded">
-              {gallery.name}
-            </h1>
-          </div>
+          <h1 className="md:text-9xl text-4xl uppercase tracking-widest text-shadow-lg text-white rounded">
+            {gallery.name}
+          </h1>
         </div>
       </div>
 

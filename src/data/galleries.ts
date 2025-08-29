@@ -34,7 +34,7 @@ const galleries: Gallery[] = [
     heroImageUrl: "/images/gallery/Wedding-Photography-Shaffer-FeatImg.jpg",
     heroImageAlt:
       "An engaged couple standing at the corner of a barn looking separate ways.",
-    isActive: false
+    isActive: true
   },
   {
     id: 5,
