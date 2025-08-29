@@ -15,6 +15,7 @@
   --font-helvetica: "Helvetica", sans-serif;
   --font-hoefler: "Hoefler", serif;
   --font-inter: "Inter", sans-serif;
+  --swiper-theme-color: var(--color-primary) !important;
 }
 
 @theme {

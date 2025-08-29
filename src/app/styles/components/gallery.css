@@ -25,3 +25,8 @@ small {
 .pop-gallery-header {
   @apply text-3xl mb-5 border-b-gold w-80 border-b-2 mx-auto;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply drop-shadow-2xl bg-white rounded-full p-8 hover:ring-primary hover:ring-2;
+}
