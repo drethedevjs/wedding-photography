@@ -14,7 +14,7 @@ export default function HeroInsetText() {
         <div className="absolute inset-10 flex items-center justify-center text-center text-white">
           <div className="lg:w-2/5 w-6/7">
             <h1 className="mb-5 italic tracking-wide">About</h1>
-            <h2 className="text-2xl uppercase tracking-widest text-shadow-sm">
+            <h2 className="md:text-2xl uppercase tracking-widest text-shadow-sm">
               Making Weddings A Day to Remember
             </h2>
           </div>
