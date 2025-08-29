@@ -8,7 +8,7 @@ const galleries: Gallery[] = [
     heroImageUrl: "/images/gallery/Wedding-Photography-Pritchard-FeatImg.jpg",
     heroImageAlt:
       "Bride and groom in a close embrace, bride adjusting groom's bow tie.",
-    isActive: false
+    isActive: true
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const galleries: Gallery[] = [
     heroImageUrl: "/images/gallery/Wedding-photography-anderson-FeatImg.jpg",
     heroImageAlt:
       "Bride and groom standing in classic prom pose, bride laughing.",
-    isActive: false
+    isActive: true
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const galleries: Gallery[] = [
     heroImageUrl: "/images/gallery/Wedding-photographer-Jewell-FeatImg.jpg",
     heroImageAlt:
       "Bride and groom in a close embrace, bride adjusting groom's bow tie.",
-    isActive: false
+    isActive: true
   },
   {
     id: 7,
