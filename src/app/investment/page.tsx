@@ -18,6 +18,7 @@ export default async function Investment() {
               height={1920}
               alt="A bride standing on the beach facing the ocean and looking back at the camera."
               priority
+              className="object-cover"
             />
           </div>
           <div className="xl:px-16 place-content-center w-full">
