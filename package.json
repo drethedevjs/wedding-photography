@@ -20,6 +20,7 @@
     "flowbite": "^3.0.0",
     "flowbite-react": "^0.12.9",
     "lucide-react": "^0.546.0",
+    "mongoose": "^8.19.1",
     "next": "^15.1.0",
     "react": "19.0.0",
     "react-alice-carousel": "^2.9.1",

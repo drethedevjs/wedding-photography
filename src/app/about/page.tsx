@@ -51,7 +51,7 @@ export default function About() {
         </div>
 
         <Link href="/contact">
-          <button>Let's Connect</button>
+          <button className="cov-btn">Let's Connect</button>
         </Link>
       </div>
     </>

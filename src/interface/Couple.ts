@@ -4,5 +4,6 @@ export interface Couple {
   brideEmail: string;
   groomEmail: string;
   special?: string;
-  bridalShowDate?: Date;
+  bridalShowDate: Date;
+  contacted: boolean;
 }

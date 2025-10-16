@@ -42,7 +42,7 @@ export default function RootLayout({
       <body>
         <script
           async
-          src="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.js"
+          src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"
         ></script>
         <div className="flex flex-col min-h-screen">
           <Header />
