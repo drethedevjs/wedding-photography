@@ -36,7 +36,7 @@ export default async function Home() {
 
       <div className="container mx-auto text-center px-5">
         <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center">
-          {homePageImages.map(image => {
+          {homePageImages.map((image) => {
             return (
               <div className={image.spaceContainerClasses} key={image.id}>
                 <div className={image.imgDivClasses}>
@@ -44,7 +44,7 @@ export default async function Home() {
                     <Image
                       src={`https://cdn.covenantlx.com/${
                         imageData
-                          ? imageData.find(data =>
+                          ? imageData.find((data) =>
                               data.Key?.includes(image.name)
                             )?.Key
                           : ""
@@ -53,7 +53,7 @@ export default async function Home() {
                       height={image.height}
                       alt={image.alt}
                       loading="lazy"
-                      className="hover:rotate-1 rounded-lg transition-transform"
+                      className="hover:rotate-1 rounded-lg transition-transform hover:scale-95 shadow-lg"
                     />
                   </Link>
                 </div>
