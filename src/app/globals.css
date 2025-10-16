@@ -9,6 +9,7 @@
 @import "./styles/components/gallery.css";
 @import "./styles/components/photogSnippet.css";
 @import "./styles/components/quickLinks.css";
+@import "./styles/components/forms.css";
 @import "./styles/pages/portfolio.css";
 
 :root {
@@ -73,7 +74,7 @@ main {
   @apply border-2 border-red-500;
 }
 
-button {
+.cov-btn {
   @apply hover:bg-primary transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
 }
 
