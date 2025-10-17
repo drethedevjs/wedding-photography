@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://covlx-sa:mc4TeGi3QhmC4qgA@dre-projects.afhoggr.mongodb.net/covenantlx?retryWrites=true&w=majority";
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  throw new Error("Missing Mongodb connection string");
+}
 
 type MongooseGlobal = {
   conn: typeof mongoose | null;
@@ -24,7 +25,7 @@ export async function connectToDatabase() {
   if (cache.conn) return cache.conn;
 
   if (!cache.promise) {
-    cache.promise = mongoose.connect(MONGODB_URI);
+    cache.promise = mongoose.connect(MONGODB_URI!);
   }
 
   cache.conn = await cache.promise;
