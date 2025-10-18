@@ -29,7 +29,7 @@ export default async function OtherGalleries({
           />
           <h3 className="gallery-name">{leftGallery?.name}</h3>
           <Link href={`/gallery?id=${leftGallery!.id}`}>
-            <button>View Gallery</button>
+            <button className="cov-btn">View Gallery</button>
           </Link>
         </div>
 
@@ -46,7 +46,7 @@ export default async function OtherGalleries({
           />
           <h3 className="gallery-name">{rightGallery?.name}</h3>
           <Link href={`/gallery?id=${rightGallery!.id}`}>
-            <button>View Gallery</button>
+            <button className="cov-btn">View Gallery</button>
           </Link>
         </div>
       </div>

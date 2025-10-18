@@ -33,7 +33,7 @@ export default function PhotogSnippet() {
           your day!
         </p>
         <Link href="/about">
-          <button>More About Me</button>
+          <button className="cov-btn">More About Me</button>
         </Link>
       </div>
     </div>

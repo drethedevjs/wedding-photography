@@ -6,10 +6,10 @@ export default function BridalShow() {
       <h1 className="pageH1">Bridal Show Aftermath</h1>
       <div className="grid gap-3">
         <Link href="/bridal-show/build">
-          <button>Build</button>
+          <button className="cov-btn">Build</button>
         </Link>
         <Link href="/bridal-show/send">
-          <button>Send</button>
+          <button className="cov-btn">Send</button>
         </Link>
       </div>
     </section>

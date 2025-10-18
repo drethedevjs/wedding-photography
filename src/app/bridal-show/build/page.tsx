@@ -4,17 +4,38 @@ import { Couple } from "@/interface/Couple";
 import { parseFormData } from "@/utils/formUtils";
 import { Button, Datepicker, Label, TextInput } from "flowbite-react";
 import { Bot } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 export default function Build() {
   const [couples, setCouples] = useState<Couple[]>([]);
 
-  const addCouple = (e: FormEvent<HTMLFormElement>) => {
+  const addCouple = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const couple = parseFormData<Couple>(e.currentTarget);
+    const response = await fetch("/api/couples", {
+      method: "POST",
+      body: JSON.stringify(couple)
+    });
+
+    if (!response.ok) {
+      console.error("Something went wrong: ", response);
+      return;
+    }
+
     console.log("form data using my util: ", couple);
     setCouples((prev) => [...prev, couple]);
   };
+
+  useEffect(() => {
+    const getCouples = async () => {
+      const response = await fetch("/api/couples");
+      const couples = await response.json();
+      console.log("couples", couples);
+      if (couples.length) setCouples(couples);
+    };
+
+    if (!couples.length) getCouples();
+  });
   return (
     <div className="cov-container">
       <section>
