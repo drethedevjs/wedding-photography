@@ -69,6 +69,10 @@ main {
   @apply container mx-auto xl:px-52 px-10 pt-10;
 }
 
+.cov-container-page {
+  @apply container mx-auto lg:px-32 px-10;
+}
+
 .cborder {
   @apply border-2 border-red-500;
 }
