@@ -52,7 +52,7 @@ export default function Contact() {
 
   return (
     <section>
-      <div className="container mx-auto lg:px-32 px-10 text-center">
+      <div className="cov-container-page text-center">
         <h1 className="pageH1">Contact</h1>
         <div>
           <p>Email</p>

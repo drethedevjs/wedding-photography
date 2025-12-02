@@ -8,7 +8,7 @@ export default async function Investment() {
 
   return (
     <section>
-      <div className="container mx-auto lg:px-32 px-10 text-center">
+      <div className="cov-container-page text-center">
         <h1 className="pageH1">Investment</h1>
         <div className="flex xl:flex-row flex-col">
           <div className="hidden xl:flex">
