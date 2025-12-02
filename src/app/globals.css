@@ -97,7 +97,7 @@ textarea {
 }
 
 .pageH1 {
-  @apply text-5xl border-b-gold border-b-2 pb-3 w-1/2 text-center mx-auto mb-16;
+  @apply text-5xl border-b-gold border-b-2 pb-3 md:w-1/2 text-center mx-auto mb-16;
 }
 
 nav a {
