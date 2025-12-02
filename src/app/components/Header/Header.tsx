@@ -106,6 +106,9 @@ export default function Header() {
             <li onClick={() => navigate("/about")} className="header-link">
               About
             </li>
+            <li onClick={() => navigate("/investment")} className="header-link">
+              Investment
+            </li>
             <li onClick={() => navigate("/portfolio")} className="header-link">
               Portfolio
             </li>
