@@ -1,12 +1,18 @@
 "use client";
 import { CoupleFormData } from "@/interface/CoupleFormData";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  MailIcon,
+  PhoneIcon,
+  PinterestIcon
+} from "@/utils/icons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import "dotenv/config";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { object, string } from "yup";
-import PopularGalleriesClient from "../components/PopularGalleriesClient/PopularGalleriesClient";
 
 const schema = object({
   brideName: string().required("Bride Name is required"),
@@ -23,6 +29,26 @@ const schema = object({
 export default function Contact() {
   const [hasSent, setHasSent] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-up-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = containerRef.current?.querySelectorAll(".fade-up");
+    elements?.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const {
     register,
@@ -51,111 +77,116 @@ export default function Contact() {
   };
 
   return (
-    <section>
-      <div className="cov-container-page text-center">
-        <h1 className="pageH1">Contact</h1>
-        <div>
-          <p>Email</p>
+    <section className="font-(family-name:--font-body) font-light min-h-screen flex items-center justify-center px-6 py-24">
+      <div ref={containerRef} className="max-w-xl w-full mx-auto text-center">
+        {/* Heading */}
+        <div className="fade-up delay-100">
+          <p className="font-(family-name:--font-display) text-sm uppercase tracking-[0.3em] text-gold opacity-50 mb-3">
+            Let&apos;s Connect
+          </p>
+          <h1 className="font-(family-name:--font-display) text-6xl md:text-7xl font-light italic mb-4">
+            Say Hello
+          </h1>
+        </div>
+
+        {/* Divider */}
+        <div className="fade-up delay-200 flex items-center gap-4 my-8 opacity-20">
+          <div className="flex-1 h-px bg-current" />
+          <span className="font-(family-name:--font-display) text-lg italic">
+            ✦
+          </span>
+          <div className="flex-1 h-px bg-current" />
+        </div>
+
+        {/* Blurb */}
+        <div className="fade-up delay-200 mb-12">
+          <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            Every love story deserves to be told beautifully. I&apos;d be
+            honored to hear yours — reach out and let&apos;s start planning
+            something unforgettable together.
+          </p>
+        </div>
+
+        {/* Email */}
+        <div className="fade-up delay-300 mb-8">
+          <div className="flex items-center justify-center gap-2 opacity-40 mb-2">
+            <MailIcon />
+            <span className="text-xs uppercase tracking-[0.2em]">Email</span>
+          </div>
           <a
             href="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20|%20Covenant%20LX"
-            className="md:text-5xl text-3xl hover:text-sky-500"
+            className="contact-link text-2xl md:text-3xl"
           >
             andre@covenantlx.com
           </a>
-          <hr className="my-10" />
-          <p>Phone:</p>
+        </div>
+
+        {/* Vertical divider line */}
+        <div className="fade-up delay-300 w-px h-15 mx-auto my-6 opacity-20 bg-linear-to-b from-transparent via-current to-transparent" />
+
+        {/* Phone */}
+        <div className="fade-up delay-400 mb-12">
+          <div className="flex items-center justify-center gap-2 opacity-40 mb-2">
+            <PhoneIcon />
+            <span className="text-xs uppercase tracking-[0.2em]">Phone</span>
+          </div>
           <a
             href="tel:7064263022"
-            className="md:text-5xl text-3xl mt-10 hover:text-sky-500"
+            className="contact-link text-2xl md:text-3xl"
           >
             706-426-3022
           </a>
         </div>
-        <div className="hidden">
-          <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-5 mb-10">
-              <div>
-                <label htmlFor="brideName">Bride Name</label>
-                <input
-                  type="text"
-                  id="brideName"
-                  placeholder="First and Last"
-                  {...register("brideName")}
-                />
-                <small className="text-red-500">
-                  {errors.brideName?.message}
-                </small>
-              </div>
-              <div>
-                <label htmlFor="groomName">Groom Name</label>
-                <input
-                  type="text"
-                  id="groomName"
-                  placeholder="First and Last"
-                  {...register("groomName")}
-                />
-                <small className="text-red-500">
-                  {errors.groomName?.message}
-                </small>
-              </div>
-              <div>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" {...register("email")} />
-                <small className="text-red-500">{errors.email?.message}</small>
-              </div>
-              <div>
-                <label htmlFor="weddingDate">Wedding Date</label>
-                <input
-                  type="date"
-                  id="weddingDate"
-                  {...register("weddingDate")}
-                />
-                <small className="text-red-500">
-                  {errors.weddingDate?.message}
-                </small>
-              </div>
-              <div>
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  placeholder="555-555-5555"
-                  {...register("phone")}
-                />
-                <small className="text-red-500">{errors.phone?.message}</small>
-              </div>
-              <div>
-                <label htmlFor="venue">Venue</label>
-                <input type="text" id="venue" {...register("venue")} />
-                <small className="text-red-500">{errors.venue?.message}</small>
-              </div>
-              <div className="md:col-span-2">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  placeholder="Tell us about you and your wedding. How can I help?"
-                  rows={6}
-                  {...register("message")}
-                />
-                <small className="text-red-500">
-                  {errors.message?.message}
-                </small>
-              </div>
-            </div>
-            <button
-              className="disabled:opacity-30 disabled:cursor-progress"
-              disabled={loading}
-            >
-              Send
-            </button>
-          </form>
+
+        {/* Divider */}
+        <div className="fade-up delay-400 flex items-center gap-4 my-8 opacity-20">
+          <div className="flex-1 h-px bg-current" />
+          <span className="font-(family-name:--font-display) text-lg italic">
+            ✦
+          </span>
+          <div className="flex-1 h-px bg-current" />
         </div>
-        <div className={`"sentMsg" ${hasSent ? "" : "hidden"}`}>
-          <h2 className="h2">Sent</h2>
-          <p className="p">
-            Thank you for your message. I will be in touch very soon!
+
+        {/* Social */}
+        <div className="fade-up delay-500">
+          <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-5">
+            Follow Along
           </p>
-          <PopularGalleriesClient />
+          <div className="flex items-center justify-center gap-4">
+            {[
+              {
+                href: "https://facebook.com/covenantlx",
+                label: "Facebook",
+                Icon: FacebookIcon
+              },
+              {
+                href: "https://instagram.com/covenant_lx",
+                label: "Instagram",
+                Icon: InstagramIcon
+              },
+              {
+                href: "https://pinterest.com/covenantlx",
+                label: "Pinterest",
+                Icon: PinterestIcon
+              }
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex items-center justify-center size-11 border border-current rounded-full opacity-60 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5"
+              >
+                <Icon />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Ornamental bottom */}
+        <div className="fade-up delay-500 font-(family-name:--font-display) text-2xl opacity-30 tracking-[0.5em] mt-12">
+          ✦
         </div>
       </div>
     </section>

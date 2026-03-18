@@ -32,6 +32,43 @@
   --swiper-theme-color: #4db5f7;
 }
 
+@utility fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+@utility fade-up-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility contact-link {
+  position: relative;
+  display: inline-block;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.4s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
 @layer base {
   body {
     @apply bg-lightGray text-dark font-body;
