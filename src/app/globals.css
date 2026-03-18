@@ -11,42 +11,37 @@
 @import "./styles/components/quickLinks.css";
 @import "./styles/pages/portfolio.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-helvetica: "Helvetica", sans-serif;
-  --font-hoefler: "Hoefler", serif;
-  --font-inter: "Inter", sans-serif;
-  --swiper-theme-color: var(--color-primary) !important;
-}
-
 @theme {
+  /* ── Colors ── */
   --color-primary: #4db5f7;
+  --color-primaryDark: #2d8ec9;
+  --color-primaryTint: #f0f7fe;
   --color-secondary: #5a5a5a;
-  --color-covLightGray: #f9f9f9;
+  --color-dark: #1a1a1a;
+  --color-lightGray: #f9f9f9;
   --color-gold: #a79b7d;
+  --color-goldLight: #c4b89a;
+
+  /* ── Fonts ── */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --color-secondary: #ffffff;
+/* Third-party tokens only */
+:root {
+  --swiper-theme-color: #4db5f7;
+}
+
+@layer base {
+  body {
+    @apply bg-lightGray text-dark font-body;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: var(--font-inter);
-}
-
-h1,
-h2,
-h3,
-li {
-  font-family: var(--font-hoefler);
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-dark;
+  }
 }
 
 .not-used {

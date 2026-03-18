@@ -23,28 +23,32 @@ export default async function Investment() {
           </div>
           <div className="xl:px-16 place-content-center w-full">
             <p className="mb-5">
-              Thank you for considering us for your wedding photography and/or
-              videography needs. We're looking forward to the opportunity to
-              work with you two.
+              Your wedding is one-of-a-kind. Your photography investment should
+              be too.
             </p>
             <p className="mb-5">
-              My pricing starts out at $1599 but most of my couples spend in the
-              ballpark of $2200-2300. I don't want to waste your time with
-              pricing sheets and collections. I used to do that but I have found
-              that couples can get stuck paying for products and services that
-              they don't need in order to get extra time or an extra
-              photographer. How about this: Let's sit down and chat about what
-              your needs and values are and I can build a collection
-              specifically for you?
+              Packages are like buying a suit off the rack — they kind of fit,
+              but not really. At Covenant LX, I build a custom collection around
+              what you actually need, nothing more and nothing less.
             </p>
-            <p>
-              I'm looking forward to you becoming a part of our gallery of
-              brides.
+            <p className="mb-5">
+              Investment starts at $1,599, with most couples investing between
+              $2,200-$2,300.
             </p>
-
-            <Link href="/contact">
-              <button className="mt-5">Let's Start</button>
-            </Link>
+            <p className="mb-5">
+              No confusing pricing sheets. No paying for things you don't need
+              just to unlock more hours. Just a real conversation about your
+              day, your priorities, and what makes sense for you.
+            </p>
+            <p className="mb-5">
+              Ready to build yours?{" "}
+              <Link
+                href="/contact"
+                className="italic text-secondary hover:text-primary transition-colors underline"
+              >
+                Let's talk. →
+              </Link>
+            </p>
           </div>
         </div>
       </div>

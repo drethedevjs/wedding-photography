@@ -8,14 +8,15 @@ export default function About() {
     <>
       <HeroInsetText />
       <div className="container mx-auto lg:px-32 md:px-20 px-10 mt-10">
+        <p className="text-center text-base mb-5">
+          I started Covenant LX because I believe weddings aren't just events —
+          they're the beginning of a family. That belief drives everything about
+          how I work: unhurried, personal, and fully present on your day.
+        </p>
         <p className="text-center text-base mb-10">
-          Covenant LX exists to serve engaged couples in the CSRA by providing
-          them with bright and colorful lifestyle portraits. I'm Andre Thomas
-          and I am thrilled that I get to connect with couples and to capture an
-          array of portraits that will allow them to relive a very special day.
-          It is nice to meet you. I look forward to connecting with you to
-          discuss your wedding day, to get to know you, and to share with you
-          all that Covenant LX has to offer.
+          I'm Andre Thomas — husband, dad of three, and a photographer who
+          genuinely loves this work. I'd love to get to know you and hear what
+          you're dreaming your wedding day looks like.
         </p>
         <hr className="border-t-4 border-gold mb-5" />
         <h2 className="text-center uppercase text-3xl tracking tracking-widest text-gold">
@@ -24,29 +25,22 @@ export default function About() {
         <hr className="border-t-2 border-b border-gold mt-5" />
 
         <div className="mt-10">
-          <TextTitleBlock heading="Faith">
-            If there's anything about me that I want to shine through the most,
-            it's that I am a man of faith (Christian). I am thankful that the
-            Lord graciously choose to reveal Himself to me and saved me during
-            my college years. This fact defines me and everything that I do.
+          <TextTitleBlock heading="Why Weddings Matter to Me">
+            I believe a wedding is more than a celebration — it's a commitment.
+            Two people choosing each other and building something that outlasts
+            the day itself. That's not a small thing. That's everything. It's
+            why I don't treat your wedding like a job. I treat it like it
+            matters — because it does.
           </TextTitleBlock>
-          <TextTitleBlockMulti heading="Family">
+          <TextTitleBlockMulti heading="How I work">
             <>
-              Another thing that I want people to know about me is that I love
-              my family: my amazing wife and my three wonderful kids. When I
-              die, I want it said of me that, “if there was one thing that Andre
-              was good at was being a great husband and a loving father.”
+              My own family is my anchor — my wife and three kids remind me
+              daily what it looks like to choose love over and over again. That
+              perspective comes with me to every wedding. I'm relaxed, I'm
+              present, and I genuinely care about the people in front of my
+              lens.
             </>
-            <>
-              It's a beautiful thing when a man commit himself to the woman he
-              loves. Not to romanticize the union-because marriage is hard-but
-              the best things in life aren't easy.
-            </>
-            <>
-              Weddings are the establishment of families and families are the
-              cornerstone of our society. This is why weddings are meaningful to
-              me.
-            </>
+            <></>
           </TextTitleBlockMulti>
         </div>
 

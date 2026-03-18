@@ -22,21 +22,21 @@ export default async function Home() {
       </div>
       <div className="cov-container gap-5 grid grid-cols-1 text-center">
         <p>
-          I am here to provide couples in Augusta, GA with wedding photography
-          that is bright, fun, and vibrant. Past brides love not only my work
-          but they thoroughly enjoyed spending time with me as their wedding
-          photographer. They choose me because we take moments that are
-          meaningful and make them memorable.
+          Your wedding day is one of the first pages of the most important story
+          you'll ever live. I'm Andre, and at Covenant LX I create bright,
+          vibrant, joyful images for couples in Augusta & the CSRA — photos that
+          don't just show what happened, but how it felt.
         </p>
         <p className="lg:mb-20 mb-10">
-          I am glad you stopped by and please have a look around. Before you go,
-          stop by the contact page and send me a message!
+          Couples who work with me say the same thing: they forgot I was even
+          working. That's the goal. Real moments. Real emotion. Images you'll
+          still love in 30 years. Let's talk about your day →
         </p>
       </div>
 
       <div className="container mx-auto text-center px-5">
         <div className="lg:mt-10 grid lg:grid-cols-3 gap-10 place-items-center">
-          {homePageImages.map((image) => {
+          {homePageImages.map(image => {
             return (
               <div className={image.spaceContainerClasses} key={image.id}>
                 <div className={image.imgDivClasses}>
@@ -44,7 +44,7 @@ export default async function Home() {
                     <Image
                       src={`https://cdn.covenantlx.com/${
                         imageData
-                          ? imageData.find((data) =>
+                          ? imageData.find(data =>
                               data.Key?.includes(image.name)
                             )?.Key
                           : ""

@@ -11,11 +11,11 @@ export default function HeroInsetText() {
           alt="A head-shot of the photographer smiling looking down and to the left."
           priority
         />
-        <div className="absolute inset-10 flex items-center justify-center text-center text-white">
+        <div className="absolute inset-10 flex items-center justify-center text-center">
           <div className="lg:w-2/5 w-6/7">
-            <h1 className="mb-5 italic tracking-wide">About</h1>
-            <h2 className="md:text-2xl uppercase tracking-widest text-shadow-sm">
-              Making Weddings A Day to Remember
+            <h1 className="mb-5 italic tracking-wide text-white">About</h1>
+            <h2 className="md:text-2xl uppercase tracking-widest text-shadow-sm text-white">
+              Where joy meets forever
             </h2>
           </div>
         </div>
