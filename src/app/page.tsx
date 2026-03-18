@@ -9,16 +9,14 @@ export default async function Home() {
   const imageData = await imageHelper.getImageData("home");
   return (
     <>
-      <div className="flex flex-col xl:h-full">
-        <div className="overflow-hidden flex items-center">
-          <Image
-            src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
-            height={1080}
-            width={3000}
-            alt="Popp'n bottles"
-            priority
-          />
-        </div>
+      <div className="relative w-full h-96 lg:h-[calc(100dvh-122px)]">
+        <Image
+          src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
+          alt="Popp'n bottles"
+          fill
+          priority
+          className="object-cover"
+        />
       </div>
       <div className="cov-container gap-5 grid grid-cols-1 text-center">
         <p>

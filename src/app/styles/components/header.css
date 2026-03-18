@@ -1,6 +1,6 @@
 /* Header.module.css */
 .header-container {
-  @apply grid grid-rows-3 grid-flow-col py-5 px-20;
+  @apply grid grid-rows-3 grid-flow-col;
 }
 
 .header-ul-rev {
@@ -28,7 +28,7 @@
 }
 
 .mobile-links {
-  @apply h-full bg-secondary dark:bg-gray-700 z-10 w-full fixed;
+  @apply h-full bg-primaryTint dark:bg-gray-700 z-10 w-full fixed;
 }
 
 .header-link {

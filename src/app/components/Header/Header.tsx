@@ -55,6 +55,7 @@ export default function Header() {
                   width={386}
                   height={196}
                   priority
+                  className="w-60 h-auto"
                 />
               ) : (
                 <Image
@@ -63,6 +64,7 @@ export default function Header() {
                   width={386}
                   height={196}
                   priority
+                  className="w-60 h-auto"
                 />
               ))}
           </Link>
@@ -76,9 +78,7 @@ export default function Header() {
       {/* Mobile */}
       <div className="mobile-header-container">
         <div
-          className={`p-5 flex flex-row mb-10 ${
-            mobileMenuOpen ? "hidden" : "flex"
-          }`}
+          className={`p-5 flex flex-row ${mobileMenuOpen ? "hidden" : "flex"}`}
         >
           <div className="place-content-center text-secondary ml-4">
             <Bars2Icon className="size-10" onClick={toggleMenu} />
@@ -90,7 +90,7 @@ export default function Header() {
             mobileMenuOpen ? "flex flex-col" : "hidden"
           }`}
         >
-          <div className="p-5 flex flex-row mb-10 bg-white dark:bg-slate-700">
+          <div className="p-5 flex flex-row mb-10 bg-white dark:bg-dark">
             <div className="place-content-center text-secondary ml-4">
               <XMarkIcon
                 className="size-10 dark:text-white"

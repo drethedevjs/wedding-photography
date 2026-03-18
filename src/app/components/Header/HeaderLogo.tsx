@@ -22,8 +22,8 @@ export default function HeaderLogo({
           width={300}
           height={300}
           alt="Covenant LX Logo"
-          className="mx-auto"
-          style={{ width: "auto", height: "auto" }}
+          className="mx-auto w-52 h-auto"
+          // style={{ width: "auto", height: "auto" }}
           priority
         />
       </Link>
