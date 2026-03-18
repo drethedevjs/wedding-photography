@@ -78,7 +78,7 @@ export default function Header() {
       {/* Mobile */}
       <div className="mobile-header-container">
         <div
-          className={`p-5 flex flex-row ${mobileMenuOpen ? "hidden" : "flex"}`}
+          className={`p-5 flex flex-row dark:bg-dark ${mobileMenuOpen ? "hidden" : "flex"}`}
         >
           <div className="place-content-center text-secondary ml-4">
             <Bars2Icon className="size-10" onClick={toggleMenu} />

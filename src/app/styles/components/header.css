@@ -1,6 +1,6 @@
 /* Header.module.css */
 .header-container {
-  @apply grid grid-rows-3 grid-flow-col;
+  @apply grid grid-rows-3 grid-flow-col dark:bg-dark dark:text-primaryTint;
 }
 
 .header-ul-rev {

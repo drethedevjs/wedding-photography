@@ -98,11 +98,11 @@ main {
 }
 
 .cov-container {
-  @apply container mx-auto xl:px-52 px-10 pt-10;
+  @apply container mx-auto xl:px-52 px-10 pt-10 pb-10;
 }
 
 .cov-container-page {
-  @apply container mx-auto lg:px-32 px-10;
+  @apply container mx-auto lg:px-24 px-10 mt-10;
 }
 
 .cborder {

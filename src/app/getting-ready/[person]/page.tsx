@@ -17,7 +17,7 @@ export default async function Bride({
     <section>
       <div className="cov-container-page text-center">
         <h1 className="pageH1">{capitalizedPerson}</h1>
-        <p>
+        <p className="max-w-4xl mx-auto">
           To capture the perfect moments on your wedding day, please have the
           following items ready for photographing. Having these items prepared
           in advance will ensure a smooth and efficient day when I arrive. This

@@ -10,7 +10,7 @@ export default async function Portfolio() {
 
   return (
     <>
-      <div className="container mx-auto px-10">
+      <div className="cov-container-page">
         <h1 className="pageH1">Portfolio</h1>
         <div className="pGrid">
           {galleries.map(g => {
