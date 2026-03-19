@@ -110,7 +110,7 @@ main {
 }
 
 button {
-  @apply hover:bg-primary transition-colors uppercase tracking-widest py-3 md:px-5 w-full bg-gold text-white rounded;
+  @apply italic font-semibold hover:text-gold transition-colors p-3 rounded-xl ring-1;
 }
 
 label,
