@@ -1,5 +1,4 @@
 "use client";
-import { CoupleFormData } from "@/interface/CoupleFormData";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -7,29 +6,10 @@ import {
   PhoneIcon,
   PinterestIcon
 } from "@/utils/icons";
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import "dotenv/config";
-import { useEffect, useRef, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { object, string } from "yup";
-
-const schema = object({
-  brideName: string().required("Bride Name is required"),
-  groomName: string().required("Groom Name is required"),
-  email: string().email("Invalid email").required("Email is required"),
-  weddingDate: string().required("Wedding Date is required"),
-  phone: string().required("Phone is required"),
-  venue: string().required("Venue is required"),
-  message: string()
-    .min(15, "Message isn't long enough")
-    .required("Message is required")
-});
+import { useEffect, useRef } from "react";
 
 export default function Contact() {
-  const [hasSent, setHasSent] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,32 +29,6 @@ export default function Contact() {
 
     return () => observer.disconnect();
   }, []);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<CoupleFormData>({
-    resolver: yupResolver<CoupleFormData>(schema)
-  });
-
-  const handleFormSubmit: SubmitHandler<CoupleFormData> = async formData => {
-    setLoading(true);
-
-    try {
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_MAILER_URL}/api/email/send-covenant`,
-        formData
-      );
-      setHasSent(true);
-    } catch (err: unknown) {
-      if (axios.isAxiosError(err)) console.error(err.message);
-
-      console.error("An unexpected error has occurred:", err);
-    }
-
-    setLoading(false);
-  };
 
   return (
     <section className="font-(family-name:--font-body) font-light min-h-screen flex items-center justify-center px-6 py-24">
