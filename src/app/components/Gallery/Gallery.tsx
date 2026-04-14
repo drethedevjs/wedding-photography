@@ -1,7 +1,10 @@
 "use server";
 
 import cloudinary from "@/utils/cloudinary";
-import { FEATURED_IMAGE } from "@/utils/tags";
+import {
+  ENGAGEMENT_FEATURED_IMAGE,
+  WEDDING_FEATURED_IMAGE
+} from "@/utils/tags";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import CovLXSlider from "../CovLXSlider/CovLXSlider";
@@ -20,9 +23,15 @@ export default async function GalleryComponent({
 
   if (!galleryImageData || !galleryImageData.length) redirect("/portfolio");
 
+  const featImageTag =
+    galleryType === "wedding"
+      ? WEDDING_FEATURED_IMAGE
+      : ENGAGEMENT_FEATURED_IMAGE;
+
   const featImage = galleryImageData?.find(
-    g => g.tags?.length && g.tags.includes(FEATURED_IMAGE)
+    g => g.tags?.length && g.tags.includes(featImageTag)
   );
+
   return (
     <section>
       <div className="relative w-full overflow-hidden md:h-[800] h-[300]">

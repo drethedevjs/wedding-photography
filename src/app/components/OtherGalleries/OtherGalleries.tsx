@@ -1,5 +1,8 @@
 import cloudinary from "@/utils/cloudinary";
-import { FEATURED_IMAGE } from "@/utils/tags";
+import {
+  ENGAGEMENT_FEATURED_IMAGE,
+  WEDDING_FEATURED_IMAGE
+} from "@/utils/tags";
 import Image from "next/image";
 import Link from "next/link";
 import otherGalleryHelper from "./OtherGalleryHelper";
@@ -11,7 +14,12 @@ export default async function OtherGalleries({
   currentGalleryName: string;
   galleryType: string;
 }) {
-  const portfolioImages = await cloudinary.getImageData(null, FEATURED_IMAGE);
+  const featImageTag =
+    galleryType === "wedding"
+      ? WEDDING_FEATURED_IMAGE
+      : ENGAGEMENT_FEATURED_IMAGE;
+
+  const portfolioImages = await cloudinary.getImageData(null, featImageTag);
   if (!portfolioImages || portfolioImages.length < 2) return;
 
   const { left, right } = otherGalleryHelper.getLeftAndRightGallery(

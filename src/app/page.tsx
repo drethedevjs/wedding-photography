@@ -38,7 +38,7 @@ export default async function Home() {
             return (
               <div className={image.spaceContainerClasses} key={image.id}>
                 <div className={image.imgDivClasses}>
-                  <Link href={`gallery?id=${image.id}`}>
+                  <Link href={`gallery/${image.link}`}>
                     <Image
                       src={`https://cdn.covenantlx.com/${
                         imageData
