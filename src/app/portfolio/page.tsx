@@ -1,12 +1,11 @@
-import galleries from "@/data/galleries";
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Portfolio() {
-  const imageData = await imageHelper.getImageData("feat");
+  const galleries = await cloudinary.getImageDataByTag("wedding-portfolio");
 
-  if (!imageData) return <p>Nothing</p>;
+  if (!galleries) return <p>No galleries present</p>;
 
   return (
     <>
@@ -14,17 +13,22 @@ export default async function Portfolio() {
         <h1 className="pageH1">Portfolio</h1>
         <div className="pGrid">
           {galleries.map(g => {
-            if (g.isActive) {
+            if (g.metadata.isActive) {
               return (
-                <Link href={`gallery?id=${g.id}`} key={g.id}>
+                <Link
+                  href={`gallery/wedding/${g.metadata.galleryName}`}
+                  key={g.metadata.galleryName}
+                >
                   <Image
-                    src={imageHelper.getImageSrc(imageData!, g.heroImageTag)}
+                    src={cloudinary.getImageSrc(g.fileName)}
                     height={800}
                     width={800}
-                    alt={g.heroImageAlt}
+                    alt=""
                     className="rounded-xl"
                   />
-                  <h2 className="gallery-name">{g.name}</h2>
+                  <h2 className="gallery-name">
+                    {g.metadata.galleryName} Wedding
+                  </h2>
                 </Link>
               );
             }

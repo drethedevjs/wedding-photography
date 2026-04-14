@@ -1,16 +1,23 @@
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
+import { FEATURED_IMAGE } from "@/utils/tags";
 import Image from "next/image";
 import Link from "next/link";
 import otherGalleryHelper from "./OtherGalleryHelper";
 
 export default async function OtherGalleries({
-  currentGalleryId
+  currentGalleryName,
+  galleryType
 }: {
-  currentGalleryId: number;
+  currentGalleryName: string;
+  galleryType: string;
 }) {
-  const { leftGallery, rightGallery } =
-    otherGalleryHelper.getLeftAndRightGallery(currentGalleryId);
-  const featImageData = await imageHelper.getImageData("feat");
+  const portfolioImages = await cloudinary.getImageData(null, FEATURED_IMAGE);
+  if (!portfolioImages || portfolioImages.length < 2) return;
+
+  const { left, right } = otherGalleryHelper.getLeftAndRightGallery(
+    portfolioImages,
+    currentGalleryName
+  );
 
   return (
     <div className="ogGallery">
@@ -18,34 +25,30 @@ export default async function OtherGalleries({
       <div className="flex md:flex-row md:gap-5 flex-col gap-5">
         <div className="w-full md:place-items-center">
           <Image
-            src={imageHelper.getImageSrc(
-              featImageData!,
-              leftGallery!.heroImageTag
-            )}
+            src={cloudinary.getClientImageSrc(left?.fileName!)}
             height={500}
             width={500}
-            alt={leftGallery!.heroImageAlt}
+            alt=""
             className="rounded-lg"
           />
-          <h3 className="gallery-name">{leftGallery?.name}</h3>
-          <Link href={`/gallery?id=${leftGallery!.id}`}>
+          <h3 className="gallery-name">{left?.metadata.galleryName} Wedding</h3>
+          <Link href={`/gallery/${galleryType}/${left?.metadata.galleryName}`}>
             <button>View Gallery</button>
           </Link>
         </div>
 
         <div className="w-full md:place-items-center">
           <Image
-            src={imageHelper.getImageSrc(
-              featImageData!,
-              rightGallery!.heroImageTag
-            )}
+            src={cloudinary.getClientImageSrc(right?.fileName!)}
             height={500}
             width={500}
-            alt={rightGallery!.heroImageAlt}
+            alt=""
             className="rounded-lg"
           />
-          <h3 className="gallery-name">{rightGallery?.name}</h3>
-          <Link href={`/gallery?id=${rightGallery!.id}`}>
+          <h3 className="gallery-name">
+            {right?.metadata.galleryName} Wedding
+          </h3>
+          <Link href={`/gallery/${galleryType}/${right?.metadata.galleryName}`}>
             <button>View Gallery</button>
           </Link>
         </div>

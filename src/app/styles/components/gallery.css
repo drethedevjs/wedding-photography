@@ -28,5 +28,5 @@ small {
 
 .swiper-button-prev,
 .swiper-button-next {
-  @apply drop-shadow-2xl bg-white rounded-full p-8 hover:ring-primary hover:ring-2;
+  @apply drop-shadow-2xl bg-white rounded-full p-3 mx-5! hover:ring-primary hover:ring-2;
 }

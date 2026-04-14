@@ -11,11 +11,11 @@ export default async function Home() {
     <>
       <div className="relative w-full h-96 lg:h-[calc(100dvh-122px)]">
         <Image
-          src={`${process.env.CDN_PREFIX}/hero/csra-augusta-ga-wedding-photographer-cowles-hero.jpg`}
+          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_DELIVERY_URL}/augusta-ga-wedding-photographer-cowles-271_ovxvsd.jpg`}
           alt="Popp'n bottles"
           fill
           priority
-          className="object-cover"
+          className="object-cover w-full h-full"
         />
       </div>
       <div className="cov-container gap-5 grid grid-cols-1 text-center">

@@ -1,24 +1,48 @@
-import galleries from "@/data/galleries";
+import CovLXImageData from "@/interface/ImageData";
 
 const otherGalleryHelper = {
-  getLeftAndRightGallery(currentGalleryId: number) {
-    // Filter out the current gallery and get only active galleries
-    const availableGalleries = galleries.filter(
-      (g) => g.id !== currentGalleryId && g.isActive
+  getLeftAndRightGallery(
+    portfolio: CovLXImageData[],
+    currentGalleryName: string
+  ) {
+    // 1. Get unique gallery names from the image data
+    // We filter out the current gallery and ensure the metadata says it's active
+    const uniqueGalleries: CovLXImageData[] = Array.from(
+      new Set(
+        portfolio.filter(
+          img =>
+            img.metadata.isActive &&
+            img.metadata.galleryName !== currentGalleryName
+        )
+      )
     );
 
-    // Get random left gallery
-    const leftIndex = Math.floor(Math.random() * availableGalleries.length);
-    const leftGallery = availableGalleries[leftIndex];
+    if (uniqueGalleries.length < 2) {
+      // Fallback if there aren't enough galleries to show two different ones
+      return {
+        left: uniqueGalleries[0],
+        right: null
+      };
+    }
 
-    // Remove the left gallery from available options and get random right gallery
-    const remainingGalleries = availableGalleries.filter(
-      (g) => g.id !== leftGallery.id
+    // 2. Shuffle or pick two unique indices
+    const shuffled = uniqueGalleries.sort(() => 0.5 - Math.random());
+
+    const leftGalleryName = shuffled[0];
+    const rightGalleryName = shuffled[1];
+
+    // 3. Find one representative image for each gallery to use as the thumbnail
+    const leftGalleryImage = portfolio.find(
+      img => img.metadata.galleryName === leftGalleryName.metadata.galleryName
     );
-    const rightGallery =
-      remainingGalleries[Math.floor(Math.random() * remainingGalleries.length)];
+    const rightGalleryImage = portfolio.find(
+      img => img.metadata.galleryName === rightGalleryName.metadata.galleryName
+    );
 
-    return { leftGallery, rightGallery };
+    return {
+      left: leftGalleryImage,
+      right: rightGalleryImage
+    };
   }
 };
 

@@ -1,6 +1,6 @@
 "use client";
-import imageHelper from "@/utils/ImageHelper";
-import { _Object } from "@aws-sdk/client-s3";
+import CovLXImageData from "@/interface/ImageData";
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export default function CovLXSlider({
   galleryImageData
 }: {
-  galleryImageData: _Object[];
+  galleryImageData: CovLXImageData[];
 }) {
   return (
     <>
@@ -28,12 +28,12 @@ export default function CovLXSlider({
           {galleryImageData.map((image, index) => {
             return (
               <SwiperSlide
-                key={image.Key}
+                key={`${image.metadata.galleryName}-${index}`}
                 className="!w-auto !h-full flex items-center justify-center"
               >
                 <div className="h-[600px] relative mx-auto flex items-center justify-center">
                   <Image
-                    src={imageHelper.getImageSrc(galleryImageData, image.Key!)}
+                    src={cloudinary.getClientImageSrc(image.fileName)}
                     alt={`Augusta, GA Wedding Photographer - ${index + 1}`}
                     width={800}
                     height={1200}
@@ -64,12 +64,12 @@ export default function CovLXSlider({
           {galleryImageData.map((image, index) => {
             return (
               <SwiperSlide
-                key={image.Key}
+                key={`${image.metadata.galleryName}-${index}`}
                 className="!h-auto !w-full flex items-center justify-center"
               >
                 <div className="w-full px-4 py-2.5 flex items-center justify-center">
                   <Image
-                    src={imageHelper.getImageSrc(galleryImageData, image.Key!)}
+                    src={cloudinary.getClientImageSrc(image.fileName)}
                     alt={`Augusta, GA Wedding Photographer - ${index + 1}`}
                     width={400}
                     height={600}

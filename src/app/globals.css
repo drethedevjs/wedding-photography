@@ -3,7 +3,8 @@
 @source "../../.flowbite-react/class-list.json";
 /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"); */
 @import "swiper/css";
-@import "swiper/css/bundle";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 @import "./styles/components/header.css";
 @import "./styles/components/covLXSlider.css";
 @import "./styles/components/gallery.css";

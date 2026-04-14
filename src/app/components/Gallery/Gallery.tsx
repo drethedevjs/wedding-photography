@@ -1,42 +1,52 @@
 "use server";
 
-import galleries from "@/data/galleries";
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
+import { FEATURED_IMAGE } from "@/utils/tags";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import CovLXSlider from "../CovLXSlider/CovLXSlider";
 import OtherGalleries from "../OtherGalleries/OtherGalleries";
 
 export default async function GalleryComponent({
-  galleryId
+  galleryName,
+  galleryType
 }: {
-  galleryId: number;
+  galleryName: string;
+  galleryType: string;
 }) {
-  const gallery = galleries[galleryId - 1];
-  const galleryImageData = await imageHelper.getImageData(
-    `gallery:${gallery.heroImageTag}`
+  const galleryImageData = await cloudinary.getImageData(
+    `covenantlx/${galleryType}/${galleryName}`
   )!;
-  const featImageData = await imageHelper.getImageData("feat");
 
+  if (!galleryImageData || !galleryImageData.length) redirect("/portfolio");
+
+  const featImage = galleryImageData?.find(
+    g => g.tags?.length && g.tags.includes(FEATURED_IMAGE)
+  );
   return (
     <section>
       <div className="relative w-full overflow-hidden md:h-[800] h-[300]">
         <Image
-          src={imageHelper.getImageSrc(featImageData!, gallery.heroImageTag)}
+          src={cloudinary.getImageSrc(featImage?.fileName!)}
           fill={true}
           style={{ objectFit: "cover", objectPosition: "center" }}
-          alt={gallery.heroImageAlt}
+          alt=""
           priority
+          loading="eager"
         />
         <div className="absolute inset-10 flex items-center justify-center text-center">
           <h1 className="md:text-9xl text-4xl uppercase tracking-widest text-shadow-lg text-white rounded">
-            {gallery.name}
+            {`${galleryName} Engagement`}
           </h1>
         </div>
       </div>
 
       <CovLXSlider galleryImageData={galleryImageData!} />
 
-      <OtherGalleries currentGalleryId={gallery.id} />
+      <OtherGalleries
+        currentGalleryName={galleryName!}
+        galleryType={galleryType}
+      />
     </section>
   );
 }
