@@ -13,25 +13,23 @@ export default async function Portfolio() {
         <h1 className="pageH1">Portfolio</h1>
         <div className="pGrid">
           {galleries.map(g => {
-            if (g.metadata.isActive) {
-              return (
-                <Link
-                  href={`gallery/wedding/${g.metadata.galleryName}`}
-                  key={g.metadata.galleryName}
-                >
-                  <Image
-                    src={cloudinary.getImageSrc(g.fileName)}
-                    height={800}
-                    width={800}
-                    alt=""
-                    className="rounded-xl"
-                  />
-                  <h2 className="gallery-name">
-                    {g.metadata.galleryName} Wedding
-                  </h2>
-                </Link>
-              );
-            }
+            return (
+              <Link
+                href={`gallery/wedding/${g.metadata.galleryName}`}
+                key={g.metadata.galleryName}
+              >
+                <Image
+                  src={cloudinary.getImageSrc(g.fileName)}
+                  height={800}
+                  width={800}
+                  alt=""
+                  className="rounded-xl"
+                />
+                <h2 className="gallery-name">
+                  {g.metadata.galleryName} Wedding
+                </h2>
+              </Link>
+            );
           })}
         </div>
       </div>
