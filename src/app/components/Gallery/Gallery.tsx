@@ -5,6 +5,7 @@ import {
   ENGAGEMENT_FEATURED_IMAGE,
   WEDDING_FEATURED_IMAGE
 } from "@/utils/tags";
+import { capitalize } from "@/utils/utility";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import CovLXSlider from "../CovLXSlider/CovLXSlider";
@@ -45,7 +46,7 @@ export default async function GalleryComponent({
         />
         <div className="absolute inset-10 flex items-center justify-center text-center">
           <h1 className="md:text-9xl text-4xl uppercase tracking-widest text-shadow-lg text-white rounded">
-            {`${galleryName} Engagement`}
+            {`${galleryName} ${capitalize(galleryType)}`}
           </h1>
         </div>
       </div>

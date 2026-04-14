@@ -3,6 +3,7 @@ import {
   ENGAGEMENT_FEATURED_IMAGE,
   WEDDING_FEATURED_IMAGE
 } from "@/utils/tags";
+import { capitalize } from "@/utils/utility";
 import Image from "next/image";
 import Link from "next/link";
 import otherGalleryHelper from "./OtherGalleryHelper";
@@ -39,7 +40,9 @@ export default async function OtherGalleries({
             alt=""
             className="rounded-lg"
           />
-          <h3 className="gallery-name">{left?.metadata.galleryName} Wedding</h3>
+          <h3 className="gallery-name">
+            {left?.metadata.galleryName} {capitalize(galleryType)}
+          </h3>
           <Link href={`/gallery/${galleryType}/${left?.metadata.galleryName}`}>
             <button>View Gallery</button>
           </Link>
@@ -54,7 +57,7 @@ export default async function OtherGalleries({
             className="rounded-lg"
           />
           <h3 className="gallery-name">
-            {right?.metadata.galleryName} Wedding
+            {right?.metadata.galleryName} {capitalize(galleryType)}
           </h3>
           <Link href={`/gallery/${galleryType}/${right?.metadata.galleryName}`}>
             <button>View Gallery</button>
