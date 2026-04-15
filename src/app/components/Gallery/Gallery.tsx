@@ -40,7 +40,7 @@ export default async function GalleryComponent({
           src={cloudinary.getImageSrc(featImage?.fileName!)}
           fill={true}
           style={{ objectFit: "cover", objectPosition: "center" }}
-          alt=""
+          alt={featImage?.metadata.alt ?? ""}
           priority
           loading="eager"
         />

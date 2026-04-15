@@ -2,22 +2,46 @@
 import imageHelper from "@/utils/ImageHelper";
 import useDarkMode from "@/utils/useDarkMode";
 import { _Object } from "@aws-sdk/client-s3";
-import { Bars2Icon } from "@heroicons/react/16/solid";
+import { Bars2Icon, ChevronDownIcon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeaderLogo from "./HeaderLogo";
+
+const portfolioLinks = [
+  { label: "Weddings", href: "/portfolio/wedding" },
+  { label: "Engagements", href: "/portfolio/engagement" }
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [portfolioOpen, setPortfolioOpen] = useState<boolean>(false);
+  const [mobilePortfolioOpen, setMobilePortfolioOpen] =
+    useState<boolean>(false);
   const [logoImageData, setLogoImageData] = useState<_Object[]>();
   const { isDarkMode } = useDarkMode();
   const router = useRouter();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setPortfolioOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navigate = (path: string) => {
-    toggleMenu();
+    setMobileMenuOpen(false);
+    setMobilePortfolioOpen(false);
     router.push(path);
   };
 
@@ -33,7 +57,6 @@ export default function Header() {
       const data = await res.json();
       setLogoImageData(data);
     }
-
     fetchLogoData();
   }, []);
 
@@ -70,7 +93,29 @@ export default function Header() {
           </Link>
         </div>
         <div className="header-ul-rev header-group">
-          <Link href="/portfolio">Portfolio</Link>
+          {/* Portfolio dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              className="header-link not-italic! font-normal! ring-0! p-0!"
+              onClick={() => setPortfolioOpen(!portfolioOpen)}
+            >
+              Portfolio
+            </button>
+            {portfolioOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-40 rounded shadow-lg bg-white dark:bg-dark border border-gray-100 dark:border-gray-700 z-50">
+                {portfolioLinks.map(({ label, href }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setPortfolioOpen(false)}
+                    className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 text-center"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <Link href="/contact">Contact</Link>
         </div>
       </div>
@@ -86,9 +131,7 @@ export default function Header() {
           <HeaderLogo logoImageData={logoImageData} />
         </div>
         <div
-          className={`mobile-links ${
-            mobileMenuOpen ? "flex flex-col" : "hidden"
-          }`}
+          className={`mobile-links ${mobileMenuOpen ? "flex flex-col" : "hidden"}`}
         >
           <div className="p-5 flex flex-row mb-10 bg-white dark:bg-dark">
             <div className="place-content-center text-secondary ml-4">
@@ -109,10 +152,33 @@ export default function Header() {
             <li onClick={() => navigate("/investment")} className="header-link">
               Investment
             </li>
-            <li onClick={() => navigate("/portfolio")} className="header-link">
-              Portfolio
+
+            {/* Portfolio accordion */}
+            <li className="header-link">
+              <button
+                onClick={() => setMobilePortfolioOpen(!mobilePortfolioOpen)}
+                className="header-link not-italic! font-normal! ring-0! p-0! flex"
+              >
+                Portfolio
+                <ChevronDownIcon
+                  className={`size-6 transition-transform duration-200 ${mobilePortfolioOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobilePortfolioOpen && (
+                <ul className="mt-3 ml-4 flex flex-col gap-3 text-2xl">
+                  {portfolioLinks.map(({ label, href }) => (
+                    <li
+                      key={href}
+                      onClick={() => navigate(href)}
+                      className="opacity-70 hover:opacity-100"
+                    >
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
-            {/* <li onClick={() => navigate("/blog")} className="header-link">Blog</li> */}
+
             <li onClick={() => navigate("/contact")} className="header-link">
               Contact
             </li>
