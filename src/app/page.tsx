@@ -1,12 +1,13 @@
 import homePageImages from "@/data/homePageImages";
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 import PhotogSnippet from "./components/PhotogSnippet/PhotogSnippet";
 import QuickLinks from "./components/Quick Links/QuickLinks";
 
 export default async function Home() {
-  const imageData = await imageHelper.getImageData("home");
+  const cloudImageData = await cloudinary.getImageDataByTag("home-page-grid");
+
   return (
     <>
       <div className="relative w-full h-96 lg:h-[calc(100dvh-122px)]">
@@ -40,6 +41,21 @@ export default async function Home() {
                 <div className={image.imgDivClasses}>
                   <Link href={`gallery/${image.link}`}>
                     <Image
+                      src={`${process.env.NEXT_PUBLIC_CLOUDINARY_DELIVERY_URL}/${
+                        cloudImageData
+                          ? cloudImageData.find(data =>
+                              data.fileName?.includes(image.name)
+                            )?.fileName
+                          : ""
+                      }`}
+                      width={image.width}
+                      height={image.height}
+                      alt={image.alt}
+                      loading="lazy"
+                      className="hover:rotate-1 rounded-lg transition-transform hover:scale-95 shadow-lg"
+                    />
+                  </Link>
+                  {/* <Image
                       src={`https://cdn.covenantlx.com/${
                         imageData
                           ? imageData.find(data =>
@@ -53,7 +69,7 @@ export default async function Home() {
                       loading="lazy"
                       className="hover:rotate-1 rounded-lg transition-transform hover:scale-95 shadow-lg"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
                 <p className="sub-title">{image.subTitle}</p>
               </div>

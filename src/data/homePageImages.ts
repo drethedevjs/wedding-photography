@@ -5,7 +5,7 @@ const homePageImages: HomePageImage[] = [
     id: 1,
     spaceContainerClasses: "",
     imgDivClasses: "",
-    name: "prichard",
+    name: "pritchard",
     width: 800,
     height: 600,
     alt: "Bride and groom in a close embrace, bride adjusting groom's bow tie.",
