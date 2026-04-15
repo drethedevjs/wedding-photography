@@ -20,13 +20,13 @@ export async function GET(req: Request) {
     if (tag != null) {
       result = await cloudinary.search
         .expression(tag)
-        .fields("tags")
+        .fields(["tags", "context"])
         .max_results(30)
         .execute();
     } else {
       result = await cloudinary.search
         .expression(`asset_folder:${folderName}/*`)
-        .fields("tags")
+        .fields(["tags", "context"])
         .sort_by("filename", "asc")
         .max_results(30)
         .execute();
@@ -40,7 +40,10 @@ export async function GET(req: Request) {
         format: resource.format,
         isActive: resource.status === "active",
         galleryName: resource.asset_folder.split("/").pop(),
-        directory: resource.asset_folder
+        directory: resource.asset_folder,
+        atl: resource.context?.hasOwnProperty("alt")
+          ? resource.context.alt
+          : "Augusta, GA Wedding Photographer"
       },
       fileName:
         resource.display_name ?? resource.filename ?? resource.public_id,

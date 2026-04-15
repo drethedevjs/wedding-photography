@@ -12,4 +12,5 @@ interface Metadata {
   isActive: boolean;
   galleryName: string;
   directory: string;
+  alt: string;
 }

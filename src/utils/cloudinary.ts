@@ -58,7 +58,7 @@ const cloudinary = {
         console.error(res);
         const errorData = await res.json();
         console.error("Error getting image(s): ", errorData);
-        throw new Error("Failed to fetch image data by t ag");
+        throw new Error("Failed to fetch image data by tag");
       }
 
       return (await res.json()) as CovLXImageData[];

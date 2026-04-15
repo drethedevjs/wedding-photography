@@ -15,4 +15,7 @@ export default interface CloudinaryResource {
   asset_folder: string;
   display_name: string;
   tags: string[];
+  context: {
+    alt: string;
+  };
 }
