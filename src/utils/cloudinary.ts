@@ -16,7 +16,7 @@ const cloudinary = {
     }
 
     const res = await fetch(url, {
-      cache: "force-cache",
+      next: { revalidate: 3600 },
       method: "GET"
     });
 
