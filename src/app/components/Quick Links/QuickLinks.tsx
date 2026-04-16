@@ -9,12 +9,26 @@ export default function QuickLinks() {
           <p className="sub-title">investment & details</p>
         </div>
       </Link>
-      <Link href="/portfolio">
-        <div className="block middle">
-          <h3 className="quick-link-header">Portfolio</h3>
-          <p className="sub-title">see my work!</p>
-        </div>
-      </Link>
+
+      <div className="block middle">
+        <h3 className="quick-link-header">Portfolio</h3>
+        <p className="sub-title">
+          <Link
+            href="/portfolio/wedding"
+            className="hover:text-gold hover:font-semibold"
+          >
+            Weddings
+          </Link>
+          &nbsp;//&nbsp;
+          <Link
+            href="/portfolio/engagement"
+            className="hover:text-gold hover:font-semibold"
+          >
+            Engagements
+          </Link>
+        </p>
+      </div>
+
       <div className="block">
         <h3 className="quick-link-header">Stay in Touch</h3>
         <p className="sub-title">

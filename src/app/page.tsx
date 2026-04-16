@@ -55,21 +55,6 @@ export default async function Home() {
                       className="hover:rotate-1 rounded-lg transition-transform hover:scale-95 shadow-lg"
                     />
                   </Link>
-                  {/* <Image
-                      src={`https://cdn.covenantlx.com/${
-                        imageData
-                          ? imageData.find(data =>
-                              data.Key?.includes(image.name)
-                            )?.Key
-                          : ""
-                      }`}
-                      width={image.width}
-                      height={image.height}
-                      alt={image.alt}
-                      loading="lazy"
-                      className="hover:rotate-1 rounded-lg transition-transform hover:scale-95 shadow-lg"
-                    />
-                  </Link> */}
                 </div>
                 <p className="sub-title">{image.subTitle}</p>
               </div>
