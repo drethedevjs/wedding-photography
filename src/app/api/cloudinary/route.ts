@@ -19,7 +19,7 @@ export async function GET(req: Request) {
 
     if (tag != null) {
       result = await cloudinary.search
-        .expression(tag)
+        .expression(`tags=${tag}`)
         .fields(["tags", "context"])
         .max_results(30)
         .execute();

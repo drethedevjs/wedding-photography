@@ -1,29 +1,25 @@
 "use client";
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
 import useDarkMode from "@/utils/useDarkMode";
-import { _Object } from "@aws-sdk/client-s3";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HeaderLogo({
-  logoImageData
-}: {
-  logoImageData: _Object[] | undefined;
-}) {
+export default function HeaderLogo() {
   const { isDarkMode } = useDarkMode();
-  const prefix = isDarkMode ? "mobile-dark" : "mobile-light";
-  if (!logoImageData) return null;
+
+  const logoFileName = isDarkMode
+    ? `logo-white-SUBMARK1-augusta-wedding-photographer_ooclgu`
+    : `logo-blk-SUBMARK1-augusta-wedding-photographer_qclxvy`;
 
   return (
     <div className="w-full">
       <Link href="/">
         <Image
-          src={imageHelper.getImageSrc(logoImageData!, prefix)}
+          src={cloudinary.getClientImageSrc(logoFileName)}
           width={300}
           height={300}
           alt="Covenant LX Logo"
           className="mx-auto w-52 h-auto"
-          // style={{ width: "auto", height: "auto" }}
           priority
         />
       </Link>

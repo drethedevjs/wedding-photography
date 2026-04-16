@@ -1,7 +1,6 @@
 "use client";
-import imageHelper from "@/utils/ImageHelper";
+import cloudinary from "@/utils/cloudinary";
 import useDarkMode from "@/utils/useDarkMode";
-import { _Object } from "@aws-sdk/client-s3";
 import { Bars2Icon, ChevronDownIcon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -20,7 +19,6 @@ export default function Header() {
   const [portfolioOpen, setPortfolioOpen] = useState<boolean>(false);
   const [mobilePortfolioOpen, setMobilePortfolioOpen] =
     useState<boolean>(false);
-  const [logoImageData, setLogoImageData] = useState<_Object[]>();
   const { isDarkMode } = useDarkMode();
   const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -49,17 +47,6 @@ export default function Header() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  useEffect(() => {
-    async function fetchLogoData() {
-      const res = await fetch("/api/images?prefix=logo", {
-        cache: "force-cache"
-      });
-      const data = await res.json();
-      setLogoImageData(data);
-    }
-    fetchLogoData();
-  }, []);
-
   return (
     <nav>
       {/* Desktop */}
@@ -70,26 +57,29 @@ export default function Header() {
         </div>
         <div className="logo">
           <Link href="/">
-            {logoImageData &&
-              (isDarkMode ? (
-                <Image
-                  src={imageHelper.getImageSrc(logoImageData, "dark-main")}
-                  alt="Covenant LX main logo"
-                  width={386}
-                  height={196}
-                  priority
-                  className="w-60 h-auto"
-                />
-              ) : (
-                <Image
-                  src={imageHelper.getImageSrc(logoImageData, "light-main")}
-                  alt="Covenant LX main logo"
-                  width={386}
-                  height={196}
-                  priority
-                  className="w-60 h-auto"
-                />
-              ))}
+            {isDarkMode ? (
+              <Image
+                src={cloudinary.getClientImageSrc(
+                  `logo-white-MAIN-augusta-wedding-photographer_aghooy.png`
+                )}
+                alt="Covenant LX main logo"
+                width={386}
+                height={196}
+                priority
+                className="w-60 h-auto"
+              />
+            ) : (
+              <Image
+                src={cloudinary.getClientImageSrc(
+                  `logo-blk-MAIN-augusta-wedding-photographer_gmfegu.png`
+                )}
+                alt="Covenant LX main logo"
+                width={386}
+                height={196}
+                priority
+                className="w-60 h-auto"
+              />
+            )}
           </Link>
         </div>
         <div className="header-ul-rev header-group">
@@ -128,7 +118,7 @@ export default function Header() {
           <div className="place-content-center text-secondary ml-4">
             <Bars2Icon className="size-10" onClick={toggleMenu} />
           </div>
-          <HeaderLogo logoImageData={logoImageData} />
+          <HeaderLogo />
         </div>
         <div
           className={`mobile-links ${mobileMenuOpen ? "flex flex-col" : "hidden"}`}
@@ -140,7 +130,7 @@ export default function Header() {
                 onClick={toggleMenu}
               />
             </div>
-            <HeaderLogo logoImageData={logoImageData} />
+            <HeaderLogo />
           </div>
           <ul className="py-10 text-3xl">
             <li onClick={() => navigate("/")} className="header-link">
