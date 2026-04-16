@@ -24,7 +24,7 @@ export default async function Portfolio({
           {galleries.map(g => {
             return (
               <Link
-                href={`gallery/${portfolioType}/${g.metadata.galleryName}`}
+                href={`/gallery/${portfolioType}/${g.metadata.galleryName}`}
                 key={g.metadata.galleryName}
               >
                 <Image
