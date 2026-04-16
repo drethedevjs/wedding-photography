@@ -1,51 +1,46 @@
 "use client";
-import imageHelper from "@/utils/ImageHelper";
-import { _Object } from "@aws-sdk/client-s3";
+import CovLXImageData from "@/interface/ImageData";
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function PopularGalleriesClient() {
-  const [homeImageData, setHomeImageData] = useState<_Object[]>();
+  const [popularGalleries, setPopularImageData] = useState<CovLXImageData[]>();
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await fetch("/api/images?prefix=home");
-      const data: _Object[] = await res.json();
-      setHomeImageData(data);
+      const res = await fetch("/api/cloudinary?tag=popular-gallery");
+      const data: CovLXImageData[] = await res.json();
+      console.log("data", data);
+      setPopularImageData(data);
     };
     fetchImages();
   }, []);
 
-  if (!homeImageData) return;
+  if (!popularGalleries?.length) return;
 
   return (
     <section className="container mx-auto lg:px-32 px-10 text-center">
       <h3 className="h3">Popular Galleries</h3>
       <small>Click to view a gallery</small>
       <div className="galleries">
-        <Image
-          src={imageHelper.getImageSrc(homeImageData!, "muff")}
-          width={300}
-          height={450}
-          alt="Two people looking at each other"
-          className="image"
-        />
-
-        <Image
-          src={imageHelper.getImageSrc(homeImageData!, "shaffer")}
-          width={300}
-          height={450}
-          alt="Two people looking at each other"
-          className="image"
-        />
-
-        <Image
-          src={imageHelper.getImageSrc(homeImageData!, "anderson")}
-          width={300}
-          height={450}
-          alt="Two people looking at each other"
-          className="image"
-        />
+        {popularGalleries.map(g => {
+          return (
+            <Link
+              key={g.metadata.galleryName}
+              href={`/${g.metadata.directory}`}
+            >
+              <Image
+                alt={g.metadata.alt}
+                src={cloudinary.getClientImageSrc(g.fileName!)}
+                width={300}
+                height={450}
+                className="image"
+              />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
