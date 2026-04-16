@@ -11,9 +11,16 @@ export default function PopularGalleriesClient() {
   useEffect(() => {
     const fetchImages = async () => {
       const res = await fetch("/api/cloudinary?tag=popular-gallery");
-      const data: CovLXImageData[] = await res.json();
-      console.log("data", data);
-      setPopularImageData(data);
+      const popularGalleries: CovLXImageData[] = await res.json();
+
+      popularGalleries.map(
+        p =>
+          (p.metadata.directory = p.metadata.directory.replace(
+            "covenantlx",
+            "gallery"
+          ))
+      );
+      setPopularImageData(popularGalleries);
     };
     fetchImages();
   }, []);
@@ -22,7 +29,7 @@ export default function PopularGalleriesClient() {
 
   return (
     <section className="container mx-auto lg:px-32 px-10 text-center">
-      <h3 className="h3">Popular Galleries</h3>
+      <h3 className="pop-gallery-header">Popular Galleries</h3>
       <small>Click to view a gallery</small>
       <div className="galleries">
         {popularGalleries.map(g => {
