@@ -41,7 +41,7 @@ export async function GET(req: Request) {
         isActive: resource.status === "active",
         galleryName: resource.asset_folder.split("/").pop(),
         directory: resource.asset_folder,
-        atl: resource.context?.hasOwnProperty("alt")
+        alt: resource.context?.hasOwnProperty("alt")
           ? resource.context.alt
           : "Augusta, GA Wedding Photographer"
       },

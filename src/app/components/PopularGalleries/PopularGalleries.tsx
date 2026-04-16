@@ -13,7 +13,7 @@ export default async function PopularGalleries() {
       ))
   );
 
-  if (!popularGalleries) return;
+  if (!popularGalleries?.length) return;
 
   return (
     <section className="container mx-auto lg:px-32 px-10 text-center">
@@ -22,12 +22,15 @@ export default async function PopularGalleries() {
       <div className="galleries">
         {popularGalleries.map(g => {
           return (
-            <Link href={`/${g.metadata.directory}`}>
+            <Link
+              key={g.metadata.galleryName}
+              href={`/${g.metadata.directory}`}
+            >
               <Image
+                alt={g.metadata.alt}
                 src={cloudinary.getImageSrc(g.fileName!)}
                 width={300}
                 height={450}
-                alt={g.metadata.alt}
                 className="image"
               />
             </Link>
