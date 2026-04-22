@@ -18,6 +18,7 @@ export default async function GalleryComponent({
   galleryName: string;
   galleryType: string;
 }) {
+  "use cache";
   const galleryImageData = await cloudinary.getImageData(
     `covenantlx/${galleryType}/${galleryName}`
   )!;
