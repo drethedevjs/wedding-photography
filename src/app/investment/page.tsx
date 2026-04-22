@@ -32,8 +32,8 @@ export default async function Investment() {
               what you actually need, nothing more and nothing less.
             </p>
             <p className="mb-5">
-              Investment starts at $1,599, with most couples investing between
-              $2,200-$2,300.
+              Investment starts at $2,999, with most couples investing about
+              $3,800 on average.
             </p>
             <p className="mb-5">
               No confusing pricing sheets. No paying for things you don't need
