@@ -90,10 +90,6 @@ p {
   @apply md:text-2xl text-xl tracking-wide md:leading-9 leading-7;
 }
 
-footer {
-  @apply flex items-center justify-center text-secondary h-24 mx-10;
-}
-
 main {
   @apply flex-grow items-center;
 }

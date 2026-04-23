@@ -15,13 +15,30 @@ const cloudinary = {
       url = url + `tag=${tag}`;
     }
 
-    const res = await fetch(url, {
-      next: { revalidate: 3600 },
-      method: "GET"
-    });
+    try {
+      const res = await fetch(url, {
+        next: { revalidate: 3600 },
+        method: "GET"
+      });
 
-    const data = (await res.json()) as CovLXImageData[];
-    return data;
+      if (!res.ok) {
+        console.error("Error fetching cloudinary image data:", res.status);
+        return [] as CovLXImageData[];
+      }
+
+      const data = (await res.json()) as CovLXImageData[];
+      // Defensive: API can return { error, statusCode } on failure
+      if (!Array.isArray(data)) return [] as CovLXImageData[];
+      return data;
+    } catch (error: unknown) {
+      // AbortError during fast-refresh / revalidation is expected noise — swallow it
+      const name =
+        error instanceof Error ? error.name : String(error);
+      if (name !== "AbortError") {
+        console.error("Error fetching cloudinary image data:", error);
+      }
+      return [] as CovLXImageData[];
+    }
   },
 
   async getImageAndTagData(folderName: string | null = null) {

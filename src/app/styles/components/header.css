@@ -1,6 +1,6 @@
-/* Header.module.css */
+/* Header */
 .header-container {
-  @apply grid grid-rows-3 grid-flow-col dark:bg-dark dark:text-primaryTint;
+  @apply grid grid-rows-3 grid-flow-col dark:bg-dark dark:text-primaryTint py-3;
 }
 
 .header-ul-rev {
@@ -8,7 +8,14 @@
 }
 
 .header-group {
-  @apply grid grid-flow-col place-items-center text-2xl row-start-2;
+  @apply grid grid-flow-col place-items-center gap-x-10 row-start-2 text-xs uppercase;
+  letter-spacing: 0.3em;
+}
+
+/* Tighten anchor styling inside the nav for an editorial feel */
+.header-container a,
+.header-container .header-link {
+  @apply text-dark dark:text-primaryTint hover:text-gold transition-colors;
 }
 
 .logo {
