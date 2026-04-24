@@ -5,3 +5,4 @@ export const LIGHT_MODE = "light-mode";
 export const HERO_SLIDER = "hero";
 export const INSTAGRAM_FEED = "instagram-feed";
 export const HOME_PAGE_GRID = "home-page-grid";
+export const INVESTMENT = "cov-investment";
