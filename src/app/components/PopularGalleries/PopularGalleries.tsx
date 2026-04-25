@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function PopularGalleries() {
-  const popularGalleries =
-    await cloudinary.getImageDataByTag("popular-gallery");
-  popularGalleries.map(
+  const popularGalleries = await cloudinary.getImageData(
+    null,
+    "popular-gallery"
+  );
+
+  popularGalleries!.map(
     p =>
       (p.metadata.directory = p.metadata.directory.replace(
         "covenantlx",
