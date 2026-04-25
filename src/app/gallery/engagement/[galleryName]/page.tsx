@@ -1,16 +1,14 @@
+import GalleryDetail from "@/app/components/Gallery/GalleryDetail";
 import { redirect } from "next/navigation";
-import GalleryComponent from "../../../components/Gallery/Gallery";
 
-export default async function Gallery({
+export default async function EngagementGalleryPage({
   params
 }: {
   params: Promise<{ galleryName: string }>;
 }) {
   const { galleryName } = await params;
 
-  if (!galleryName) redirect("/portfolio");
+  if (!galleryName) redirect("/portfolio/engagement");
 
-  return (
-    <GalleryComponent galleryName={galleryName} galleryType="engagement" />
-  );
+  return <GalleryDetail category="engagements" galleryName={galleryName} />;
 }
