@@ -1,5 +1,5 @@
+import { InvestmentEditorialImageProps } from "@/interface/InvestmentInterfaces";
 import cloudinary from "@/utils/cloudinary";
-import { InvestmentEditorialImageProps } from "@/interface/InvestmentEditorialImageProps";
 import Image from "next/image";
 
 /**

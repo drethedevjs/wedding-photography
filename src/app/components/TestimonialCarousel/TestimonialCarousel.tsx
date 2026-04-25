@@ -1,5 +1,6 @@
 "use client";
 
+import { TestimonialCarouselProps } from "@/interface/Testimonials";
 import cloudinary from "@/utils/cloudinary";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -7,18 +8,6 @@ import { useRef } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperClass } from "swiper/types";
-
-export interface Testimonial {
-  quote: string;
-  name: string;
-  location: string;
-  imageFileName?: string;
-  imageAlt?: string;
-}
-
-interface TestimonialCarouselProps {
-  testimonials: Testimonial[];
-}
 
 export default function TestimonialCarousel({
   testimonials

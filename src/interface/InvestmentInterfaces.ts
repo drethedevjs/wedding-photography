@@ -20,6 +20,7 @@ export interface InvestmentFAQProps {
 export interface InvestmentHeroProps {
   imageFileName?: string;
   alt?: string;
+  eyebrow?: string;
   headline: string;
 }
 
