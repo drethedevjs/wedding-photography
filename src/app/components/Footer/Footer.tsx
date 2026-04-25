@@ -52,7 +52,6 @@ const SOCIALS = [
 ];
 
 export default async function Footer() {
-  "use cache";
   const currentYear = new Date().getFullYear();
 
   return (

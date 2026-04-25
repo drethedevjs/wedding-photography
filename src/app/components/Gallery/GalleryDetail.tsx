@@ -21,7 +21,6 @@ export default async function GalleryDetail({
   category,
   galleryName
 }: GalleryDetailProps) {
-  // covenantlx/wedding
   const images =
     (await cloudinary.getImageData(
       `covenantlx/${categoryToSingular(category)}/${galleryName}`,
