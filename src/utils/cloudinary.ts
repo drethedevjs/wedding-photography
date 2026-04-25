@@ -32,8 +32,7 @@ const cloudinary = {
       return data;
     } catch (error: unknown) {
       // AbortError during fast-refresh / revalidation is expected noise — swallow it
-      const name =
-        error instanceof Error ? error.name : String(error);
+      const name = error instanceof Error ? error.name : String(error);
       if (name !== "AbortError") {
         console.error("Error fetching cloudinary image data:", error);
       }
@@ -59,29 +58,6 @@ const cloudinary = {
     } catch (error) {
       console.error(error);
       return []; // Return empty array to match expected type on failure
-    }
-  },
-
-  async getImageDataByTag(tag: string) {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/cloudinary?tag=${tag}`,
-        {
-          method: "GET"
-        }
-      );
-
-      if (!res.ok) {
-        console.error(res);
-        const errorData = await res.json();
-        console.error("Error getting image(s): ", errorData);
-        throw new Error("Failed to fetch image data by tag");
-      }
-
-      return (await res.json()) as CovLXImageData[];
-    } catch (error) {
-      console.error(error);
-      return [];
     }
   },
   getImageSrc(fileName: string) {
