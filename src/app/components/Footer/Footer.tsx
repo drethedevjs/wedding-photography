@@ -5,7 +5,7 @@ import Link from "next/link";
 const SOCIALS = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/covenantlx",
+    href: "https://www.instagram.com/covenant_lx",
     icon: (
       <svg
         viewBox="0 0 24 24"

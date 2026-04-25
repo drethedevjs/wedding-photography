@@ -21,7 +21,7 @@ const portfolioLinks = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/covenantlx",
+    href: "https://www.instagram.com/covenant_lx",
     icon: (
       <svg
         viewBox="0 0 24 24"
