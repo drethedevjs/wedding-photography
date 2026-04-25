@@ -1,9 +1,6 @@
+import { Testimonial } from "@/interface/Testimonials";
 import cloudinary from "@/utils/cloudinary";
-import {
-  HERO_SLIDER,
-  HOME_PAGE_GRID,
-  INSTAGRAM_FEED
-} from "@/utils/tags";
+import { HERO_SLIDER, HOME_PAGE_GRID, INSTAGRAM_FEED } from "@/utils/tags";
 import Link from "next/link";
 import { Suspense } from "react";
 import AboutMePane from "./components/AboutMePane/AboutMePane";
@@ -11,9 +8,7 @@ import ExperienceShowcase from "./components/ExperienceShowcase/ExperienceShowca
 import HomeHeroGrid from "./components/HomeHeroGrid/HomeHeroGrid";
 import InstagramGrid from "./components/InstagramGrid/InstagramGrid";
 import ParallaxBanner from "./components/ParallaxBanner/ParallaxBanner";
-import TestimonialCarousel, {
-  Testimonial
-} from "./components/TestimonialCarousel/TestimonialCarousel";
+import TestimonialCarousel from "./components/TestimonialCarousel/TestimonialCarousel";
 
 const baseTestimonials: Omit<Testimonial, "imageFileName" | "imageAlt">[] = [
   {
@@ -63,8 +58,7 @@ export default async function Home() {
       alt:
         safeGrid[1]?.metadata?.alt ||
         "Covenant LX engagement photography sample",
-      blurb:
-        "The first chapter — sunlit, unhurried, and entirely yours."
+      blurb: "The first chapter — sunlit, unhurried, and entirely yours."
     },
     {
       label: "Weddings",
@@ -84,8 +78,7 @@ export default async function Home() {
     ...t,
     imageFileName: testimonialImagePool[i]?.fileName,
     imageAlt:
-      testimonialImagePool[i]?.metadata?.alt ||
-      `Photo from ${t.name}'s session`
+      testimonialImagePool[i]?.metadata?.alt || `Photo from ${t.name}'s session`
   }));
 
   const parallaxOne = safeGrid[2]?.fileName || safeGrid[0]?.fileName || "";
