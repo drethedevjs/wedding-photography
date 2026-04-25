@@ -86,7 +86,7 @@ export default function Header() {
           {/* Portfolio dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
-              className="header-link not-italic! font-normal! ring-0! p-0!"
+              className="header-link not-italic! font-normal! ring-0! p-0! uppercase"
               onClick={() => setPortfolioOpen(!portfolioOpen)}
             >
               Portfolio

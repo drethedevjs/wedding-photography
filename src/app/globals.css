@@ -86,10 +86,6 @@
   @apply text-6xl mb-5 border-b-gold w-80 border-b-2 mx-auto;
 }
 
-p {
-  @apply md:text-2xl text-xl tracking-wide md:leading-9 leading-7;
-}
-
 main {
   @apply flex-grow items-center;
 }
@@ -104,10 +100,6 @@ main {
 
 .cborder {
   @apply border-2 border-red-500;
-}
-
-button {
-  @apply italic font-semibold hover:text-gold transition-colors p-3 rounded-xl ring-1;
 }
 
 label,
