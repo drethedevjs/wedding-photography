@@ -1,6 +1,6 @@
 "use client";
 
-import { TestimonialCarouselProps } from "@/interface/Testimonials";
+import { testimonials } from "@/data/testimonials";
 import cloudinary from "@/utils/cloudinary";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -9,9 +9,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperClass } from "swiper/types";
 
-export default function TestimonialCarousel({
-  testimonials
-}: TestimonialCarouselProps) {
+export default function TestimonialCarousel() {
   const swiperRef = useRef<SwiperClass | null>(null);
 
   if (!testimonials || testimonials.length === 0) return null;

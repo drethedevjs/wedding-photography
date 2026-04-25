@@ -1,4 +1,3 @@
-import { Testimonial } from "@/interface/Testimonials";
 import cloudinary from "@/utils/cloudinary";
 import { HERO_SLIDER, HOME_PAGE_GRID, INSTAGRAM_FEED } from "@/utils/tags";
 import Link from "next/link";
@@ -9,27 +8,6 @@ import HomeHeroGrid from "./components/HomeHeroGrid/HomeHeroGrid";
 import InstagramGrid from "./components/InstagramGrid/InstagramGrid";
 import ParallaxBanner from "./components/ParallaxBanner/ParallaxBanner";
 import TestimonialCarousel from "./components/TestimonialCarousel/TestimonialCarousel";
-
-const baseTestimonials: Omit<Testimonial, "imageFileName" | "imageAlt">[] = [
-  {
-    quote:
-      "Andre felt like a friend from the first meeting. Our photos capture exactly how joyful the day felt — every time we look at them we're back in that moment.",
-    name: "Sarah & Michael",
-    location: "The Bell Tower · Augusta, GA"
-  },
-  {
-    quote:
-      "We forgot he was even working. That's the highest compliment. The images are stunning and completely honest — no stiff poses, just us.",
-    name: "Emily & James",
-    location: "Magnolia Plantation · Aiken, SC"
-  },
-  {
-    quote:
-      "Choosing Covenant LX was the easiest decision we made. Andre made the whole day feel effortless and the photos are beyond what we imagined.",
-    name: "Hannah & David",
-    location: "Riverside Estate · Evans, GA"
-  }
-];
 
 export default async function Home() {
   const heroData = await cloudinary.getImageData(null, HERO_SLIDER);
@@ -54,7 +32,8 @@ export default async function Home() {
       label: "Engagements",
       subLabel: "The Beginning",
       href: "/portfolio/engagement",
-      imageFileName: safeGrid[1]?.fileName || safeGrid[0]?.fileName || "",
+      imageFileName:
+        "gallery_shaffer_augusta-ga-wedding-photographer-shaffer-13_rjg3je",
       alt:
         safeGrid[1]?.metadata?.alt ||
         "Covenant LX engagement photography sample",
@@ -64,22 +43,13 @@ export default async function Home() {
       label: "Weddings",
       subLabel: "The Main Event",
       href: "/portfolio/wedding",
-      imageFileName: safeGrid[0]?.fileName || "",
+      imageFileName: "augusta-ga-wedding-photographer-hargraves-23_aoagrk",
       alt:
         safeGrid[0]?.metadata?.alt || "Covenant LX wedding photography sample",
       blurb:
         "Real moments, real emotion — images you'll still love in thirty years."
     }
   ].filter(s => s.imageFileName);
-
-  // Attach optional images to testimonials — carousel degrades gracefully
-  const testimonialImagePool = safeGrid.slice(2, 8);
-  const testimonials: Testimonial[] = baseTestimonials.map((t, i) => ({
-    ...t,
-    imageFileName: testimonialImagePool[i]?.fileName,
-    imageAlt:
-      testimonialImagePool[i]?.metadata?.alt || `Photo from ${t.name}'s session`
-  }));
 
   const parallaxOne = safeGrid[2]?.fileName || safeGrid[0]?.fileName || "";
   const parallaxTwo =
@@ -118,7 +88,7 @@ export default async function Home() {
       {/* Parallax break #1 */}
       {parallaxOne && (
         <ParallaxBanner
-          imageFileName={parallaxOne}
+          imageFileName={"Wedding-Photography-Hacker-365_hy1jcb"}
           alt="Covenant LX editorial moment"
           heightClass="h-[55vh] md:h-[70vh]"
           overlayOpacityClass="bg-dark/35"
@@ -138,7 +108,7 @@ export default async function Home() {
           current time during render — Next 16 cacheComponents needs a
           boundary above any client component doing dynamic-time work. */}
       <Suspense fallback={null}>
-        <TestimonialCarousel testimonials={testimonials} />
+        <TestimonialCarousel />
       </Suspense>
 
       {/* Parallax break #2 — carries the tagline + Inquire CTA */}
