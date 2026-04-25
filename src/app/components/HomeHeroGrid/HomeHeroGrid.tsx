@@ -13,13 +13,6 @@ interface HomeHeroGridProps {
  * Mobile: 2-column stack.
  */
 export default function HomeHeroGrid({ images }: HomeHeroGridProps) {
-  // Pad/truncate to exactly 5 slots — cycle through source images as fallback.
-  const source = images && images.length > 0 ? images : [];
-  const safe: CovLXImageData[] = [];
-  for (let i = 0; i < 5 && source.length > 0; i++) {
-    safe.push(source[i % source.length]);
-  }
-
   const tileClasses = [
     "col-span-1 row-span-2 aspect-[3/4] md:aspect-auto md:h-full",
     "col-span-1 row-span-1 aspect-[4/3] md:aspect-auto md:h-full",
@@ -27,6 +20,16 @@ export default function HomeHeroGrid({ images }: HomeHeroGridProps) {
     "col-span-2 row-span-1 aspect-[16/9] md:aspect-auto md:h-full",
     "col-span-1 row-span-2 aspect-[3/4] md:aspect-auto md:h-full"
   ];
+
+  // Fill exactly one tile per tileClass — cycle through available images so
+  // short sets never produce blank tiles, and long sets are truncated.
+  const source = images && images.length > 0 ? images : [];
+  const safe: CovLXImageData[] = [];
+  if (source.length > 0) {
+    for (let i = 0; i < tileClasses.length; i++) {
+      safe.push(source[i % source.length]);
+    }
+  }
 
   if (safe.length === 0) {
     return <section className="w-full h-[60vh] bg-lightGray" />;
