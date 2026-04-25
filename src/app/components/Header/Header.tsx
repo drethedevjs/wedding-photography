@@ -1,13 +1,10 @@
 "use client";
 import cloudinary from "@/utils/cloudinary";
 import useDarkMode from "@/utils/useDarkMode";
-import { Bars2Icon, ChevronDownIcon } from "@heroicons/react/16/solid";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import HeaderLogo from "./HeaderLogo";
+import MobileHeader from "./MobileHeader";
 
 const portfolioLinks = [
   { label: "Weddings", href: "/portfolio/wedding" },
@@ -15,12 +12,8 @@ const portfolioLinks = [
 ];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [portfolioOpen, setPortfolioOpen] = useState<boolean>(false);
-  const [mobilePortfolioOpen, setMobilePortfolioOpen] =
-    useState<boolean>(false);
   const { isDarkMode } = useDarkMode();
-  const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close desktop dropdown when clicking outside
@@ -36,16 +29,6 @@ export default function Header() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const navigate = (path: string) => {
-    setMobileMenuOpen(false);
-    setMobilePortfolioOpen(false);
-    router.push(path);
-  };
-
-  const toggleMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <nav>
@@ -111,70 +94,7 @@ export default function Header() {
       </div>
 
       {/* Mobile */}
-      <div className="mobile-header-container">
-        <div
-          className={`p-5 flex flex-row dark:bg-dark ${mobileMenuOpen ? "hidden" : "flex"}`}
-        >
-          <div className="place-content-center text-secondary ml-4">
-            <Bars2Icon className="size-10" onClick={toggleMenu} />
-          </div>
-          <HeaderLogo />
-        </div>
-        <div
-          className={`mobile-links ${mobileMenuOpen ? "flex flex-col" : "hidden"}`}
-        >
-          <div className="p-5 flex flex-row mb-10 bg-white dark:bg-dark">
-            <div className="place-content-center text-secondary ml-4">
-              <XMarkIcon
-                className="size-10 dark:text-white"
-                onClick={toggleMenu}
-              />
-            </div>
-            <HeaderLogo />
-          </div>
-          <ul className="py-10 text-3xl">
-            <li onClick={() => navigate("/")} className="header-link">
-              Home
-            </li>
-            <li onClick={() => navigate("/about")} className="header-link">
-              About
-            </li>
-            <li onClick={() => navigate("/investment")} className="header-link">
-              Investment
-            </li>
-
-            {/* Portfolio accordion */}
-            <li className="header-link">
-              <button
-                onClick={() => setMobilePortfolioOpen(!mobilePortfolioOpen)}
-                className="header-link not-italic! font-normal! ring-0! p-0! flex"
-              >
-                Portfolio
-                <ChevronDownIcon
-                  className={`size-6 transition-transform duration-200 ${mobilePortfolioOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {mobilePortfolioOpen && (
-                <ul className="mt-3 ml-4 flex flex-col gap-3 text-2xl">
-                  {portfolioLinks.map(({ label, href }) => (
-                    <li
-                      key={href}
-                      onClick={() => navigate(href)}
-                      className="opacity-70 hover:opacity-100"
-                    >
-                      {label}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            <li onClick={() => navigate("/contact")} className="header-link">
-              Contact
-            </li>
-          </ul>
-        </div>
-      </div>
+      <MobileHeader />
     </nav>
   );
 }
