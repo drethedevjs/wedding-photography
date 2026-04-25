@@ -1,5 +1,4 @@
 import InvestmentBody from "@/app/components/Investment/InvestmentBody";
-import InvestmentCTA from "@/app/components/Investment/InvestmentCTA";
 import InvestmentFAQ from "@/app/components/Investment/InvestmentFAQ";
 import InvestmentIncludes from "@/app/components/Investment/InvestmentIncludes";
 import InvestmentPricing from "@/app/components/Investment/InvestmentPricing";
@@ -11,6 +10,7 @@ import {
 } from "@/data/investment";
 import cloudinary from "@/utils/cloudinary";
 import { INVESTMENT } from "@/utils/tags";
+import ContactCTA from "../components/CTA/ContactCTA";
 import PageHero from "../components/PageHero";
 import ParallaxBanner from "../components/ParallaxBanner/ParallaxBanner";
 
@@ -61,7 +61,11 @@ export default async function Investment() {
 
       <InvestmentFAQ items={investmentFAQItems} />
 
-      <InvestmentCTA />
+      <ContactCTA
+        text="Read to Build Yours?"
+        shortPhrase="Let's Talk"
+        btnText="Start the Conversation"
+      />
     </>
   );
 }
