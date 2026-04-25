@@ -1,53 +1,72 @@
-import Link from "next/link";
-import HeroInsetText from "../components/HeroInsetText/HeroInsetText";
-import TextTitleBlock from "../components/TextTitleBlock/TextTitleBlock";
-import TextTitleBlockMulti from "../components/TextTitleBlockMulti/TextTitleBlockMulti";
+import AboutClosingCTA from "@/app/components/About/AboutClosingCTA";
+import AboutDirectMessage from "@/app/components/About/AboutDirectMessage";
+import AboutIntro from "@/app/components/About/AboutIntro";
+import AboutValues from "@/app/components/About/AboutValues";
+import { AboutValue } from "@/interface/AboutInterfaces";
+import cloudinary from "@/utils/cloudinary";
+import { HERO_SLIDER, HOME_PAGE_GRID } from "@/utils/tags";
+import PageHero from "../components/PageHero";
+import ParallaxBanner from "../components/ParallaxBanner/ParallaxBanner";
 
-export default function About() {
+const values: AboutValue[] = [
+  {
+    label: "Marriages are worth fighting for.",
+    description:
+      "That's not just a sentiment — it's why I photograph weddings. I want to give you images that remind you, on the hard days, why you chose each other."
+  },
+  {
+    label: "Your day should feel like yours.",
+    description:
+      "No rushed timelines, no cookie-cutter shots. We move at your pace and capture what actually matters to you."
+  },
+  {
+    label: "You deserve to feel at ease.",
+    description:
+      "The best photos happen when you forget the camera is there. My job is to make that happen."
+  }
+];
+
+const directMessage =
+  "If you're reading this, you're probably in the middle of one of the most exciting and overwhelming seasons of your life. I want you to know — you don't have to have it all figured out. Just reach out. Let's talk about your day, and I'll take it from there.";
+
+export default async function About() {
+  // Pull from HERO_SLIDER first for a cinematic opener; fall back to the
+  // home-page grid pool so the page never renders without imagery.
+  const heroData = await cloudinary.getImageData(null, HERO_SLIDER);
+  const gridData = await cloudinary.getImageData(null, HOME_PAGE_GRID);
+
+  const safeHero = heroData && heroData.length > 0 ? heroData : [];
+  const safeGrid = gridData && gridData.length > 0 ? gridData : [];
+
+  const hero = safeHero[0] || safeGrid[0];
+  // Use a different frame for the editorial break so the two full-bleed
+  // images never collide visually.
+  const editorial =
+    safeGrid[2] || safeGrid[1] || safeHero[1] || safeHero[0] || safeGrid[0];
+
   return (
     <>
-      <HeroInsetText />
-      <div className="container mx-auto lg:px-32 md:px-20 px-10 mt-10">
-        <p className="text-center text-base mb-5">
-          I started Covenant LX because I believe weddings aren't just events —
-          they're the beginning of a family. That belief drives everything about
-          how I work: unhurried, personal, and fully present on your day.
-        </p>
-        <p className="text-center text-base mb-10">
-          I'm Andre Thomas — husband, dad of three, and a photographer who
-          genuinely loves this work. I'd love to get to know you and hear what
-          you're dreaming your wedding day looks like.
-        </p>
-        <hr className="border-t-4 border-gold mb-5" />
-        <h2 className="text-center uppercase text-3xl tracking tracking-widest text-gold">
-          Augusta Wedding Photographer
-        </h2>
-        <hr className="border-t-2 border-b border-gold mt-5" />
+      <PageHero
+        imageFileName={hero?.fileName}
+        alt={hero?.metadata?.alt || "A Covenant LX couple on their wedding day"}
+        eyebrow="About"
+        headline="More than a photographer. A witness to your beginning."
+      />
 
-        <div className="mt-10">
-          <TextTitleBlock heading="Why Weddings Matter to Me">
-            I believe a wedding is more than a celebration — it's a commitment.
-            Two people choosing each other and building something that outlasts
-            the day itself. That's not a small thing. That's everything. It's
-            why I don't treat your wedding like a job. I treat it like it
-            matters — because it does.
-          </TextTitleBlock>
-          <TextTitleBlockMulti heading="How I work">
-            <>
-              My own family is my anchor — my wife and three kids remind me
-              daily what it looks like to choose love over and over again. That
-              perspective comes with me to every wedding. I'm relaxed, I'm
-              present, and I genuinely care about the people in front of my
-              lens.
-            </>
-            <></>
-          </TextTitleBlockMulti>
-        </div>
+      <AboutIntro />
 
-        <Link href="/contact">
-          <button>Let's Connect</button>
-        </Link>
-      </div>
+      <AboutValues values={values} />
+
+      <ParallaxBanner
+        imageFileName={editorial?.fileName}
+        alt={editorial?.metadata?.alt || "Dre photographing a wedding moment"}
+        heightClass="h-[55vh] md:h-[70vh]"
+        overlayOpacityClass="bg-dark/35"
+      />
+
+      <AboutDirectMessage message={directMessage} />
+
+      <AboutClosingCTA />
     </>
   );
 }
