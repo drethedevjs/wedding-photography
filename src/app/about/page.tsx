@@ -38,7 +38,6 @@ export default async function About() {
   const safeHero = heroData && heroData.length > 0 ? heroData : [];
   const safeGrid = gridData && gridData.length > 0 ? gridData : [];
 
-  const hero = safeHero[0] || safeGrid[0];
   // Use a different frame for the editorial break so the two full-bleed
   // images never collide visually.
   const editorial =
@@ -47,8 +46,8 @@ export default async function About() {
   return (
     <>
       <PageHero
-        imageFileName={hero?.fileName}
-        alt={hero?.metadata?.alt || "A Covenant LX couple on their wedding day"}
+        imageFileName="augusta-ga-wedding-photographer-andre-1_redvxe"
+        alt="Andre in a tuxedo"
         eyebrow="About"
         headline="More than a photographer. A witness to your beginning."
       />
@@ -59,7 +58,7 @@ export default async function About() {
 
       <ParallaxBanner
         imageFileName={editorial?.fileName}
-        alt={editorial?.metadata?.alt || "Dre photographing a wedding moment"}
+        alt={editorial?.metadata?.alt || "Andre photographing a wedding moment"}
         heightClass="h-[55vh] md:h-[70vh]"
         overlayOpacityClass="bg-dark/35"
       />

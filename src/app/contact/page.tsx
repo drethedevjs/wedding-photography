@@ -59,7 +59,7 @@ const SOCIAL_LINKS: ContactSocialLink[] = [
 export const metadata = {
   title: "Contact | Covenant LX Wedding Photography",
   description:
-    "Reach out directly to Dre at Covenant LX — Augusta, GA wedding photographer. Text, call, or email; every message is answered personally."
+    "Reach out directly to Andre at Covenant LX — Augusta, GA wedding photographer. Text, call, or email; every message is answered personally."
 };
 
 export default async function Contact() {
