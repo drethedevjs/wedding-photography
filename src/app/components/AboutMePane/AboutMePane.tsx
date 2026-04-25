@@ -1,3 +1,4 @@
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,7 +21,9 @@ export default function AboutMePane() {
               {/* Primary image */}
               <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0 lg:ml-auto overflow-hidden">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_CDN_PREFIX}/andre/augusta-ga-wedding-photographer-andre-2.jpg`}
+                  src={cloudinary.getImageSrc(
+                    "augusta-ga-wedding-photographer-andre-2_y2uers"
+                  )}
                   alt="Andre, Covenant LX wedding photographer"
                   fill
                   sizes="(max-width: 1024px) 80vw, 35vw"
@@ -30,8 +33,10 @@ export default function AboutMePane() {
               {/* Secondary offset image */}
               <div className="hidden md:block absolute -bottom-10 -left-6 lg:-left-14 w-44 lg:w-56 aspect-[3/4] shadow-xl rotate-[-4deg] overflow-hidden ring-8 ring-lightGray">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_CDN_PREFIX}/andre/augusta-ga-wedding-photographer-andre-1.jpg`}
-                  alt="Andre behind the camera"
+                  src={cloudinary.getImageSrc(
+                    "augusta-ga-wedding-photographer-andre-1_redvxe"
+                  )}
+                  alt="Andre dressed in a tuxedo."
                   fill
                   sizes="(max-width: 1024px) 40vw, 15vw"
                   className="object-cover"

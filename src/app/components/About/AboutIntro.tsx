@@ -1,4 +1,4 @@
-import { AboutIntroProps } from "@/interface/AboutInterfaces";
+import cloudinary from "@/utils/cloudinary";
 import Image from "next/image";
 
 /**
@@ -6,12 +6,7 @@ import Image from "next/image";
  * Mobile-first: stacks with portrait on top, copy below. Generous padding
  * on all sides so the section breathes like an editorial spread.
  */
-export default function AboutIntro({
-  portraitFileName = "andre/augusta-ga-wedding-photographer-andre-2.jpg",
-  portraitAlt = "Andre Thomas, Covenant LX wedding photographer"
-}: AboutIntroProps) {
-  const portraitSrc = `${process.env.NEXT_PUBLIC_CDN_PREFIX}/${portraitFileName}`;
-
+export default function AboutIntro() {
   return (
     <section className="bg-white">
       <div className="container mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-28 lg:py-36">
@@ -20,8 +15,10 @@ export default function AboutIntro({
           <div className="col-span-12 lg:col-span-5 order-1">
             <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0 overflow-hidden">
               <Image
-                src={portraitSrc}
-                alt={portraitAlt}
+                src={cloudinary.getImageSrc(
+                  "augusta-ga-wedding-photographer-andre-2_y2uers"
+                )}
+                alt="Andre, Covenant LX wedding photographer"
                 fill
                 sizes="(max-width: 1024px) 80vw, 40vw"
                 className="object-cover"
@@ -41,8 +38,8 @@ export default function AboutIntro({
                 I believe in marriages — not just weddings. Anyone can show up
                 with a camera. I show up because I genuinely want to see you
                 make it. The first dance, yes. But also the anniversary photos
-                five years from now. The baby announcements. The milestones
-                that prove the day meant something.
+                five years from now. The baby announcements. The milestones that
+                prove the day meant something.
               </p>
               <p className="font-display italic text-dark text-2xl md:text-3xl leading-snug">
                 That&apos;s why I do this.
@@ -55,10 +52,10 @@ export default function AboutIntro({
                 steady so you don&apos;t have to.
               </p>
               <p>
-                My faith and my family are the foundation of everything I do.
-                I understand what it means to commit to someone for life, and
-                I take it seriously that you&apos;ve invited me into one of
-                the most sacred days of yours.
+                My faith and my family are the foundation of everything I do. I
+                understand what it means to commit to someone for life, and I
+                take it seriously that you&apos;ve invited me into one of the
+                most sacred days of yours.
               </p>
             </div>
           </div>

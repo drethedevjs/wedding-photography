@@ -4,11 +4,6 @@ export interface AboutHeroProps {
   headline: string;
 }
 
-export interface AboutIntroProps {
-  portraitFileName?: string;
-  portraitAlt?: string;
-}
-
 export interface AboutValue {
   label: string;
   description: string;
