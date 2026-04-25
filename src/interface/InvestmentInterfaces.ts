@@ -38,3 +38,7 @@ export interface InvestmentProcessStep {
   title: string;
   description: string;
 }
+
+export interface InvestmentIncludesProps {
+  items: InvestmentIncludeItem[];
+}

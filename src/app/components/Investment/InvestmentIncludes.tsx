@@ -1,4 +1,4 @@
-import { InvestmentIncludesProps } from "@/interface/InvestmentIncludesProps";
+import { InvestmentIncludesProps } from "@/interface/InvestmentInterfaces";
 
 /**
  * "What's included" — every collection.
@@ -6,7 +6,7 @@ import { InvestmentIncludesProps } from "@/interface/InvestmentIncludesProps";
  * above each label keeps the editorial rhythm of the page.
  */
 export default function InvestmentIncludes({ items }: InvestmentIncludesProps) {
-  if (!items || items.length === 0) return null;
+  if (!items?.length) return null;
 
   return (
     <section className="bg-white border-t border-lightGray">

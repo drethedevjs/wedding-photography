@@ -1,4 +1,4 @@
-import { InvestmentPricingProps } from "@/interface/InvestmentPricingProps";
+import { InvestmentPricingProps } from "@/interface/InvestmentInterfaces";
 
 /**
  * Pricing statement — a confident declaration, not a price tag.
