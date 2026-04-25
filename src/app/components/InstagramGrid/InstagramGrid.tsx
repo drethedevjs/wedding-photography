@@ -11,8 +11,8 @@ interface InstagramGridProps {
 
 export default function InstagramGrid({
   images,
-  instagramUrl = "https://www.instagram.com/covenantlx",
-  handle = "@covenantlx"
+  instagramUrl = "https://www.instagram.com/covenant_lx",
+  handle = "@covenant_lx"
 }: InstagramGridProps) {
   if (!images || images.length === 0) return null;
 
@@ -51,8 +51,7 @@ export default function InstagramGrid({
             <Image
               src={cloudinary.getClientImageSrc(image.fileName)}
               alt={
-                image.metadata?.alt ||
-                `Covenant LX Instagram post ${index + 1}`
+                image.metadata?.alt || `Covenant LX Instagram post ${index + 1}`
               }
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
