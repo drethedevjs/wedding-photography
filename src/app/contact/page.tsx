@@ -1,148 +1,95 @@
-"use client";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  PhoneIcon,
-  PinterestIcon
-} from "@/utils/icons";
-import "dotenv/config";
-import { useEffect, useRef } from "react";
+import ContactClosing from "@/app/components/Contact/ContactClosing";
+import ContactHeadline from "@/app/components/Contact/ContactHeadline";
+import ContactSplit from "@/app/components/Contact/ContactSplit";
+import { ContactSocialLink } from "@/interface/ContactInterfaces";
+import cloudinary from "@/utils/cloudinary";
+import { HERO_SLIDER } from "@/utils/tags";
 
-export default function Contact() {
-  const containerRef = useRef<HTMLDivElement>(null);
+// TODO(dre): swap these two constants once you give me the real values.
+// Phone displayed on the page + used for the tel: link (digits only).
+const PHONE_DISPLAY = "706-426-3022";
+const PHONE_DIGITS = "7064263022";
+// Cloudinary public_id for the tall editorial image. If left null we'll
+// fall back to a frame from the HERO_SLIDER tag so the page never renders
+// without imagery.
+const CONTACT_IMAGE_FILENAME: string =
+  "https://res.cloudinary.com/ctvphotovideo/image/upload/augusta-ga-wedding-photographer-muff-10_pcwf5j.jpg";
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-up-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+const SUBHEADING =
+  "Your wedding day deserves more than an inbox form. Reach out directly — I respond to every message personally.";
 
-    const elements = containerRef.current?.querySelectorAll(".fade-up");
-    elements?.forEach(el => observer.observe(el));
+const CLOSING =
+  "Not sure what to say? Just tell me your date and where you're getting married. That's enough to get started.";
 
-    return () => observer.disconnect();
-  }, []);
+const SOCIAL_LINKS: ContactSocialLink[] = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/covenantlx",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        className="h-5 w-5"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
+    label: "Facebook",
+    href: "https://facebook.com/covenantlx",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-5 w-5"
+        aria-hidden="true"
+      >
+        <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5H17V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10.5H8v3h2.6V21h2.9z" />
+      </svg>
+    )
+  }
+];
+
+export const metadata = {
+  title: "Contact | Covenant LX Wedding Photography",
+  description:
+    "Reach out directly to Dre at Covenant LX — Augusta, GA wedding photographer. Text, call, or email; every message is answered personally."
+};
+
+export default async function Contact() {
+  // Pull a hero frame as a sensible fallback so the page is never empty
+  // while the hardcoded filename above is still being chosen.
+  const heroData = await cloudinary.getImageData(null, HERO_SLIDER);
+  const safeHero =
+    Array.isArray(heroData) && heroData.length > 0 ? heroData : [];
+  // Reach for a frame the About page doesn't already use as its hero.
+  const fallback = safeHero[1] || safeHero[0];
+
+  const imageFileName = CONTACT_IMAGE_FILENAME ?? fallback?.fileName;
+  const alt =
+    fallback?.metadata?.alt || "A Covenant LX couple on their wedding day";
 
   return (
-    <section className="font-(family-name:--font-body) font-light min-h-screen flex items-center justify-center px-6 py-24">
-      <div ref={containerRef} className="max-w-xl w-full mx-auto text-center">
-        {/* Heading */}
-        <div className="fade-up delay-100">
-          <p className="font-(family-name:--font-display) text-sm uppercase tracking-[0.3em] text-gold opacity-50 mb-3">
-            Let&apos;s Connect
-          </p>
-          <h1 className="font-(family-name:--font-display) text-6xl md:text-7xl font-light italic mb-4">
-            Say Hello
-          </h1>
-        </div>
+    <>
+      <ContactHeadline headline="Let's start something beautiful." />
 
-        {/* Divider */}
-        <div className="fade-up delay-200 flex items-center gap-4 my-8 opacity-20">
-          <div className="flex-1 h-px bg-current" />
-          <span className="font-(family-name:--font-display) text-lg italic">
-            ✦
-          </span>
-          <div className="flex-1 h-px bg-current" />
-        </div>
+      <ContactSplit
+        imageFileName={imageFileName}
+        alt={alt}
+        subheading={SUBHEADING}
+        phoneDisplay={PHONE_DISPLAY}
+        phoneHref={`tel:${PHONE_DIGITS}`}
+        emailDisplay="andre@covenantlx.com"
+        emailHref="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20%7C%20Covenant%20LX"
+      />
 
-        {/* Blurb */}
-        <div className="fade-up delay-200 mb-12">
-          <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-            Every love story deserves to be told beautifully. I&apos;d be
-            honored to hear yours — reach out and let&apos;s start planning
-            something unforgettable together.
-          </p>
-        </div>
-
-        {/* Email */}
-        <div className="fade-up delay-300 mb-8">
-          <div className="flex items-center justify-center gap-2 opacity-40 mb-2">
-            <MailIcon />
-            <span className="text-xs uppercase tracking-[0.2em]">Email</span>
-          </div>
-          <a
-            href="mailto:andre@covenantlx.com?subject=I'm%20getting%20married%20|%20Covenant%20LX"
-            className="contact-link text-2xl md:text-3xl"
-          >
-            andre@covenantlx.com
-          </a>
-        </div>
-
-        {/* Vertical divider line */}
-        <div className="fade-up delay-300 w-px h-15 mx-auto my-6 opacity-20 bg-linear-to-b from-transparent via-current to-transparent" />
-
-        {/* Phone */}
-        <div className="fade-up delay-400 mb-12">
-          <div className="flex items-center justify-center gap-2 opacity-40 mb-2">
-            <PhoneIcon />
-            <span className="text-xs uppercase tracking-[0.2em]">Phone</span>
-          </div>
-          <a
-            href="tel:7064263022"
-            className="contact-link text-2xl md:text-3xl"
-          >
-            706-426-3022
-          </a>
-        </div>
-
-        {/* Divider */}
-        <div className="fade-up delay-400 flex items-center gap-4 my-8 opacity-20">
-          <div className="flex-1 h-px bg-current" />
-          <span className="font-(family-name:--font-display) text-lg italic">
-            ✦
-          </span>
-          <div className="flex-1 h-px bg-current" />
-        </div>
-
-        {/* Social */}
-        <div className="fade-up delay-500">
-          <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-5">
-            Follow Along
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            {[
-              {
-                href: "https://facebook.com/covenantlx",
-                label: "Facebook",
-                Icon: FacebookIcon
-              },
-              {
-                href: "https://instagram.com/covenant_lx",
-                label: "Instagram",
-                Icon: InstagramIcon
-              },
-              {
-                href: "https://pinterest.com/covenantlx",
-                label: "Pinterest",
-                Icon: PinterestIcon
-              }
-            ].map(({ href, label, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex items-center justify-center size-11 border border-current rounded-full opacity-60 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5"
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Ornamental bottom */}
-        <div className="fade-up delay-500 font-(family-name:--font-display) text-2xl opacity-30 tracking-[0.5em] mt-12">
-          ✦
-        </div>
-      </div>
-    </section>
+      <ContactClosing message={CLOSING} links={SOCIAL_LINKS} />
+    </>
   );
 }
