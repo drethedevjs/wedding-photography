@@ -14,18 +14,6 @@ import ContactCTA from "../components/CTA/ContactCTA";
 import PageHero from "../components/PageHero";
 import ParallaxBanner from "../components/ParallaxBanner/ParallaxBanner";
 
-/**
- * Fetch image pool used by the Investments page.
- * Preference order: "investment" folder → hero tag → home-page-grid tag.
- * Every call uses `next: { revalidate: 3600 }` via the shared cloudinary util.
- */
-async function getImagePool() {
-  const investmentFolder = await cloudinary.getImageData(null, INVESTMENT);
-  if (investmentFolder && investmentFolder.length > 0) {
-    return investmentFolder;
-  }
-}
-
 export default async function Investment() {
   const investmentImages = await cloudinary.getImageData(null, INVESTMENT);
 
